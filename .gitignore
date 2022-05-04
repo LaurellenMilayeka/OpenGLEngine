@@ -1,3 +1,9 @@
+*.vs
+Debug/
+Release/
+engine-core/Debug
+engine-core/Release
+
 # Prerequisites
 *.d
 
