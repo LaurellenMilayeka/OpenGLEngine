@@ -15,6 +15,7 @@ namespace Engine
 		{
 		private:
 
+			std::string       _mName;
 			std::vector<Mesh> _mMeshGroup;
 
 			Engine::Misc::Shader _mShader;
@@ -28,7 +29,11 @@ namespace Engine
 
 			Mesh* CreateMesh();
 
+			std::string const& GetName() const;
+			void SetName(std::string const& newName);
+
 			std::vector<Mesh> const& GetMeshes() const;
+
 			Engine::Misc::Shader const& GetShader() const;
 			void SetShader(Engine::Misc::Shader const& shader);
 

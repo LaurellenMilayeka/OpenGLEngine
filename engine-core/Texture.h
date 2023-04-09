@@ -8,17 +8,25 @@ namespace Engine
 {
 	namespace Graphics
 	{
+		enum class TextureType {
+			TEXTURE_2D,
+			TEXTURE_3D
+		};
+
 		struct Texture
 		{
 		private:
 
-			void LoadTexture(std::string const& texPath);
+			std::string TextureName;
+
+			void LoadTexture(std::string const& texPath, TextureType type);
 
 		public:
 
 			GLuint ID;
+			TextureType Type;
 
-			Texture(std::string const& texPath);
+			Texture(std::string const& texPath, TextureType type);
 		};
 	}
 }

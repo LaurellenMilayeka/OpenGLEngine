@@ -4,6 +4,8 @@
 #include <string>
 #include <GL/glew.h>
 #include <GLFW/glfw3.h>
+#include <gtc/type_ptr.hpp>
+
 #include "Matrix4.h"
 #include "Vector4.h"
 #include "Vector3.h"
@@ -17,7 +19,7 @@ namespace Engine
 	{
 		struct Shader
 		{
-			GLuint ID;
+			GLuint ID = 0;
 
 			bool HasFragment = false;
 			bool HasVertex = false;
@@ -39,14 +41,14 @@ namespace Engine
 
 				if (fragShaderFileContent.IsValid())
 				{
-					fragShaderContent = new char[fragShaderFileContent.Length()];
+					fragShaderContent = new char[fragShaderFileContent.Length() + 1];
 					memset(fragShaderContent, 0, fragShaderFileContent.Length());
 					fragShaderFileContent.Read(&fragShaderContent, fragShaderFileContent.Length());
 				}
 
 				if (vertShaderFileContent.IsValid())
 				{
-					vertShaderContent = new char[vertShaderFileContent.Length()];
+					vertShaderContent = new char[vertShaderFileContent.Length() + 1];
 					memset(vertShaderContent, 0, vertShaderFileContent.Length());
 					vertShaderFileContent.Read(&vertShaderContent, vertShaderFileContent.Length());
 				}
@@ -119,6 +121,19 @@ namespace Engine
 			bool SetValue(std::string const& uniformName, T const& value) const
 			{
 				throw std::exception("Not Implemented");
+			}
+
+			template<>
+			bool SetValue(std::string const& uniformName, glm::mat4 const& value) const
+			{
+				GLuint uniformLoc = glGetUniformLocation(ID, uniformName.c_str());
+
+				if (uniformLoc != -1)
+				{
+					glUniformMatrix4fv(uniformLoc, 1, GL_FALSE, glm::value_ptr(value));
+					return true;
+				}
+				return false;
 			}
 
 			template<>

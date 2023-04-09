@@ -118,14 +118,15 @@
       <SDLCheck>true</SDLCheck>
       <PreprocessorDefinitions>_USE_MATH_DEFINES;GLEW_STATIC;_DEBUG;_CONSOLE;__WINDOWS__;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
-      <AdditionalIncludeDirectories>C:\Users\matth\source\repos\engine\libs\ASSIMP\include;C:\Users\matth\source\repos\engine\libs\pugixml\include;C:\Users\matth\source\repos\engine\libs\stb_image\include;C:\Users\matth\source\repos\engine\libs\GLM\include;C:\Users\matth\source\repos\engine\libs\GLEW\include;C:\Users\matth\source\repos\engine\libs\GLFW\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>C:\Users\matth\source\repos\engine\libs\ASSIMP\include;C:\Users\matth\source\repos\engine\libs\pugixml\include;C:\Users\matth\source\repos\engine\libs\stb_image\include;C:\Users\matth\source\repos\engine\libs\GLM\include;C:\Users\matth\source\repos\engine\libs\GLEW\include;C:\Users\matth\source\repos\engine\libs\GLFW\include;C:\Users\matth\source\repos\engine\libs\FBXSDK\2019.0\include;C:\Users\matth\source\repos\engine\libs\ImGUI;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <LanguageStandard>stdcpp17</LanguageStandard>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
       <GenerateDebugInformation>true</GenerateDebugInformation>
-      <AdditionalDependencies>assimp-vc142-mtd.lib;zlibstaticd.lib;pugixml.lib;glm_static.lib;glfw3.lib;glew32s.lib;opengl32.lib;rpcrt4.lib;%(AdditionalDependencies)</AdditionalDependencies>
-      <AdditionalLibraryDirectories>C:\Users\matth\source\repos\engine\libs\ASSIMP\lib;C:\Users\matth\source\repos\engine\libs\pugixml\lib;C:\Users\matth\source\repos\engine\libs\GLM\lib;C:\Users\matth\source\repos\engine\libs\GLEW\lib\Release\x64;C:\Users\matth\source\repos\engine\libs\GLFW\lib-vc2019;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <AdditionalDependencies>assimp-vc142-mtd.lib;zlibstaticd.lib;pugixml.lib;glm_static.lib;glfw3.lib;glew32s.lib;opengl32.lib;rpcrt4.lib;libfbxsdk.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalLibraryDirectories>C:\Users\matth\source\repos\engine\libs\ASSIMP\lib;C:\Users\matth\source\repos\engine\libs\pugixml\lib;C:\Users\matth\source\repos\engine\libs\GLM\lib;C:\Users\matth\source\repos\engine\libs\GLEW\lib\Release\x64;C:\Users\matth\source\repos\engine\libs\GLFW\lib-vc2019;C:\Users\matth\source\repos\engine\libs\FBXSDK\2019.0\lib\vs2015\x64\debug;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <AdditionalOptions>/NODEFAULTLIB:LIBCMT.lib /NODEFAULTLIB:MSVCRT.lib %(AdditionalOptions)</AdditionalOptions>
     </Link>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
@@ -150,6 +151,15 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="..\libs\ImGUI\backends\imgui_impl_glfw.cpp" />
+    <ClCompile Include="..\libs\ImGUI\backends\imgui_impl_opengl2.cpp" />
+    <ClCompile Include="..\libs\ImGUI\backends\imgui_impl_opengl3.cpp" />
+    <ClCompile Include="..\libs\ImGUI\backends\imgui_impl_win32.cpp" />
+    <ClCompile Include="..\libs\ImGUI\imgui.cpp" />
+    <ClCompile Include="..\libs\ImGUI\imgui_demo.cpp" />
+    <ClCompile Include="..\libs\ImGUI\imgui_draw.cpp" />
+    <ClCompile Include="..\libs\ImGUI\imgui_tables.cpp" />
+    <ClCompile Include="..\libs\ImGUI\imgui_widgets.cpp" />
     <ClCompile Include="Camera.cpp" />
     <ClCompile Include="Controller.cpp" />
     <ClCompile Include="engine-core.cpp" />
@@ -204,6 +214,11 @@
     <None Include="Persona\Yu\bc001.dae" />
     <None Include="shaders\default.frag" />
     <None Include="shaders\default.vert" />
+    <None Include="shaders\TextureDebug.frag" />
+    <None Include="shaders\TextureDebug.vert" />
+  </ItemGroup>
+  <ItemGroup>
+    <Xml Include="Splatoon3\CallieMarie\Npc_IdolA\Npc_IdolA.xml" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

@@ -2,6 +2,7 @@
 
 #include <iostream>
 #include <math.h>
+#include "Vector2.h"
 
 namespace Engine
 {
@@ -18,6 +19,13 @@ namespace Engine
 				x = 0;
 				y = 0;
 				z = 0;
+			}
+
+			Vector3(Vector2 const& vec)
+			{
+				x = vec.x;
+				y = vec.y;
+				z = 0.0f;
 			}
 
 			Vector3(float xyz)

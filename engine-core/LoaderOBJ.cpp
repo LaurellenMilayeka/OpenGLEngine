@@ -34,7 +34,7 @@ static void ExtractVector2(std::string const& line, Engine::Maths::Vector2& vec)
 	substrLine >> vec.x >> vec.y;
 }
 
-static void ExtractFaces(std::string const& line, std::vector<Engine::Maths::Vector3>& facesIndex)
+static void ExtractFaces(std::string const& line, std::vector<unsigned int>& facesIndex)
 {
 	std::vector<std::string> faces;
 	std::stringstream substrLine;
@@ -46,30 +46,15 @@ static void ExtractFaces(std::string const& line, std::vector<Engine::Maths::Vec
 
 	for (std::string& item : faces)
 	{
-		Engine::Maths::Vector3 outputFace;
+		unsigned int outputFace;
 		std::stringstream substrFace;
 		unsigned int i = 0;
 
 		substrFace << item;
 		while (std::getline(substrFace, output, '/'))
-			switch (i++)
-			{
-			case 0:
-				outputFace.x = stof(output);
-				break;
-			case 1:
-				if ( ! output.empty() )
-					outputFace.y = stof(output);
-				break;
-			case 2:
-				if ( ! output.empty() )
-					outputFace.z = stof(output);
-				break;
-			default:
-				break;
-			}
-		facesIndex.push_back(outputFace);
+			facesIndex.push_back(stof(output));
 	}
+	return;
 }
 
 static void ParseMTLFile(std::string const& fileName, std::vector<Engine::Graphics::Material>& materials)
@@ -98,7 +83,8 @@ static void ParseMTLFile(std::string const& fileName, std::vector<Engine::Graphi
 				
 				line = line.substr(3, line.length() - 3);
 				ExtractVector3(line, ambient);
-				currentMaterial->Ambient = ambient;
+				if (currentMaterial != nullptr)
+					currentMaterial->Ambient = ambient;
 			}
 
 			else if (line.compare(0, 2, "Kd") == 0)
@@ -107,7 +93,8 @@ static void ParseMTLFile(std::string const& fileName, std::vector<Engine::Graphi
 
 				line = line.substr(3, line.length() - 3);
 				ExtractVector3(line, diffuse);
-				currentMaterial->Diffuse = diffuse;
+				if (currentMaterial != nullptr)
+					currentMaterial->Diffuse = diffuse;
 			}
 
 			else if (line.compare(0, 2, "Ks") == 0)
@@ -116,43 +103,50 @@ static void ParseMTLFile(std::string const& fileName, std::vector<Engine::Graphi
 
 				line = line.substr(3, line.length() - 3);
 				ExtractVector3(line, specular);
-				currentMaterial->Specular = specular;
+				if (currentMaterial != nullptr)
+					currentMaterial->Specular = specular;
 			}
 
 			else if (line.compare(0, 2, "Ns") == 0)
 			{
 				line = line.substr(3, line.length() - 3);
-				ExtractFloat(line, currentMaterial->SpecularExponent);
+				if (currentMaterial != nullptr)
+					ExtractFloat(line, currentMaterial->SpecularExponent);
 			}
 
 			else if (line.compare(0, 2, "d ") == 0)
 			{
 				line = line.substr(2, line.length() - 2);
-				ExtractFloat(line, currentMaterial->Opacity);
+				if (currentMaterial != nullptr)
+					ExtractFloat(line, currentMaterial->Opacity);
 			}
 
 			else if (line.compare(0, 5, "illum") == 0)
 			{
 				line = line.substr(6, line.length() - 6);
-				ExtractFloat(line, currentMaterial->Illumination);
+				if (currentMaterial != nullptr)
+					ExtractFloat(line, currentMaterial->Illumination);
 			}
 
 			else if (line.compare(0, 6, "map_Ka") == 0)
 			{
 				std::string texPath = fileName.substr(0, fileName.find_last_of('/') + 1) + line.substr(7, line.length() - 7);
-				currentMaterial->AmbientTexture = new Engine::Graphics::Texture(texPath);
+				if (currentMaterial != nullptr)
+					currentMaterial->AmbientTexture = new Engine::Graphics::Texture(texPath, Engine::Graphics::TextureType::TEXTURE_2D);
 			}
 
 			else if (line.compare(0, 6, "map_Kd") == 0)
 			{
 				std::string texPath = fileName.substr(0, fileName.find_last_of('/') + 1) + line.substr(7, line.length() - 7);
-				currentMaterial->DiffuseTexture = new Engine::Graphics::Texture(texPath);
+				if (currentMaterial != nullptr)
+					currentMaterial->DiffuseTexture = new Engine::Graphics::Texture(texPath, Engine::Graphics::TextureType::TEXTURE_2D);
 			}
 
 			else if (line.compare(0, 6, "map_Ks") == 0)
 			{
 				std::string texPath = fileName.substr(0, fileName.find_last_of('/') + 1) + line.substr(7, line.length() - 7);
-				currentMaterial->SpecularTexture = new Engine::Graphics::Texture(texPath);
+				if (currentMaterial != nullptr)
+					currentMaterial->SpecularTexture = new Engine::Graphics::Texture(texPath, Engine::Graphics::TextureType::TEXTURE_2D);
 			}
 		}
 	}
@@ -163,13 +157,15 @@ Engine::Graphics::Model Loader<ModelType::OBJ>::LoadModel(std::string const& mod
 	Engine::Graphics::Model toReturn;
 	Engine::Graphics::Mesh* currentMeshGroup = nullptr;
 
+	toReturn.SetName(modelPath.substr(modelPath.find_last_of('/') + 1,
+					modelPath.find_last_of('.') - (modelPath.find_last_of('/') + 1)));
 	if (Engine::Filesystem::File::Exists(modelPath))
 	{
 		std::vector<Engine::Maths::Vector3> vertices;
 		std::vector<Engine::Maths::Vector2> textures;
 		std::vector<Engine::Maths::Vector3> normals;
 		std::vector<Engine::Maths::Vector3> paramSpace;
-		std::vector<Engine::Maths::Vector3> faces;
+		std::vector<unsigned int> faces;
 		std::vector<Engine::Graphics::Material> materials;
 
 		Engine::Filesystem::File model(modelPath);
@@ -201,7 +197,7 @@ Engine::Graphics::Model Loader<ModelType::OBJ>::LoadModel(std::string const& mod
 			}
 
 			else if (line.compare(0, 2, "g ") == 0
-				|| line.compare(0, 2, "o ") == 0)
+				/*|| line.compare(0, 2, "o ") == 0*/)
 			{
 				currentMeshGroup = toReturn.CreateMesh();
 				currentMeshGroup->GroupName = line.substr(2, line.length() - 2);
@@ -218,7 +214,7 @@ Engine::Graphics::Model Loader<ModelType::OBJ>::LoadModel(std::string const& mod
 
 			else if (line.compare(0, 2, "f ") == 0)
 			{
-				std::vector<Engine::Maths::Vector3> face;
+				std::vector<unsigned int> face;
 
 				line = line.substr(2, line.length() - 2);
 				if (currentMeshGroup == nullptr)
@@ -228,23 +224,33 @@ Engine::Graphics::Model Loader<ModelType::OBJ>::LoadModel(std::string const& mod
 				}
 
 				ExtractFaces(line, face);
-				for (Engine::Maths::Vector3& index : face)
+				unsigned int iFace = 0;
+				for (unsigned int index : face)
 				{
-					currentMeshGroup->Vertices.push_back(vertices.at(
-													static_cast<int>(index.x) - 1
-														));
-					if (index.y > 0.0f)
-					{
-						currentMeshGroup->TextureCoords.push_back(textures.at(
-													static_cast<int>(index.y) - 1
-														));
-					}
+					iFace %= 3;
 
-					if (index.z > 0.0f)
+					switch (iFace++)
 					{
+					case 0:
+						currentMeshGroup->Vertices.push_back(vertices.at(
+							static_cast<int>(index) - 1
+						));
+						break;
+					case 1:
+					{
+						std::vector<Engine::Maths::Vector3> coords;
+
+						coords.push_back(textures.at(
+							static_cast<int>(index) - 1
+						));
+						currentMeshGroup->TextureCoords.push_back(coords);
+					}
+						break;
+					case 2:
 						currentMeshGroup->Normals.push_back(normals.at(
-													static_cast<int>(index.z) - 1
-														));
+							static_cast<int>(index) - 1
+						));
+						break;
 					}
 				}
 			}

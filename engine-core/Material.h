@@ -18,7 +18,7 @@ namespace Engine
 			Engine::Maths::Vector4 Specular;
 			Engine::Graphics::Texture* SpecularTexture;
 			float				  SpecularExponent;
-			float				  Opacity;
+			float				  Opacity = 1.0f;
 			float				  Illumination;
 			float                 RefractionIndex;
 

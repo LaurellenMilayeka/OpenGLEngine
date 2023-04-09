@@ -20,6 +20,16 @@ Model::~Model()
 
 }
 
+std::string const& Model::GetName() const
+{
+	return _mName;
+}
+
+void Model::SetName(std::string const& newName)
+{
+	_mName = newName;
+}
+
 Mesh* Model::CreateMesh()
 {
 	_mMeshGroup.resize(_mMeshGroup.size() + 1);

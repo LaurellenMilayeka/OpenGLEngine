@@ -20,29 +20,41 @@ namespace Engine
 			Material* Mat;
 
 			std::vector<Engine::Maths::Vector3> Vertices;
-			std::vector<Engine::Maths::Vector2> TextureCoords;
+			std::vector<std::vector<Engine::Maths::Vector3>> TextureCoords;
 			std::vector<Engine::Maths::Vector3> Normals;
-			std::vector<Engine::Maths::Vector3> Indices;
+			std::vector<unsigned int> Indices;
+			unsigned int              Offset;
+			bool                      IsEnabled;
+			bool                      Is3DTexture;
+			GLuint                    EBO;
 
 			Mesh()
-				: Mat(nullptr)
+				: Mat(nullptr),
+				Is3DTexture(false),
+				IsEnabled(true),
+				Offset(0)
 			{
-
+				EBO = 0;
 			}
 
 			void Compute()
 			{
 				GLuint VBO = 0;
-				GLuint EBO = 0;
+				unsigned int vertexArrayIndex = 0;
 
 				size_t bufferPointer = 0;
 				size_t bufferSize = (sizeof(Engine::Maths::Vector3) * Vertices.size());
-				bufferSize += (TextureCoords.size() > 0) ?
-								(sizeof(Engine::Maths::Vector2) * TextureCoords.size())
-							  : 0;
+
+				for (std::vector<Engine::Maths::Vector3> const& coords : TextureCoords)
+				{
+					bufferSize += (coords.size() > 0) ?
+						(sizeof(Engine::Maths::Vector3) * coords.size())
+						: 0;
+				}
+
 				bufferSize += (Normals.size() > 0) ?
-								(sizeof(Engine::Maths::Vector3) * Normals.size())
-							  : 0;
+					(sizeof(Engine::Maths::Vector3) * Normals.size())
+					: 0;
 
 
 				if (ID == 0)
@@ -55,27 +67,51 @@ namespace Engine
 				glBindBuffer(GL_ARRAY_BUFFER, VBO);
 				glBufferData(GL_ARRAY_BUFFER, bufferSize, 0, GL_STATIC_DRAW);
 				glBufferSubData(GL_ARRAY_BUFFER, bufferPointer, sizeof(Engine::Maths::Vector3) * Vertices.size(), &Vertices[0]);
-				glVertexAttribPointer(0, 3, GL_FLOAT, GL_FALSE, sizeof(Engine::Maths::Vector3), (void*)(bufferPointer));
-				glEnableVertexAttribArray(0);
+				glVertexAttribPointer(vertexArrayIndex, 3, GL_FLOAT, GL_FALSE, sizeof(Engine::Maths::Vector3), (void*)(bufferPointer));
+				glEnableVertexAttribArray(vertexArrayIndex++);
 
 				bufferPointer += sizeof(Engine::Maths::Vector3) * Vertices.size();
-
-				if (TextureCoords.size() > 0)
-				{
-					glBufferSubData(GL_ARRAY_BUFFER, bufferPointer, sizeof(Engine::Maths::Vector2) * TextureCoords.size(), &TextureCoords[0]);
-					glVertexAttribPointer(1, 2, GL_FLOAT, GL_FALSE, sizeof(Engine::Maths::Vector2), (void*)(bufferPointer));
-					glEnableVertexAttribArray(1);
-
-					bufferPointer += sizeof(Engine::Maths::Vector2) * TextureCoords.size();
-				}
 
 				if (Normals.size() > 0)
 				{
 					glBufferSubData(GL_ARRAY_BUFFER, bufferPointer, sizeof(Engine::Maths::Vector3) * Normals.size(), &Normals[0]);
-					glVertexAttribPointer(2, 3, GL_FLOAT, GL_FALSE, sizeof(Engine::Maths::Vector3), (void*)(bufferPointer));
-					glEnableVertexAttribArray(2);
+					glVertexAttribPointer(vertexArrayIndex, 3, GL_FLOAT, GL_FALSE, sizeof(Engine::Maths::Vector3), (void*)(bufferPointer));
+					glEnableVertexAttribArray(vertexArrayIndex++);
 
 					bufferPointer += sizeof(Engine::Maths::Vector3) * Normals.size();
+				}
+
+				if (TextureCoords.size() > 0)
+				{
+					for (std::vector<Engine::Maths::Vector3> const& coords : TextureCoords)
+					{
+						if ( ! Is3DTexture )
+						{
+							glBufferSubData(GL_ARRAY_BUFFER, bufferPointer, sizeof(Engine::Maths::Vector3) * coords.size(), &coords[0]);
+							glVertexAttribPointer(vertexArrayIndex, 2, GL_FLOAT, GL_FALSE, sizeof(Engine::Maths::Vector3), (void*)(bufferPointer));
+							glEnableVertexAttribArray(vertexArrayIndex++);
+
+							bufferPointer += sizeof(Engine::Maths::Vector3) * coords.size();
+						}
+						else
+						{
+							glBufferSubData(GL_ARRAY_BUFFER, bufferPointer, sizeof(Engine::Maths::Vector3) * coords.size(), &coords[0]);
+							glVertexAttribPointer(vertexArrayIndex, 3, GL_FLOAT, GL_FALSE, sizeof(Engine::Maths::Vector3), (void*)(bufferPointer));
+							glEnableVertexAttribArray(vertexArrayIndex++);
+
+							bufferPointer += sizeof(Engine::Maths::Vector3) * coords.size();
+						}
+					}
+				}
+
+
+
+				if (Indices.size() > 0)
+				{
+					glGenBuffers(1, &EBO);
+					glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, EBO);
+					glBufferData(GL_ELEMENT_ARRAY_BUFFER, Indices.size() * sizeof(unsigned int), &Indices[0], GL_STATIC_DRAW);
+					glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, 0);
 				}
 				glBindVertexArray(0);
 			}

@@ -73,6 +73,18 @@
     <Filter Include="Models">
       <UniqueIdentifier>{53c39d0d-1eba-430c-9192-5df062520489}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Shaders\Default">
+      <UniqueIdentifier>{c9729a31-ee47-4ae9-86a8-75e44576d0ac}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Shaders\TextureDebug">
+      <UniqueIdentifier>{d0101d3f-f44b-4cf1-b6e9-73df906b990b}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Fichiers sources\ImGUI">
+      <UniqueIdentifier>{f0712c1f-1ed2-41f6-9ecc-cdc28b556dad}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Fichiers sources\ImGUI\Backends">
+      <UniqueIdentifier>{fa1d7629-73d7-44c9-8814-6cdbe69d91b1}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="engine-core.cpp">
@@ -134,6 +146,33 @@
     </ClCompile>
     <ClCompile Include="Matrix4.cpp">
       <Filter>Fichiers sources\Maths</Filter>
+    </ClCompile>
+    <ClCompile Include="..\libs\ImGUI\imgui.cpp">
+      <Filter>Fichiers sources\ImGUI</Filter>
+    </ClCompile>
+    <ClCompile Include="..\libs\ImGUI\imgui_draw.cpp">
+      <Filter>Fichiers sources\ImGUI</Filter>
+    </ClCompile>
+    <ClCompile Include="..\libs\ImGUI\imgui_tables.cpp">
+      <Filter>Fichiers sources\ImGUI</Filter>
+    </ClCompile>
+    <ClCompile Include="..\libs\ImGUI\imgui_widgets.cpp">
+      <Filter>Fichiers sources\ImGUI</Filter>
+    </ClCompile>
+    <ClCompile Include="..\libs\ImGUI\backends\imgui_impl_glfw.cpp">
+      <Filter>Fichiers sources\ImGUI\Backends</Filter>
+    </ClCompile>
+    <ClCompile Include="..\libs\ImGUI\backends\imgui_impl_opengl2.cpp">
+      <Filter>Fichiers sources\ImGUI\Backends</Filter>
+    </ClCompile>
+    <ClCompile Include="..\libs\ImGUI\backends\imgui_impl_opengl3.cpp">
+      <Filter>Fichiers sources\ImGUI\Backends</Filter>
+    </ClCompile>
+    <ClCompile Include="..\libs\ImGUI\backends\imgui_impl_win32.cpp">
+      <Filter>Fichiers sources\ImGUI\Backends</Filter>
+    </ClCompile>
+    <ClCompile Include="..\libs\ImGUI\imgui_demo.cpp">
+      <Filter>Fichiers sources\ImGUI</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -217,17 +256,28 @@
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
-    <None Include="shaders\default.vert">
-      <Filter>Shaders</Filter>
-    </None>
-    <None Include="shaders\default.frag">
-      <Filter>Shaders</Filter>
-    </None>
     <None Include="Persona\Yu\bc001 with animations.dae">
       <Filter>Models</Filter>
     </None>
     <None Include="Persona\Yu\bc001.dae">
       <Filter>Models</Filter>
     </None>
+    <None Include="shaders\default.frag">
+      <Filter>Shaders\Default</Filter>
+    </None>
+    <None Include="shaders\default.vert">
+      <Filter>Shaders\Default</Filter>
+    </None>
+    <None Include="shaders\TextureDebug.frag">
+      <Filter>Shaders\TextureDebug</Filter>
+    </None>
+    <None Include="shaders\TextureDebug.vert">
+      <Filter>Shaders\TextureDebug</Filter>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <Xml Include="Splatoon3\CallieMarie\Npc_IdolA\Npc_IdolA.xml">
+      <Filter>Models</Filter>
+    </Xml>
   </ItemGroup>
 </Project>

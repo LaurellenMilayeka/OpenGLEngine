@@ -18,10 +18,21 @@ Camera::Camera(Engine::Entity::Entity* parent) : IComponent("Camera", parent)
 	_mRight = Engine::Maths::Vector3::Zero();
 	_mUp = Engine::Maths::Vector3::Zero();
 	_mWorldUp = Engine::Maths::Vector3::Up();
+	_mDisableCameraMovements = false;
 	UpdateCameraVectors();
 }
 
-Engine::Maths::Matrix4 const& Camera::GetViewMatrix()
+void Camera::DisableCameraMovements()
+{
+	_mDisableCameraMovements = true;
+}
+
+void Camera::EnableCameraMovements()
+{
+	_mDisableCameraMovements = false;
+}
+
+Engine::Maths::Matrix4 const Camera::GetViewMatrix()
 {
 	Transform* transform = _mParent->GetComponent<Transform>();
 	
@@ -44,42 +55,47 @@ void Camera::UpdateCameraVectors()
 
 	Engine::InputManager::Input::LastMousePosition(mousePos);
 
-	float sensitivity = 0.1f;
-	xoffset *= sensitivity;
-	yoffset *= sensitivity;
-
-	_mYaw += xoffset;
-	_mPitch += yoffset;
-
-	if (_mPitch > 89.0f)
-		_mPitch = 89.0f;
-	else if (_mPitch < -89.0f)
-		_mPitch = -89.0f;
-
-	_mDirection.x = -cos(Helpers::DegreeToRad(_mPitch)) * cos(Helpers::DegreeToRad(_mYaw));
-	_mDirection.y = -sin(Helpers::DegreeToRad(_mPitch));
-	_mDirection.z = -cos(Helpers::DegreeToRad(_mPitch)) * sin(Helpers::DegreeToRad(_mYaw));
-
-	_mFront = Engine::Maths::Vector3::Normalize(_mDirection);
-	_mRight = Engine::Maths::Vector3::Normalize(Engine::Maths::Vector3::Cross(_mFront, _mWorldUp));
-	_mUp = Engine::Maths::Vector3::Normalize(Engine::Maths::Vector3::Cross(_mRight, _mFront));
-
-	Engine::Maths::Vector3 currentPos = Engine::Maths::Vector3::Zero();
-	if (Engine::InputManager::Input::GetKeyDown(Engine::InputManager::Key::Z))
+	if (!_mDisableCameraMovements)
 	{
-		currentPos -= _mFront * 35.0f * Engine::Misc::Time::DeltaTime();
+		float sensitivity = 0.1f;
+		xoffset *= sensitivity;
+		yoffset *= sensitivity;
+
+		_mYaw += xoffset;
+		_mPitch += yoffset;
+
+		if (_mPitch > 89.0f)
+			_mPitch = 89.0f;
+		else if (_mPitch < -89.0f)
+			_mPitch = -89.0f;
+
+		_mDirection.x = -cos(Helpers::DegreeToRad(_mPitch)) * cos(Helpers::DegreeToRad(_mYaw));
+		_mDirection.y = -sin(Helpers::DegreeToRad(_mPitch));
+		_mDirection.z = -cos(Helpers::DegreeToRad(_mPitch)) * sin(Helpers::DegreeToRad(_mYaw));
+
+		_mFront = Engine::Maths::Vector3::Normalize(_mDirection);
+		_mRight = Engine::Maths::Vector3::Normalize(Engine::Maths::Vector3::Cross(_mFront, _mWorldUp));
+		_mUp = Engine::Maths::Vector3::Normalize(Engine::Maths::Vector3::Cross(_mRight, _mFront));
+
+		Engine::Maths::Vector3 currentPos = Engine::Maths::Vector3::Zero();
+
+
+		if (Engine::InputManager::Input::GetKeyDown(Engine::InputManager::Key::Z))
+		{
+			currentPos -= _mFront * 35.0f * Engine::Misc::Time::DeltaTime();
+		}
+		if (Engine::InputManager::Input::GetKeyDown(Engine::InputManager::Key::S))
+		{
+			currentPos += _mFront * 35.0f * Engine::Misc::Time::DeltaTime();
+		}
+		if (Engine::InputManager::Input::GetKeyDown(Engine::InputManager::Key::Q))
+		{
+			currentPos -= Engine::Maths::Vector3::Normalize(Engine::Maths::Vector3::Cross(_mUp, _mFront)) * 35.0f * Engine::Misc::Time::DeltaTime();
+		}
+		if (Engine::InputManager::Input::GetKeyDown(Engine::InputManager::Key::D))
+		{
+			currentPos += Engine::Maths::Vector3::Normalize(Engine::Maths::Vector3::Cross(_mUp, _mFront)) * 35.0f * Engine::Misc::Time::DeltaTime();
+		}
+		transform->Translate(currentPos);
 	}
-	if (Engine::InputManager::Input::GetKeyDown(Engine::InputManager::Key::S))
-	{
-		currentPos += _mFront * 35.0f * Engine::Misc::Time::DeltaTime();
-	}
-	if (Engine::InputManager::Input::GetKeyDown(Engine::InputManager::Key::Q))
-	{
-		currentPos -= Engine::Maths::Vector3::Normalize(Engine::Maths::Vector3::Cross(_mUp, _mFront)) * 35.0f * Engine::Misc::Time::DeltaTime();
-	}
-	if (Engine::InputManager::Input::GetKeyDown(Engine::InputManager::Key::D))
-	{
-		currentPos += Engine::Maths::Vector3::Normalize(Engine::Maths::Vector3::Cross(_mUp, _mFront)) * 35.0f * Engine::Misc::Time::DeltaTime();
-	}
-	transform->Translate(currentPos);
 }

@@ -26,7 +26,7 @@ namespace Engine
 			bool   IsValid() const;
 			size_t Length() const;
 
-			size_t Read(char** out, size_t const len);
+			size_t Read(char **out, size_t const len);
 			size_t ReadLine(std::string& out);
 			size_t Write(std::string const& toWrite);
 

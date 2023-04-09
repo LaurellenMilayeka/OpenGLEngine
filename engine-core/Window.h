@@ -32,6 +32,8 @@ namespace Engine
 			float Height() const;
 			float Width() const;
 
+			void ShowCursor(bool showCursor);
+
 			GLFWwindow* operator*()
 			{
 				return _mWindow;

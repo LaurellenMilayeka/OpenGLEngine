@@ -11,10 +11,11 @@ namespace Engine
 	namespace InputManager
 	{
 		
-#define KEY_SCANCODE_W 0x11
-#define KEY_SCANCODE_A 0x1E
-#define KEY_SCANCODE_S 0x1F
-#define KEY_SCANCODE_D 0x20
+#define KEY_SCANCODE_W   0x011
+#define KEY_SCANCODE_A   0x01E
+#define KEY_SCANCODE_S   0x01F
+#define KEY_SCANCODE_D   0x020
+#define KEY_SCANCODE_ALT 0x038
 
 		enum class Key : std::uint32_t {
 			Z,
@@ -22,6 +23,7 @@ namespace Engine
 			S,
 			D,
 			ESC,
+			ALT,
 			UNKNOWN
 		};
 

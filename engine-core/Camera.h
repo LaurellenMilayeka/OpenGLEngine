@@ -23,16 +23,21 @@ namespace Engine
 			Engine::Maths::Vector3 _mRight;
 			Engine::Maths::Vector3 _mWorldUp;
 
+			bool _mDisableCameraMovements;
+
 			float _mYaw;
 			float _mPitch;
 
-			Engine::Maths::Matrix4 const& GetViewMatrix();
+			Engine::Maths::Matrix4 const GetViewMatrix();
 			void UpdateCameraVectors();
 
 		public:
 
 			Camera(Engine::Entity::Entity* parent);
 			virtual ~Camera() = default;
+
+			void DisableCameraMovements();
+			void EnableCameraMovements();
 
 		};
 	}

@@ -36,3 +36,7 @@ engine-core/Release
 *.exe
 *.out
 *.app
+/engine-core/Zizi
+*.bak
+/engine-core/models
+/libs

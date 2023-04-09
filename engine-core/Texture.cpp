@@ -6,13 +6,16 @@ extern "C" {
 
 using namespace Engine::Graphics;
 
-Texture::Texture(std::string const& texPath)
+Texture::Texture(std::string const& texPath, TextureType type)
 {
+	TextureName = texPath;
+	Type = type;
+
 	glGenTextures(1, &ID);
-	LoadTexture(texPath);
+	LoadTexture(texPath, type);
 }
 
-void Texture::LoadTexture(std::string const& texPath)
+void Texture::LoadTexture(std::string const& texPath, TextureType type)
 {
 	int width, height, nrChannels;
 	unsigned char* data;
@@ -21,12 +24,13 @@ void Texture::LoadTexture(std::string const& texPath)
 	if (data != nullptr)
 	{
 		GLint texFormat = (nrChannels == 4) ? GL_RGBA : GL_RGB;
-		glBindTexture(GL_TEXTURE_2D, ID);
-		glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER, GL_LINEAR_MIPMAP_LINEAR);
-		glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MAG_FILTER, GL_LINEAR);
-		glTexImage2D(GL_TEXTURE_2D, 0, texFormat, width, height, 0, texFormat, GL_UNSIGNED_BYTE, data);
-		glGenerateMipmap(GL_TEXTURE_2D);
-		glBindTexture(GL_TEXTURE_2D, 0);
+		GLenum target = (type == TextureType::TEXTURE_2D) ? GL_TEXTURE_2D : GL_TEXTURE_3D;
+		glBindTexture(target, ID);
+		glTexParameteri(target, GL_TEXTURE_MIN_FILTER, GL_LINEAR_MIPMAP_LINEAR);
+		glTexParameteri(target, GL_TEXTURE_MAG_FILTER, GL_LINEAR);
+		glTexImage2D(target, 0, texFormat, width, height, 0, texFormat, GL_UNSIGNED_BYTE, data);
+		glGenerateMipmap(target);
+		glBindTexture(target, 0);
 	}
 	else
 	{

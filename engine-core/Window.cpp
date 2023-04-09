@@ -32,7 +32,8 @@ bool Window::Create()
 	_mWindow = glfwCreateWindow(_mWidth, _mHeight, _mTitle.c_str(), nullptr, nullptr);
 	assert(nullptr != _mWindow);
 	glfwMakeContextCurrent(_mWindow);
-	
+
+	ShowCursor(false);
 	glfwSetWindowSizeCallback(_mWindow, ModifiedFramebufferSizeCallback);
 	if (glewInit() != GLEW_OK)
 	{
@@ -60,4 +61,10 @@ float Window::Height() const
 float Window::Width() const
 {
 	return _mWidth;
+}
+
+void Window::ShowCursor(bool showCursor)
+{
+	int showCursorId = (showCursor) ? GLFW_CURSOR_NORMAL : GLFW_CURSOR_DISABLED;
+	glfwSetInputMode(_mWindow, GLFW_CURSOR, showCursorId);
 }

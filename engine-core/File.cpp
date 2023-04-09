@@ -7,7 +7,7 @@ File::File(std::string const& fileName)
 {
 	_mFile = std::fstream(fileName);
 
-	_mIsValid = _mFile.good();
+	_mIsValid = _mFile.is_open();
 	if (_mIsValid)
 	{
 		_mFile.seekp(0, std::ios::end);
@@ -44,9 +44,10 @@ size_t File::Length() const
 	return _mLength;
 }
 
-size_t File::Read(char **out, size_t const len)
+size_t File::Read(char** out, size_t const len)
 {
 	_mFile.read(*out, len);
+
 	if (_mFile)
 		return len;
 	return -1;
