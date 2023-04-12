@@ -10,8 +10,15 @@ void Model::UpdateModelData()
 	}
 }
 
+Model::Model()
+{
+	IsEnabled = true;
+}
+
+
 Model::Model(Engine::Misc::Shader const& shader)
 {
+	IsEnabled = true;
 	_mShader = shader;
 }
 
@@ -36,10 +43,21 @@ Mesh* Model::CreateMesh()
 	return &_mMeshGroup.back();
 }
 
+#ifndef _DEBUG
+
 std::vector<Mesh> const& Model::GetMeshes() const
 {
 	return _mMeshGroup;
 }
+
+#elif _DEBUG
+
+std::vector<Mesh>& Model::GetMeshes()
+{
+	return _mMeshGroup;
+}
+
+#endif
 
 Engine::Misc::Shader const& Model::GetShader() const
 {

@@ -48,6 +48,9 @@ void Input::Update(GLFWwindow* window, int key, int scancode, int action, int mo
 		case GLFW_KEY_ESCAPE:
 			_keyState[Key::ESC] = (action == GLFW_PRESS || action == GLFW_REPEAT) ? true : false;
 			break;
+		case GLFW_KEY_LEFT_ALT:
+			_keyState[Key::ALT] = (action == GLFW_PRESS || action == GLFW_REPEAT) ? true : false;
+			break;
 		default:
 			switch (glfwGetKeyScancode(key))
 			{
@@ -62,9 +65,6 @@ void Input::Update(GLFWwindow* window, int key, int scancode, int action, int mo
 				break;
 			case KEY_SCANCODE_D:
 				_keyState[Key::D] = (action == GLFW_PRESS || action == GLFW_REPEAT) ? true : false;
-				break;
-			case KEY_SCANCODE_ALT:
-				_keyState[Key::ALT] = (action == GLFW_PRESS || action == GLFW_REPEAT) ? true : false;
 				break;
 			}
 			break;

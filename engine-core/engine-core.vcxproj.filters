@@ -85,6 +85,84 @@
     <Filter Include="Fichiers sources\ImGUI\Backends">
       <UniqueIdentifier>{fa1d7629-73d7-44c9-8814-6cdbe69d91b1}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Fichiers sources\ImGUI\Examples">
+      <UniqueIdentifier>{f73098fe-1ad0-4edb-a8f9-d39bf74eb249}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Models\CafeLeBlanc">
+      <UniqueIdentifier>{cda56495-018f-4b63-8417-407fa97243f4}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Models\Cube">
+      <UniqueIdentifier>{5c3fe39e-113e-4193-83e3-e9e08bc515f1}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Models\Genshin">
+      <UniqueIdentifier>{32ebee95-cc79-4209-885b-38d1cb97ad33}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Models\Genshin\Dvalin">
+      <UniqueIdentifier>{433b3847-f732-42b0-882b-f5c8aeed1b3b}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Models\Genshin\Stormterror">
+      <UniqueIdentifier>{e6569a1a-a33f-407a-acc4-755254984b0e}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Models\Genshin\Venti">
+      <UniqueIdentifier>{cad0e4fc-aa54-4784-9e3c-21341a84eb2c}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Models\Kingdom Hearts">
+      <UniqueIdentifier>{6ce64dfa-e96d-44ad-beef-71cf811f19cb}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Models\Kingdom Hearts\Gothel">
+      <UniqueIdentifier>{94dce9ae-f274-431f-aaa7-a418cab30749}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Models\Persona">
+      <UniqueIdentifier>{ed318fb3-d476-4e87-8245-061a4c48e4e9}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Models\Persona\Yu %28Persona 4%29">
+      <UniqueIdentifier>{2b04eb5b-6dd6-493e-8910-e675b1a721c7}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Models\Persona\Naoto %28Persona 4%29">
+      <UniqueIdentifier>{2d0fd5b9-bda0-4e8a-802b-e1a6c44ca7b6}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Models\Ratchet">
+      <UniqueIdentifier>{e529ee80-0956-4985-857e-496c9064c383}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Models\Desert Road">
+      <UniqueIdentifier>{bb06d6a4-d6d2-4cac-ba10-d3e728865438}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Models\TLOU">
+      <UniqueIdentifier>{a5da9845-ff0d-4324-9491-a4092648ad78}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Models\TLOU\Sarah">
+      <UniqueIdentifier>{c662d68f-b142-43d6-a76e-fffb111d7389}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Models\Sly Cooper">
+      <UniqueIdentifier>{05eb4dc9-391b-4ae8-8e5d-9d6c8586bd0b}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Models\Sly Cooper\Sly">
+      <UniqueIdentifier>{6db44079-6b72-4f86-a030-0e78a69c12e1}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Models\Splatoon 3">
+      <UniqueIdentifier>{53eea47b-d4a7-4c1b-9817-fc796bd63d15}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Models\Splatoon 3\Callie">
+      <UniqueIdentifier>{a0a457d4-bd86-4990-b6e7-91ee5413f0fa}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Models\Splatoon 3\Marie">
+      <UniqueIdentifier>{3fc11cf9-b2a0-46f8-b34a-2190fce305d6}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Models\Spyro">
+      <UniqueIdentifier>{b962059a-49c3-43c8-92ea-e1926a2da603}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Models\Spyro\Winter Thundra %28Map%29">
+      <UniqueIdentifier>{8968c8a2-a7ea-4de1-be7f-5160d8f8f385}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Models\Bite">
+      <UniqueIdentifier>{06ef1e3f-66df-4e7e-886d-64b6023ab57d}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Models\AIB">
+      <UniqueIdentifier>{b186cdbf-92bc-45c8-bdc6-f7933d6f1880}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Models\AIB\Alice">
+      <UniqueIdentifier>{2574b09a-9fad-45c2-8847-2cd597a7da59}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="engine-core.cpp">
@@ -174,6 +252,9 @@
     <ClCompile Include="..\libs\ImGUI\imgui_demo.cpp">
       <Filter>Fichiers sources\ImGUI</Filter>
     </ClCompile>
+    <ClCompile Include="..\libs\ImGUI\examples\example_glfw_opengl3\ImGUI_Demo_GLFW_OGL3.cpp">
+      <Filter>Fichiers sources\ImGUI\Examples</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Window.h">
@@ -256,12 +337,6 @@
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
-    <None Include="Persona\Yu\bc001 with animations.dae">
-      <Filter>Models</Filter>
-    </None>
-    <None Include="Persona\Yu\bc001.dae">
-      <Filter>Models</Filter>
-    </None>
     <None Include="shaders\default.frag">
       <Filter>Shaders\Default</Filter>
     </None>
@@ -274,10 +349,181 @@
     <None Include="shaders\TextureDebug.vert">
       <Filter>Shaders\TextureDebug</Filter>
     </None>
+    <None Include="models\CafeLeblanc\CafeLeblanc.mtl">
+      <Filter>Models\CafeLeBlanc</Filter>
+    </None>
+    <None Include="models\CafeLeblanc\Front Door.mtl">
+      <Filter>Models\CafeLeBlanc</Filter>
+    </None>
+    <None Include="models\CafeLeblanc\GroundFloorScenery.mtl">
+      <Filter>Models\CafeLeBlanc</Filter>
+    </None>
+    <None Include="models\CafeLeblanc\Shelf Jars.mtl">
+      <Filter>Models\CafeLeBlanc</Filter>
+    </None>
+    <None Include="models\CafeLeblanc\Toilet Door.mtl">
+      <Filter>Models\CafeLeBlanc</Filter>
+    </None>
+    <None Include="models\Cube\cube.dae">
+      <Filter>Models\Cube</Filter>
+    </None>
+    <None Include="models\Genshin\Dvalin\Dvalin.mtl">
+      <Filter>Models\Genshin\Dvalin</Filter>
+    </None>
+    <None Include="models\Genshin\Venti\Venti.mtl">
+      <Filter>Models\Genshin\Venti</Filter>
+    </None>
+    <None Include="models\Genshin\Stormterror\Stormterror.mtl">
+      <Filter>Models\Genshin\Stormterror</Filter>
+    </None>
+    <None Include="models\Persona\Yu\bc001 with animations.dae">
+      <Filter>Models\Persona\Yu %28Persona 4%29</Filter>
+    </None>
+    <None Include="models\Persona\Yu\bc001.dae">
+      <Filter>Models\Persona\Yu %28Persona 4%29</Filter>
+    </None>
+    <None Include="models\Persona\Yu\bc001.smd">
+      <Filter>Models\Persona\Yu %28Persona 4%29</Filter>
+    </None>
+    <None Include="models\Persona\Naoto\pc007_13.dae">
+      <Filter>Models\Persona\Naoto %28Persona 4%29</Filter>
+    </None>
+    <None Include="models\Persona\Naoto\pc007_13_blender.dae">
+      <Filter>Models\Persona\Naoto %28Persona 4%29</Filter>
+    </None>
+    <None Include="models\Ratchet\NebuloxArmor\Ratchet.mtl">
+      <Filter>Models\Ratchet</Filter>
+    </None>
+    <None Include="models\Road\Desert Road Plane.mtl">
+      <Filter>Models\Desert Road</Filter>
+    </None>
+    <None Include="models\Sarah\Hair.mtl">
+      <Filter>Models\TLOU\Sarah</Filter>
+    </None>
+    <None Include="models\Sarah\Sarah.dae">
+      <Filter>Models\TLOU\Sarah</Filter>
+    </None>
+    <None Include="models\Sarah\Sarah_Hair.dae">
+      <Filter>Models\TLOU\Sarah</Filter>
+    </None>
+    <None Include="models\SlyCooper\Cane.mtl">
+      <Filter>Models\Sly Cooper\Sly</Filter>
+    </None>
+    <None Include="models\SlyCooper\Sly.mtl">
+      <Filter>Models\Sly Cooper\Sly</Filter>
+    </None>
+    <None Include="models\Splatoon3\CallieMarie\Npc_IdolA\Npc_IdolA.dae">
+      <Filter>Models\Splatoon 3\Callie</Filter>
+    </None>
+    <None Include="models\Splatoon3\CallieMarie\Npc_IdolA\Npc_IdolA.fbx">
+      <Filter>Models\Splatoon 3\Callie</Filter>
+    </None>
+    <None Include="models\Splatoon3\CallieMarie\Npc_IdolA\Npc_IdolA_Mission.dae">
+      <Filter>Models\Splatoon 3\Callie</Filter>
+    </None>
+    <None Include="models\Splatoon3\CallieMarie\Npc_IdolA\Npc_IdolA_Mission.fbx">
+      <Filter>Models\Splatoon 3\Callie</Filter>
+    </None>
+    <None Include="models\Splatoon3\CallieMarie\Npc_IdolB\Npc_IdolB.dae">
+      <Filter>Models\Splatoon 3\Marie</Filter>
+    </None>
+    <None Include="models\Splatoon3\CallieMarie\Npc_IdolB\Npc_IdolB.fbx">
+      <Filter>Models\Splatoon 3\Marie</Filter>
+    </None>
+    <None Include="models\Splatoon3\CallieMarie\Npc_IdolB\Npc_IdolB_Mission.dae">
+      <Filter>Models\Splatoon 3\Marie</Filter>
+    </None>
+    <None Include="models\Splatoon3\CallieMarie\Npc_IdolB\Npc_IdolB_Mission.fbx">
+      <Filter>Models\Splatoon 3\Marie</Filter>
+    </None>
+    <None Include="models\Splatoon3\CallieMarie\Npc_IdolB\Npc_IdolB_Umbrella.dae">
+      <Filter>Models\Splatoon 3\Marie</Filter>
+    </None>
+    <None Include="models\Splatoon3\CallieMarie\Npc_IdolB\Npc_IdolB_Umbrella.fbx">
+      <Filter>Models\Splatoon 3\Marie</Filter>
+    </None>
+    <None Include="models\Spyro\WinterTundra.mtl">
+      <Filter>Models\Spyro\Winter Thundra %28Map%29</Filter>
+    </None>
+    <None Include="models\Zizi\11.stl">
+      <Filter>Models\Bite</Filter>
+    </None>
+    <None Include="models\KH\Gothel\n_ra207_0.dae">
+      <Filter>Models\Kingdom Hearts\Gothel</Filter>
+    </None>
+    <None Include="models\KH\Gothel\n_ra207_0.fbx">
+      <Filter>Models\Kingdom Hearts\Gothel</Filter>
+    </None>
+    <None Include="models\KH\Gothel\n_ra207_0.mtl">
+      <Filter>Models\Kingdom Hearts\Gothel</Filter>
+    </None>
+    <None Include="models\KH\Gothel\n_ra207_0_split.dae">
+      <Filter>Models\Kingdom Hearts\Gothel</Filter>
+    </None>
+    <None Include="models\KH\Gothel\n_ra207_0_split.fbx">
+      <Filter>Models\Kingdom Hearts\Gothel</Filter>
+    </None>
+    <None Include="models\AIB\Alice\Alice.DAE">
+      <Filter>Models\AIB\Alice</Filter>
+    </None>
+    <None Include="models\AIB\Alice\Alice.mtl">
+      <Filter>Models\AIB\Alice</Filter>
+    </None>
+    <None Include="models\AIB\Alice\Alice.SMD">
+      <Filter>Models\AIB\Alice</Filter>
+    </None>
   </ItemGroup>
   <ItemGroup>
-    <Xml Include="Splatoon3\CallieMarie\Npc_IdolA\Npc_IdolA.xml">
-      <Filter>Models</Filter>
-    </Xml>
+    <Object Include="models\CafeLeblanc\CafeLeblanc.obj">
+      <Filter>Models\CafeLeBlanc</Filter>
+    </Object>
+    <Object Include="models\CafeLeblanc\Front Door.obj">
+      <Filter>Models\CafeLeBlanc</Filter>
+    </Object>
+    <Object Include="models\CafeLeblanc\GroundFloorScenery.obj">
+      <Filter>Models\CafeLeBlanc</Filter>
+    </Object>
+    <Object Include="models\CafeLeblanc\Shelf Jars.obj">
+      <Filter>Models\CafeLeBlanc</Filter>
+    </Object>
+    <Object Include="models\CafeLeblanc\Toilet Door.obj">
+      <Filter>Models\CafeLeBlanc</Filter>
+    </Object>
+    <Object Include="models\Genshin\Dvalin\Dvalin.obj">
+      <Filter>Models\Genshin\Dvalin</Filter>
+    </Object>
+    <Object Include="models\Genshin\Venti\Venti.obj">
+      <Filter>Models\Genshin\Venti</Filter>
+    </Object>
+    <Object Include="models\Genshin\Stormterror\Stormterror.obj">
+      <Filter>Models\Genshin\Stormterror</Filter>
+    </Object>
+    <Object Include="models\Ratchet\NebuloxArmor\Ratchet.obj">
+      <Filter>Models\Ratchet</Filter>
+    </Object>
+    <Object Include="models\Road\Desert Road Plane.obj">
+      <Filter>Models\Desert Road</Filter>
+    </Object>
+    <Object Include="models\Sarah\Hair.obj">
+      <Filter>Models\TLOU\Sarah</Filter>
+    </Object>
+    <Object Include="models\SlyCooper\Cane.obj">
+      <Filter>Models\Sly Cooper\Sly</Filter>
+    </Object>
+    <Object Include="models\SlyCooper\Sly.obj">
+      <Filter>Models\Sly Cooper\Sly</Filter>
+    </Object>
+    <Object Include="models\Spyro\WinterTundra.obj">
+      <Filter>Models\Spyro\Winter Thundra %28Map%29</Filter>
+    </Object>
+    <Object Include="models\Zizi\11.obj">
+      <Filter>Models\Bite</Filter>
+    </Object>
+    <Object Include="models\KH\Gothel\n_ra207_0.obj">
+      <Filter>Models\Kingdom Hearts\Gothel</Filter>
+    </Object>
+    <Object Include="models\AIB\Alice\Alice.obj">
+      <Filter>Models\AIB\Alice</Filter>
+    </Object>
   </ItemGroup>
 </Project>

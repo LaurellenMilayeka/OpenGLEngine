@@ -20,10 +20,11 @@ namespace Engine
 
 			Engine::Misc::Shader _mShader;
 
-
 		public:
 
-			Model() = default;
+			bool              IsEnabled;
+
+			Model();
 			Model(Engine::Misc::Shader const& shader);
 			~Model();
 
@@ -32,7 +33,11 @@ namespace Engine
 			std::string const& GetName() const;
 			void SetName(std::string const& newName);
 
+#ifndef _DEBUG
 			std::vector<Mesh> const& GetMeshes() const;
+#elif _DEBUG
+			std::vector<Mesh>& GetMeshes();
+#endif
 
 			Engine::Misc::Shader const& GetShader() const;
 			void SetShader(Engine::Misc::Shader const& shader);

@@ -36,6 +36,10 @@ namespace Engine
 			void Translate(Engine::Maths::Vector3 const& newPoint);
 			void Rotate(float deg, Engine::Maths::Vector3 const& newRotation);
 			void Scale(Engine::Maths::Vector3 const& newScale);
+
+#ifdef _DEBUG
+			virtual void SetupDebugWindow() override;
+#endif
 		};
 	}
 }

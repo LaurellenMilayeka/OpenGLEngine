@@ -40,6 +40,7 @@ typedef struct {
 	std::string MaterialID;
 	unsigned int Count;
 	std::vector<Input> Inputs;
+	std::vector<unsigned int> VertexCount;
 	std::vector<unsigned int> Indices;
 } Triangle;
 
@@ -76,9 +77,6 @@ std::string GetAttribute(std::string const& line, std::string const& attribute) 
 }
 
 std::string GetValue(std::string const& line, std::string const& nodeName) {
-	size_t indStart;
-	size_t indEnd;
-
 	return "";
 }
 
@@ -279,6 +277,56 @@ void LoadTriangles(Engine::Filesystem::File& file, std::string line, Mesh* mesh)
 }
 
 void LoadPolylist(Engine::Filesystem::File& file, std::string line, Mesh* mesh) {
+	std::string materialID, count;
+
+	if (line.find("<polylist") != std::string::npos) {
+		mesh->Triangles.MaterialID = GetAttribute(line, "material");
+		mesh->Triangles.Count = stoi(GetAttribute(line, "count"));
+		while (file.ReadLine(line)
+			&& line.find("</polylist>") == std::string::npos)
+		{
+			if (line.find("<input") != std::string::npos)
+			{
+				Input* currentInput = nullptr;
+				std::string semantic = GetAttribute(line, "semantic");
+				std::string offset = GetAttribute(line, "offset");
+				std::string source = GetAttribute(line, "source").substr(1);
+				std::string set = GetAttribute(line, "set");
+
+				mesh->Triangles.Inputs.resize(mesh->Triangles.Inputs.size() + 1);
+				currentInput = &mesh->Triangles.Inputs.back();
+
+				currentInput->Semantic = semantic;
+				currentInput->Offset = std::stoi(offset);
+				currentInput->SourceID = source;
+				currentInput->Set = std::stoi(set);
+			}
+			else if (line.find("<vcount>") != std::string::npos)
+			{
+				unsigned int index = 0;
+				line = line.substr(line.find('>') + 1, line.length() - (line.find('>') + 1));
+				line = line.substr(0, line.find('<'));
+
+				std::stringstream vertexCount(line);
+				while (vertexCount >> index)
+				{
+					mesh->Triangles.VertexCount.push_back(index);
+				}
+			}
+			else if (line.find("<p>") != std::string::npos)
+			{
+				unsigned int index = 0;
+				line = line.substr(line.find('>') + 1, line.length() - (line.find('>') + 1));
+				line = line.substr(0, line.find('<'));
+
+				std::stringstream indicesValues(line);
+				while (indicesValues >> index)
+				{
+					mesh->Triangles.Indices.push_back(index);
+				}
+			}
+		}
+	}
 	return;
 }
 
@@ -319,10 +367,10 @@ void LoadVisualScenes(Engine::Filesystem::File& file, std::vector<Node>& nodes) 
 
 	while (file.ReadLine(line)
 		&& line.find("</library_visual_scenes>") == std::string::npos) {
-		if (line.find("<node ") != std::string::npos) {
+		if (line.find("<node") != std::string::npos) {
 			type = GetAttribute(line, "type");
 		}
-		else if (line.find("<instance_material ") != std::string::npos
+		else if (line.find("<instance_material") != std::string::npos
 			&& type.compare("JOINT") != 0) {
 			nodes.resize(nodes.size() + 1);
 			currentNode = &nodes.back();
@@ -340,8 +388,6 @@ void SetupModel(std::string const& basePath, Engine::Graphics::Model& model, std
 	Engine::Graphics::Mesh* currentMesh = nullptr;
 
 	for (const Mesh& mesh : meshes) {
-		unsigned int offset;
-
 		currentMesh = model.CreateMesh();
 		currentMesh->GroupName = mesh.MeshName;
 		currentMesh->Offset    = mesh.Triangles.Inputs.back().Offset + 1;
@@ -413,8 +459,8 @@ void SetupModel(std::string const& basePath, Engine::Graphics::Model& model, std
 			}
 		}
 		
-		for (unsigned int index = 0; index < (mesh.Triangles.Count * 3); index += currentMesh->Offset)
-			currentMesh->Indices.push_back(mesh.Triangles.Indices[index]);
+		for (unsigned int index = 0; index < (mesh.Triangles.Count * 3); index++)
+			currentMesh->Indices.push_back(mesh.Triangles.Indices[index * currentMesh->Offset]);
 
 		auto itNode = std::find_if(nodes.begin(), nodes.end(), [&mesh](const auto& item) {
 			return mesh.Triangles.MaterialID.compare(item.BoundMaterialID) == 0;

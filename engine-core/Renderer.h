@@ -12,6 +12,9 @@ namespace Engine
 
 			void Update();
 
+#ifdef _DEBUG
+			void SetupDebugRendererWindow();
+#endif
 		};
 	}
 }

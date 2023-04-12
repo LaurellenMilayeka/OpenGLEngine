@@ -21,7 +21,16 @@ namespace Engine
 			virtual ~ModelRenderer();
 
 			void setModel(Engine::Graphics::Model const& model);
+
+#ifdef _DEBUG
+			Engine::Graphics::Model& GetModel();
+#elif
 			Engine::Graphics::Model const& GetModel() const;
+#endif
+
+#ifdef _DEBUG
+			virtual void SetupDebugWindow() override;
+#endif
 		};
 	}
 }

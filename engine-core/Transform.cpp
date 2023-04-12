@@ -1,10 +1,11 @@
 #include "Transform.h"
 
 #include <iostream>
+#include <imgui.h>
 
 using namespace Engine::Components;
 
-Transform::Transform(Engine::Entity::Entity* parent) : IComponent("Transform", parent)
+Transform::Transform(Engine::Entity::Entity* parent) : IComponent("Transform", ComponentsID::Transform, parent)
 {
 
 }
@@ -94,5 +95,12 @@ void Transform::Scale(Engine::Maths::Vector3 const& newScale)
 	_mScaleMatrix.SetAt(0, 0, newScale.x);
 	_mScaleMatrix.SetAt(1, 1, newScale.y);
 	_mScaleMatrix.SetAt(2, 2, newScale.z);
+}
+
+void Engine::Components::Transform::SetupDebugWindow()
+{
+	using namespace ImGui;
+
+	Text("Position : %.2f %.2f %.2f", Position().x, Position().y, Position().z);
 }
 

@@ -10,7 +10,7 @@
 
 using namespace Engine::Components;
 
-Camera::Camera(Engine::Entity::Entity* parent) : IComponent("Camera", parent)
+Camera::Camera(Engine::Entity::Entity* parent) : IComponent("Camera", ComponentsID::Camera, parent)
 {
 	_mYaw = -90.0f;
 	_mPitch = 0.0f;

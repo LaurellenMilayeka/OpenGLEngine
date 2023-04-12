@@ -27,6 +27,7 @@ namespace Engine
 
 			Entity(std::string id)
 			{
+				IsEnabled = true;
 				_ID = id;
 				_ComponentsFlags = 0;
 
@@ -37,6 +38,8 @@ namespace Engine
 			}
 
 		public:
+
+			bool IsEnabled;
 
 			std::string ID() const
 			{
@@ -97,6 +100,16 @@ namespace Engine
 					std::cout << "    " << item->Name() << std::endl;;
 				}
 			}
+
+#ifdef _DEBUG
+
+			std::vector<Engine::Components::IComponent*> GetComponents()
+			{
+				return _mComponents;
+			}
+
+#endif
+
 		};
 	}
 }

@@ -3,6 +3,7 @@
 #include <vector>
 #include <string>
 #include <GL/glew.h>
+#include <imgui.h>
 
 #include "Vector2.h"
 #include "Vector3.h"
@@ -115,6 +116,25 @@ namespace Engine
 				}
 				glBindVertexArray(0);
 			}
+
+#ifdef _DEBUG
+
+			void SetupDebugWindow()
+			{
+				using namespace ImGui;
+				unsigned int uvCoordsCount = 0;
+
+				for (std::vector<Engine::Maths::Vector3> texCoords : TextureCoords)
+					uvCoordsCount += texCoords.size();
+
+				Checkbox("Enabled", &IsEnabled);
+				Text("Vertices       : %d", Vertices.size());
+				Text("Normals        : %d", Normals.size());
+				Text("UV Coordinates : %d", uvCoordsCount);
+				Text("Indices        : %d", Indices.size());
+			}
+
+#endif
 		};
 	}
 }

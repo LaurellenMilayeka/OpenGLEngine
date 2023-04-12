@@ -155,6 +155,9 @@
     <ClCompile Include="..\libs\ImGUI\backends\imgui_impl_opengl2.cpp" />
     <ClCompile Include="..\libs\ImGUI\backends\imgui_impl_opengl3.cpp" />
     <ClCompile Include="..\libs\ImGUI\backends\imgui_impl_win32.cpp" />
+    <ClCompile Include="..\libs\ImGUI\examples\example_glfw_opengl3\ImGUI_Demo_GLFW_OGL3.cpp">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">true</ExcludedFromBuild>
+    </ClCompile>
     <ClCompile Include="..\libs\ImGUI\imgui.cpp" />
     <ClCompile Include="..\libs\ImGUI\imgui_demo.cpp" />
     <ClCompile Include="..\libs\ImGUI\imgui_draw.cpp" />
@@ -210,15 +213,186 @@
     <ClInclude Include="Window.h" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Persona\Yu\bc001 with animations.dae" />
-    <None Include="Persona\Yu\bc001.dae" />
+    <None Include="models\AIB\Alice\Alice.DAE">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">true</ExcludedFromBuild>
+    </None>
+    <None Include="models\AIB\Alice\Alice.mtl">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">true</ExcludedFromBuild>
+    </None>
+    <None Include="models\AIB\Alice\Alice.SMD">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">true</ExcludedFromBuild>
+    </None>
+    <None Include="models\CafeLeblanc\CafeLeblanc.mtl">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">true</ExcludedFromBuild>
+    </None>
+    <None Include="models\CafeLeblanc\Front Door.mtl">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">true</ExcludedFromBuild>
+    </None>
+    <None Include="models\CafeLeblanc\GroundFloorScenery.mtl">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">true</ExcludedFromBuild>
+    </None>
+    <None Include="models\CafeLeblanc\Shelf Jars.mtl">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">true</ExcludedFromBuild>
+    </None>
+    <None Include="models\CafeLeblanc\Toilet Door.mtl">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">true</ExcludedFromBuild>
+    </None>
+    <None Include="models\Cube\cube.dae">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">true</ExcludedFromBuild>
+    </None>
+    <None Include="models\Genshin\Dvalin\Dvalin.mtl">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">true</ExcludedFromBuild>
+    </None>
+    <None Include="models\Genshin\Stormterror\Stormterror.mtl">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">true</ExcludedFromBuild>
+    </None>
+    <None Include="models\Genshin\Venti\Venti.mtl">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">true</ExcludedFromBuild>
+    </None>
+    <None Include="models\KH\Gothel\n_ra207_0.dae">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">true</ExcludedFromBuild>
+    </None>
+    <None Include="models\KH\Gothel\n_ra207_0.fbx">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">true</ExcludedFromBuild>
+    </None>
+    <None Include="models\KH\Gothel\n_ra207_0.mtl">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">true</ExcludedFromBuild>
+    </None>
+    <None Include="models\KH\Gothel\n_ra207_0_split.dae">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">true</ExcludedFromBuild>
+    </None>
+    <None Include="models\KH\Gothel\n_ra207_0_split.fbx">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">true</ExcludedFromBuild>
+    </None>
+    <None Include="models\Persona\Naoto\pc007_13.dae">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">true</ExcludedFromBuild>
+    </None>
+    <None Include="models\Persona\Naoto\pc007_13_blender.dae">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">true</ExcludedFromBuild>
+    </None>
+    <None Include="models\Persona\Yu\bc001 with animations.dae">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">true</ExcludedFromBuild>
+    </None>
+    <None Include="models\Persona\Yu\bc001.dae">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">true</ExcludedFromBuild>
+    </None>
+    <None Include="models\Persona\Yu\bc001.smd">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">true</ExcludedFromBuild>
+    </None>
+    <None Include="models\Ratchet\NebuloxArmor\Ratchet.mtl">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">true</ExcludedFromBuild>
+    </None>
+    <None Include="models\Road\Desert Road Plane.mtl">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">true</ExcludedFromBuild>
+    </None>
+    <None Include="models\Sarah\Hair.mtl">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">true</ExcludedFromBuild>
+    </None>
+    <None Include="models\Sarah\Sarah.dae">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">true</ExcludedFromBuild>
+    </None>
+    <None Include="models\Sarah\Sarah_Hair.dae">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">true</ExcludedFromBuild>
+    </None>
+    <None Include="models\SlyCooper\Cane.mtl">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">true</ExcludedFromBuild>
+    </None>
+    <None Include="models\SlyCooper\Sly.mtl">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">true</ExcludedFromBuild>
+    </None>
+    <None Include="models\Splatoon3\CallieMarie\Npc_IdolA\Npc_IdolA.dae">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">true</ExcludedFromBuild>
+    </None>
+    <None Include="models\Splatoon3\CallieMarie\Npc_IdolA\Npc_IdolA.fbx">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">true</ExcludedFromBuild>
+    </None>
+    <None Include="models\Splatoon3\CallieMarie\Npc_IdolA\Npc_IdolA_Mission.dae">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">true</ExcludedFromBuild>
+    </None>
+    <None Include="models\Splatoon3\CallieMarie\Npc_IdolA\Npc_IdolA_Mission.fbx">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">true</ExcludedFromBuild>
+    </None>
+    <None Include="models\Splatoon3\CallieMarie\Npc_IdolB\Npc_IdolB.dae">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">true</ExcludedFromBuild>
+    </None>
+    <None Include="models\Splatoon3\CallieMarie\Npc_IdolB\Npc_IdolB.fbx">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">true</ExcludedFromBuild>
+    </None>
+    <None Include="models\Splatoon3\CallieMarie\Npc_IdolB\Npc_IdolB_Mission.dae">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">true</ExcludedFromBuild>
+    </None>
+    <None Include="models\Splatoon3\CallieMarie\Npc_IdolB\Npc_IdolB_Mission.fbx">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">true</ExcludedFromBuild>
+    </None>
+    <None Include="models\Splatoon3\CallieMarie\Npc_IdolB\Npc_IdolB_Umbrella.dae">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">true</ExcludedFromBuild>
+    </None>
+    <None Include="models\Splatoon3\CallieMarie\Npc_IdolB\Npc_IdolB_Umbrella.fbx">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">true</ExcludedFromBuild>
+    </None>
+    <None Include="models\Spyro\WinterTundra.mtl">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">true</ExcludedFromBuild>
+    </None>
+    <None Include="models\Zizi\11.stl">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">true</ExcludedFromBuild>
+    </None>
     <None Include="shaders\default.frag" />
     <None Include="shaders\default.vert" />
     <None Include="shaders\TextureDebug.frag" />
     <None Include="shaders\TextureDebug.vert" />
   </ItemGroup>
   <ItemGroup>
-    <Xml Include="Splatoon3\CallieMarie\Npc_IdolA\Npc_IdolA.xml" />
+    <Object Include="models\AIB\Alice\Alice.obj">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">true</ExcludedFromBuild>
+    </Object>
+    <Object Include="models\CafeLeblanc\CafeLeblanc.obj">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">true</ExcludedFromBuild>
+    </Object>
+    <Object Include="models\CafeLeblanc\Front Door.obj">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">true</ExcludedFromBuild>
+    </Object>
+    <Object Include="models\CafeLeblanc\GroundFloorScenery.obj">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">true</ExcludedFromBuild>
+    </Object>
+    <Object Include="models\CafeLeblanc\Shelf Jars.obj">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">true</ExcludedFromBuild>
+    </Object>
+    <Object Include="models\CafeLeblanc\Toilet Door.obj">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">true</ExcludedFromBuild>
+    </Object>
+    <Object Include="models\Genshin\Dvalin\Dvalin.obj">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">true</ExcludedFromBuild>
+    </Object>
+    <Object Include="models\Genshin\Stormterror\Stormterror.obj">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">true</ExcludedFromBuild>
+    </Object>
+    <Object Include="models\Genshin\Venti\Venti.obj">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">true</ExcludedFromBuild>
+    </Object>
+    <Object Include="models\KH\Gothel\n_ra207_0.obj">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">true</ExcludedFromBuild>
+    </Object>
+    <Object Include="models\Ratchet\NebuloxArmor\Ratchet.obj">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">true</ExcludedFromBuild>
+    </Object>
+    <Object Include="models\Road\Desert Road Plane.obj">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">true</ExcludedFromBuild>
+    </Object>
+    <Object Include="models\Sarah\Hair.obj">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">true</ExcludedFromBuild>
+    </Object>
+    <Object Include="models\SlyCooper\Cane.obj">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">true</ExcludedFromBuild>
+    </Object>
+    <Object Include="models\SlyCooper\Sly.obj">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">true</ExcludedFromBuild>
+    </Object>
+    <Object Include="models\Spyro\WinterTundra.obj">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">true</ExcludedFromBuild>
+    </Object>
+    <Object Include="models\Zizi\11.obj">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">true</ExcludedFromBuild>
+    </Object>
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

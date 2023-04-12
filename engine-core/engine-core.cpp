@@ -64,12 +64,14 @@ int main()
 
     glfwInit();
 
-    Window window(1280, 720, "My Window");
+    Window window(1600, 900, "My Window");
     Matrix4 mat;
     Vector2 vec2;
     Vector3 vec3;
     EntityManager entityMgr;
     Renderer renderer;
+
+    bool freeMouseMovement = false;
 
     if (!window.Create())
     {
@@ -89,8 +91,8 @@ int main()
 
     Input::Initialize(window.Width() / 2.0f, window.Height() / 2.0f);
 
-    Model yu = Loader<ModelType::DAE>::LoadModel("./models/Persona/Yu/bc001.dae");
-    Model daeModel = Loader<ModelType::DAE>::LoadModel("./models/Splatoon3/CallieMarie/Npc_IdolA/Npc_IdolA.dae");
+    //Model yu = Loader<ModelType::DAE>::LoadModel("./models/Persona/Yu/bc001.dae");
+    Model daeModel = Loader<ModelType::DAE>::LoadModel("./models/AIB/Alice/Alice.DAE");
     //Model venti = Loader<ModelType::OBJ>::LoadModel("./Genshin/Venti/Venti.obj");
     //Model dvalin = Loader<ModelType::OBJ>::LoadModel("./Genshin/Dvalin/Dvalin.obj");
     //Model sly = Loader<ModelType::OBJ>::LoadModel("./Ratchet/NebuloxArmor/Ratchet.obj");
@@ -100,7 +102,7 @@ int main()
 
     //venti.SetShader(shad);
     //dvalin.SetShader(shad);
-    yu.SetShader(shad);
+    //yu.SetShader(shad);
     daeModel.SetShader(shad);
     //sly.SetShader(shad);
 
@@ -116,7 +118,7 @@ int main()
 
     //Entity *ventiEntity = entityMgr.Create("Venti");
     //Entity *dvalinEntity = entityMgr.Create("Dvalin");
-    Entity* yuEntity = entityMgr.Create("Yu");
+    //Entity* yuEntity = entityMgr.Create("Yu");
     Entity* daeTest = entityMgr.Create("Test");
     //Entity* slyEntity = entityMgr.Create("Sly Cooper");
 
@@ -124,7 +126,7 @@ int main()
 
     //ventiEntity->AddComponent<ModelRenderer>();
     //dvalinEntity->AddComponent<ModelRenderer>();
-    yuEntity->AddComponent<ModelRenderer>();
+    //yuEntity->AddComponent<ModelRenderer>();
     daeTest->AddComponent<ModelRenderer>();
     //slyEntity->AddComponent<ModelRenderer>();
 
@@ -147,20 +149,20 @@ int main()
     Transform* daeTransform = daeTest->GetComponent<Transform>();
     daeRenderer->setModel(daeModel);
     daeTransform->Translate({ 0.0f, 0.0f, -10.0f });
-    daeTransform->Scale({ 5.0f, 5.0f, 5.0f });
+    //daeTransform->Scale({ 5.0f, 5.0f, 5.0f });
 
-    ModelRenderer* yuRenderer = yuEntity->GetComponent<ModelRenderer>();
-    Transform* yuTransform = yuEntity->GetComponent<Transform>();
-    yuRenderer->setModel(yu);
-    yuTransform->Translate({ 15.0f, -5.0f, -10.0f });
-    yuTransform->Scale({ 0.1f, 0.1f, 0.1f });
+    //ModelRenderer* yuRenderer = yuEntity->GetComponent<ModelRenderer>();
+    //Transform* yuTransform = yuEntity->GetComponent<Transform>();
+    //yuRenderer->setModel(yu);
+    //yuTransform->Translate({ 15.0f, -5.0f, -10.0f });
+    //yuTransform->Scale({ 0.1f, 0.1f, 0.1f });
 
     camera->AddComponent<Camera>();
     Transform* transformCam = camera->GetComponent<Transform>();
     Camera* cam = camera->GetComponent<Camera>();
     transformCam->Translate({ 0.0f, 0.0f, 3.0f });
 
-    bool show_demo_window = true;
+    bool show_metrics_window = true;
 
     while (!glfwWindowShouldClose(*window))
     {
@@ -171,7 +173,7 @@ int main()
         ImGui_ImplGlfw_NewFrame();
         ImGui::NewFrame();
 
-        ImGui::ShowDemoWindow(&show_demo_window);
+        ImGui::ShowMetricsWindow(&show_metrics_window);
 
         if (Input::GetKey(Key::ESC))
         {
@@ -197,6 +199,10 @@ int main()
         glfwSwapBuffers(*window);
         glfwPollEvents();
     }
+
+    ImGui_ImplOpenGL3_Shutdown();
+    ImGui_ImplGlfw_Shutdown();
+    ImGui::DestroyContext();
 
     window.Destroy();
     return 0;

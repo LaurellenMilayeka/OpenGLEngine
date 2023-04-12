@@ -27,19 +27,31 @@ namespace Engine
 			std::string _mName;
 			Engine::Entity::Entity* _mParent;
 
-			IComponent(std::string const& name, Engine::Entity::Entity* parent)
+			ComponentsID _mComponentID;
+
+			IComponent(std::string const& name, ComponentsID componentId, Engine::Entity::Entity* parent)
 			{
 				_mName = name;
 				_mParent = parent;
+				_mComponentID = componentId;
 			}
 
 		public:
 
 			virtual ~IComponent() = default;
 
-			std::string Name()
+#ifdef _DEBUG
+			virtual void SetupDebugWindow() { }
+#endif
+
+			std::string const& Name() const
 			{
 				return _mName;
+			}
+
+			ComponentsID GetType() const
+			{
+				return _mComponentID;
 			}
 		};
 	}
