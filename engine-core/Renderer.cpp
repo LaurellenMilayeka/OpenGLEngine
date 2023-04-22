@@ -16,7 +16,7 @@ using namespace Engine::Systems;
 void Renderer::SetupDebugRendererWindow()
 {
 	using namespace ImGui;
-	std::vector<Engine::Entity::Entity*> entityList = Engine::Entity::EntityManager::_mEntityPool;
+	std::vector<Engine::Entity::Entity*> entityList = Engine::Managers::EntityManager::_mEntityPool;
 
 	Begin("Renderer");
 	for (Engine::Entity::Entity*& item : entityList)
@@ -40,12 +40,12 @@ void Renderer::SetupDebugRendererWindow()
 
 void Renderer::Update()
 {
-	std::vector<Engine::Entity::Entity*> entityList = Engine::Entity::EntityManager::_mEntityPool;
-	Engine::Components::Camera* cam = Entity::EntityManager::Get("MainCamera")->GetComponent<Engine::Components::Camera>();
-	Engine::Components::Transform* camTransform = Entity::EntityManager::Get("MainCamera")->GetComponent<Engine::Components::Transform>();
+	std::vector<Engine::Entity::Entity*> entityList = Managers::EntityManager::_mEntityPool;
+	Engine::Components::Camera* cam = Managers::EntityManager::Get("MainCamera")->GetComponent<Engine::Components::Camera>();
+	Engine::Components::Transform* camTransform = Managers::EntityManager::Get("MainCamera")->GetComponent<Engine::Components::Transform>();
 
 	glm::mat4 projection(1.0f);
-	projection = glm::perspective(glm::radians(45.0f), static_cast<float>(1600) / static_cast<float>(900), 0.1f, 1000.0f);
+	projection = glm::perspective(glm::radians(45.0f), static_cast<float>(1600) / static_cast<float>(900), 0.1f, 10000.0f);
 
 	assert(cam != nullptr);
 
@@ -91,11 +91,21 @@ void Renderer::Update()
 					if (mesh.IsEnabled)
 					{
 						glBindVertexArray(mesh.ID);
-						if (mesh.Indices.size() > 0)
+						if (mesh.EBOQuads != 0 || mesh.EBOTriangles != 0)
 						{
-							glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, mesh.EBO);
-							glDrawElements(GL_TRIANGLES, static_cast<GLsizei>(mesh.Indices.size()), GL_UNSIGNED_INT, 0);
-							glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, 0);
+							if (mesh.EBOTriangles != 0)
+							{
+								glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, mesh.EBOTriangles);
+								glDrawElements(GL_TRIANGLES, static_cast<GLsizei>(mesh.Indices[Engine::Graphics::PolyType::TRIANGLES].size()), GL_UNSIGNED_INT, 0);
+								glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, 0);
+							}
+
+							if (mesh.EBOQuads != 0)
+							{
+								glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, mesh.EBOQuads);
+								glDrawElements(GL_QUADS, static_cast<GLsizei>(mesh.Indices[Engine::Graphics::PolyType::QUADS].size()), GL_UNSIGNED_INT, 0);
+								glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, 0);
+							}
 						}
 						else
 						{

@@ -33,7 +33,9 @@
 #include "Texture.h"
 #include "Loader.h"
 #include "Time.h"
+#include "Entity.h"
 
+using namespace Engine::Managers;
 using namespace Engine::Graphics;
 using namespace Engine::InputManager;
 using namespace Engine::Filesystem;
@@ -68,7 +70,7 @@ int main()
     Matrix4 mat;
     Vector2 vec2;
     Vector3 vec3;
-    EntityManager entityMgr;
+    Engine::Managers::EntityManager entityMgr;
     Renderer renderer;
 
     bool freeMouseMovement = false;
@@ -92,10 +94,10 @@ int main()
     Input::Initialize(window.Width() / 2.0f, window.Height() / 2.0f);
 
     //Model yu = Loader<ModelType::DAE>::LoadModel("./models/Persona/Yu/bc001.dae");
-    Model daeModel = Loader<ModelType::DAE>::LoadModel("./models/AIB/Alice/Alice.DAE");
+    Model daeModel = Loader<ModelType::OBJ>::LoadModel("./models/Spyro/WinterTundra.obj");
     //Model venti = Loader<ModelType::OBJ>::LoadModel("./Genshin/Venti/Venti.obj");
     //Model dvalin = Loader<ModelType::OBJ>::LoadModel("./Genshin/Dvalin/Dvalin.obj");
-    //Model sly = Loader<ModelType::OBJ>::LoadModel("./Ratchet/NebuloxArmor/Ratchet.obj");
+    Model sly = Loader<ModelType::OBJ>::LoadModel("./Ratchet/NebuloxArmor/Ratchet.obj");
 
     Shader shad("./shaders/default.vert", "./shaders/default.frag");
     //Shader shad("./shaders/TextureDebug.vert", "./shaders/TextureDebug.frag");
@@ -104,7 +106,7 @@ int main()
     //dvalin.SetShader(shad);
     //yu.SetShader(shad);
     daeModel.SetShader(shad);
-    //sly.SetShader(shad);
+    sly.SetShader(shad);
 
     glEnable(GL_DEPTH_TEST);
     glEnable(GL_DEBUG_OUTPUT);
@@ -120,7 +122,7 @@ int main()
     //Entity *dvalinEntity = entityMgr.Create("Dvalin");
     //Entity* yuEntity = entityMgr.Create("Yu");
     Entity* daeTest = entityMgr.Create("Test");
-    //Entity* slyEntity = entityMgr.Create("Sly Cooper");
+    Entity* slyEntity = entityMgr.Create("Sly Cooper");
 
     Entity* camera = entityMgr.Create("MainCamera");
 
@@ -128,17 +130,17 @@ int main()
     //dvalinEntity->AddComponent<ModelRenderer>();
     //yuEntity->AddComponent<ModelRenderer>();
     daeTest->AddComponent<ModelRenderer>();
-    //slyEntity->AddComponent<ModelRenderer>();
+    slyEntity->AddComponent<ModelRenderer>();
 
     //ModelRenderer* ventiRenderer = ventiEntity->GetComponent<ModelRenderer>();
     //Transform* ventiTransform = ventiEntity->GetComponent<Transform>();
     //ventiRenderer->setModel(venti);
     //ventiTransform->Translate({ 0.0f, -5.0f, -10.0f });
 
-    //ModelRenderer* slyRenderer = slyEntity->GetComponent<ModelRenderer>();
-    //Transform* slyTransform = slyEntity->GetComponent<Transform>();
-    //slyRenderer->setModel(sly);
-    //slyTransform->Translate({ 30.0f, -5.0f, -10.0f });
+    ModelRenderer* slyRenderer = slyEntity->GetComponent<ModelRenderer>();
+    Transform* slyTransform = slyEntity->GetComponent<Transform>();
+    slyRenderer->setModel(sly);
+    slyTransform->Translate({ 30.0f, -5.0f, -10.0f });
 
     //ModelRenderer* dvalinRenderer = dvalinEntity->GetComponent<ModelRenderer>();
     //Transform* dvalinTransform = dvalinEntity->GetComponent<Transform>();
@@ -149,6 +151,7 @@ int main()
     Transform* daeTransform = daeTest->GetComponent<Transform>();
     daeRenderer->setModel(daeModel);
     daeTransform->Translate({ 0.0f, 0.0f, -10.0f });
+    //daeTransform->Rotate(80, { 1.0f, 0.0f, 0.0f });
     //daeTransform->Scale({ 5.0f, 5.0f, 5.0f });
 
     //ModelRenderer* yuRenderer = yuEntity->GetComponent<ModelRenderer>();

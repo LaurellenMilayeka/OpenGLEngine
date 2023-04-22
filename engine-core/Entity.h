@@ -11,12 +11,17 @@
 
 namespace Engine
 {
+	namespace Managers
+	{
+		class EntityManager;
+	};
+
 	namespace Entity
 	{
 
 		struct Entity
 		{
-			friend class EntityManager;
+			friend class Engine::Managers::EntityManager;
 
 		private:
 

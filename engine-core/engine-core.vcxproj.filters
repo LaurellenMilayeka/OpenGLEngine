@@ -163,6 +163,12 @@
     <Filter Include="Models\AIB\Alice">
       <UniqueIdentifier>{2574b09a-9fad-45c2-8847-2cd597a7da59}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Fichiers d%27en-tête\Managers">
+      <UniqueIdentifier>{debaa8ab-f4af-40e5-8519-2cb24057ba6d}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Fichiers sources\Managers">
+      <UniqueIdentifier>{98da235b-ee26-4437-8179-4c261e3e9814}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="engine-core.cpp">
@@ -179,9 +185,6 @@
     </ClCompile>
     <ClCompile Include="Renderer.cpp">
       <Filter>Fichiers sources\Systems</Filter>
-    </ClCompile>
-    <ClCompile Include="EntityManager.cpp">
-      <Filter>Fichiers sources\Entity</Filter>
     </ClCompile>
     <ClCompile Include="Transform.cpp">
       <Filter>Fichiers sources\Components</Filter>
@@ -255,6 +258,12 @@
     <ClCompile Include="..\libs\ImGUI\examples\example_glfw_opengl3\ImGUI_Demo_GLFW_OGL3.cpp">
       <Filter>Fichiers sources\ImGUI\Examples</Filter>
     </ClCompile>
+    <ClCompile Include="EntityManager.cpp">
+      <Filter>Fichiers sources\Managers</Filter>
+    </ClCompile>
+    <ClCompile Include="TextureManager.cpp">
+      <Filter>Fichiers sources\Managers</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Window.h">
@@ -274,9 +283,6 @@
     </ClInclude>
     <ClInclude Include="Renderer.h">
       <Filter>Fichiers d%27en-tête\Systems</Filter>
-    </ClInclude>
-    <ClInclude Include="EntityManager.h">
-      <Filter>Fichiers d%27en-tête\Entity</Filter>
     </ClInclude>
     <ClInclude Include="IComponent.h">
       <Filter>Fichiers d%27en-tête\Components</Filter>
@@ -334,6 +340,12 @@
     </ClInclude>
     <ClInclude Include="Image.h">
       <Filter>Fichiers d%27en-tête\Graphics</Filter>
+    </ClInclude>
+    <ClInclude Include="TextureManager.h">
+      <Filter>Fichiers d%27en-tête\Managers</Filter>
+    </ClInclude>
+    <ClInclude Include="EntityManager.h">
+      <Filter>Fichiers d%27en-tête\Managers</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

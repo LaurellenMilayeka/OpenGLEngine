@@ -79,22 +79,27 @@ void Camera::UpdateCameraVectors()
 
 		Engine::Maths::Vector3 currentPos = Engine::Maths::Vector3::Zero();
 
+		_mSpeed = 35.0f;
+		if (Engine::InputManager::Input::GetKeyDown(Engine::InputManager::Key::LSHIFT))
+		{
+			_mSpeed *= 3;
+		}
 
 		if (Engine::InputManager::Input::GetKeyDown(Engine::InputManager::Key::Z))
 		{
-			currentPos -= _mFront * 35.0f * Engine::Misc::Time::DeltaTime();
+			currentPos -= _mFront * _mSpeed * Engine::Misc::Time::DeltaTime();
 		}
 		if (Engine::InputManager::Input::GetKeyDown(Engine::InputManager::Key::S))
 		{
-			currentPos += _mFront * 35.0f * Engine::Misc::Time::DeltaTime();
+			currentPos += _mFront * _mSpeed * Engine::Misc::Time::DeltaTime();
 		}
 		if (Engine::InputManager::Input::GetKeyDown(Engine::InputManager::Key::Q))
 		{
-			currentPos -= Engine::Maths::Vector3::Normalize(Engine::Maths::Vector3::Cross(_mUp, _mFront)) * 35.0f * Engine::Misc::Time::DeltaTime();
+			currentPos -= Engine::Maths::Vector3::Normalize(Engine::Maths::Vector3::Cross(_mUp, _mFront)) * _mSpeed * Engine::Misc::Time::DeltaTime();
 		}
 		if (Engine::InputManager::Input::GetKeyDown(Engine::InputManager::Key::D))
 		{
-			currentPos += Engine::Maths::Vector3::Normalize(Engine::Maths::Vector3::Cross(_mUp, _mFront)) * 35.0f * Engine::Misc::Time::DeltaTime();
+			currentPos += Engine::Maths::Vector3::Normalize(Engine::Maths::Vector3::Cross(_mUp, _mFront)) * _mSpeed * Engine::Misc::Time::DeltaTime();
 		}
 		transform->Translate(currentPos);
 	}

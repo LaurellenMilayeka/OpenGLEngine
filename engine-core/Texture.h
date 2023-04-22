@@ -6,6 +6,11 @@
 
 namespace Engine
 {
+	namespace Managers
+	{
+		class TextureManager;
+	};
+
 	namespace Graphics
 	{
 		enum class TextureType {
@@ -15,18 +20,16 @@ namespace Engine
 
 		struct Texture
 		{
+			friend class Engine::Managers::TextureManager;
+
 		private:
 
-			std::string TextureName;
-
-			void LoadTexture(std::string const& texPath, TextureType type);
+			Texture(unsigned int id, TextureType type);
 
 		public:
 
 			GLuint ID;
 			TextureType Type;
-
-			Texture(std::string const& texPath, TextureType type);
 		};
 	}
 }

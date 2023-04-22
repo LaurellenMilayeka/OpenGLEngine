@@ -2,6 +2,7 @@
 #include "Image.h"
 #include "Material.h"
 #include "Vector4.h"
+#include "TextureManager.h"
 
 #include <pugixml.hpp>
 #include <sstream>
@@ -54,6 +55,14 @@ typedef struct {
 typedef struct {
 	std::string EffectID;
 	std::string ImageID;
+	Engine::Maths::Vector4 Emission;
+	Engine::Maths::Vector4 Ambient;
+	Engine::Maths::Vector4 Specular;
+	Engine::Maths::Vector4 Transparent;
+	float Shininess;
+	float Transparency;
+	float IndexOfRefraction;
+
 } Effect;
 
 typedef struct{
@@ -66,6 +75,19 @@ typedef struct {
 	std::string MaterialName;
 	std::string EffectID;
 } Material;
+
+enum EffectData
+{
+	UNDEFINED = 0,
+	EMISSION,
+	AMBIENT,
+	DIFFUSE,
+	SPECULAR,
+	SHININESS,
+	TRANSPARENT,
+	TRANSPARENCY,
+	REFRACTION
+};
 
 std::string GetAttribute(std::string const& line, std::string const& attribute) {
 	size_t indStart;
@@ -80,9 +102,8 @@ std::string GetValue(std::string const& line, std::string const& nodeName) {
 	return "";
 }
 
-void LoadEffects(Engine::Filesystem::File& file, std::vector<Effect>& effects) {
+void LoadEffects(Engine::Filesystem::File& file, std::string& line, std::vector<Effect>& effects) {
 	Effect* currentEffect = nullptr;
-	std::string line;
 	size_t indStart;
 	size_t indEnd;
 
@@ -102,13 +123,15 @@ void LoadEffects(Engine::Filesystem::File& file, std::vector<Effect>& effects) {
 
 			currentEffect->ImageID = imageId;
 		}
+		else if (line.find("<technique") != std::string::npos)
+		{
+		}
 	}
 	return;
 }
 
-void LoadImages(Engine::Filesystem::File& file, std::vector<Image>& images) {
+void LoadImages(Engine::Filesystem::File& file, std::string& line, std::vector<Image>& images) {
 	Image* currentImage = nullptr;
-	std::string line;
 	size_t indStart;
 	size_t indEnd;
 
@@ -132,9 +155,8 @@ void LoadImages(Engine::Filesystem::File& file, std::vector<Image>& images) {
 	return;
 }
 
-void LoadMaterials(Engine::Filesystem::File& file, std::vector<Material>& materials) {
+void LoadMaterials(Engine::Filesystem::File& file, std::string& line, std::vector<Material>& materials) {
 	Material *currentMaterial = nullptr;
-	std::string line;
 
 	while (file.ReadLine(line)
 		&& line.find("</library_materials>") == std::string::npos) {
@@ -460,7 +482,7 @@ void SetupModel(std::string const& basePath, Engine::Graphics::Model& model, std
 		}
 		
 		for (unsigned int index = 0; index < (mesh.Triangles.Count * 3); index++)
-			currentMesh->Indices.push_back(mesh.Triangles.Indices[index * currentMesh->Offset]);
+			currentMesh->Indices[Engine::Graphics::PolyType::TRIANGLES].push_back(mesh.Triangles.Indices[index * currentMesh->Offset]);
 
 		auto itNode = std::find_if(nodes.begin(), nodes.end(), [&mesh](const auto& item) {
 			return mesh.Triangles.MaterialID.compare(item.BoundMaterialID) == 0;
@@ -503,7 +525,7 @@ void SetupModel(std::string const& basePath, Engine::Graphics::Model& model, std
 		Image tmpImage = *itImg;
 		
 		//material.AmbientTexture = new Engine::Graphics::Texture(basePath + tmpImage.ImagePath);
-		material.DiffuseTexture = new Engine::Graphics::Texture(basePath + tmpImage.ImagePath, (currentMesh->Is3DTexture) ? Engine::Graphics::TextureType::TEXTURE_3D : Engine::Graphics::TextureType::TEXTURE_2D);
+		material.DiffuseTexture = Engine::Managers::TextureManager::CreateTexture(basePath + tmpImage.ImagePath, (currentMesh->Is3DTexture) ? Engine::Graphics::TextureType::TEXTURE_3D : Engine::Graphics::TextureType::TEXTURE_2D);
 		//material.SpecularTexture = new Engine::Graphics::Texture(basePath + tmpImage.ImagePath);
 		currentMesh->Mat = new Engine::Graphics::Material(material);
 	}
@@ -524,9 +546,9 @@ Engine::Graphics::Model Loader<ModelType::DAE>::LoadModel(std::string const& mod
 		_mBasePath = modelPath.substr(0, modelPath.find_last_of('/') + 1);
 		while (file.ReadLine(line)) {
 			if (line.find("<library_geometries>") != std::string::npos) { LoadGeometries(file, meshes); }
-			else if (line.find("<library_materials>") != std::string::npos) { LoadMaterials(file, materials); }
-			else if (line.find("<library_images>") != std::string::npos) { LoadImages(file, images); }
-			else if (line.find("<library_effects>") != std::string::npos) { LoadEffects(file, effects); }
+			else if (line.find("<library_materials>") != std::string::npos) { LoadMaterials(file, line, materials); }
+			else if (line.find("<library_images>") != std::string::npos) { LoadImages(file, line, images); }
+			else if (line.find("<library_effects>") != std::string::npos) { LoadEffects(file, line, effects); }
 			else if (line.find("<library_visual_scenes>") != std::string::npos) { LoadVisualScenes(file, nodes); }
 		}
 		SetupModel(_mBasePath, toReturn, meshes, materials, images, effects, nodes);

@@ -25,6 +25,7 @@ namespace Engine
 
 			bool _mDisableCameraMovements;
 
+			float _mSpeed;
 			float _mYaw;
 			float _mPitch;
 

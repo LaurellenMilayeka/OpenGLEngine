@@ -3,13 +3,17 @@
 #include <vector>
 #include <string>
 
-#include "Entity.h"
 #include "Renderer.h"
 #include "InputManager.h"
 
 namespace Engine
 {
 	namespace Entity
+	{
+		struct Entity;
+	};
+
+	namespace Managers
 	{
 		class EntityManager
 		{
@@ -19,14 +23,14 @@ namespace Engine
 
 		private:
 
-			static std::vector<Entity*> _mEntityPool;
+			static std::vector<Engine::Entity::Entity*> _mEntityPool;
 
 		public:
 
-			static Entity* Create(std::string const& entityName);
-			static void Delete(Entity const& toDelete);
+			static Engine::Entity::Entity* Create(std::string const& entityName);
+			static void Delete(Engine::Entity::Entity const* toDelete);
 
-			static Entity const* Get(std::string const& id);
+			static Engine::Entity::Entity const* Get(std::string const& id);
 
 		};
 	}

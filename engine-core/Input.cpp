@@ -13,7 +13,8 @@ std::map<Key, bool> Input::_keyState = {
 	{Key::S, false},
 	{Key::D, false},
 	{Key::ESC, false},
-	{Key::ALT, false}
+	{Key::ALT, false},
+	{Key::LSHIFT, false}
 };
 
 Engine::Maths::Vector2 Input::_mMousePosition;
@@ -50,6 +51,9 @@ void Input::Update(GLFWwindow* window, int key, int scancode, int action, int mo
 			break;
 		case GLFW_KEY_LEFT_ALT:
 			_keyState[Key::ALT] = (action == GLFW_PRESS || action == GLFW_REPEAT) ? true : false;
+			break;
+		case GLFW_KEY_LEFT_SHIFT:
+			_keyState[Key::LSHIFT] = (action == GLFW_PRESS || action == GLFW_REPEAT) ? true : false;
 			break;
 		default:
 			switch (glfwGetKeyScancode(key))

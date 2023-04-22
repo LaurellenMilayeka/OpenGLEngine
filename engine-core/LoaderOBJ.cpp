@@ -1,6 +1,7 @@
 #include "Loader.h"
 #include "File.h"
 #include "Helpers.h"
+#include "TextureManager.h"
 
 #include <vector>
 #include <sstream>
@@ -9,6 +10,20 @@ using namespace Engine::InternalIO;
 using namespace Engine::Filesystem;
 
 std::string Loader<ModelType::OBJ>::_mBasePath;
+
+enum class FaceType
+{
+	VERTEX,
+	TEXCOORD,
+	NORMAL,
+	UNDEFINED
+};
+
+typedef struct
+{
+	FaceType faceType;
+	unsigned int index;
+} FaceData;
 
 static void ExtractFloat(std::string const& line, float& value)
 {
@@ -34,25 +49,44 @@ static void ExtractVector2(std::string const& line, Engine::Maths::Vector2& vec)
 	substrLine >> vec.x >> vec.y;
 }
 
-static void ExtractFaces(std::string const& line, std::vector<unsigned int>& facesIndex)
+static void ExtractFaces(std::string const& line, bool& isFirstIndex, std::vector<FaceData>& facesIndex, unsigned int& nbFace)
 {
 	std::vector<std::string> faces;
 	std::stringstream substrLine;
 	std::string output;
-	
+	static unsigned int toSubstract = 0;
+
 	substrLine << line;
 	while (std::getline(substrLine, output, ' '))
 		faces.push_back(output);
 
+	nbFace = static_cast<unsigned int>(faces.size());
 	for (std::string& item : faces)
 	{
-		unsigned int outputFace;
 		std::stringstream substrFace;
 		unsigned int i = 0;
 
 		substrFace << item;
 		while (std::getline(substrFace, output, '/'))
-			facesIndex.push_back(stof(output));
+		{
+			FaceData faceData = {};
+
+			if (isFirstIndex)
+			{
+				toSubstract = stoi(output) - 1;
+				isFirstIndex = false;
+			}
+
+			if (!output.empty())
+			{
+				unsigned int data = stoi(output);
+
+				if (i == 0)
+					data -= toSubstract;
+				faceData = { static_cast<FaceType>(i++), static_cast<unsigned int>(data) };
+				facesIndex.push_back(faceData);
+			}
+		}
 	}
 	return;
 }
@@ -132,21 +166,21 @@ static void ParseMTLFile(std::string const& fileName, std::vector<Engine::Graphi
 			{
 				std::string texPath = fileName.substr(0, fileName.find_last_of('/') + 1) + line.substr(7, line.length() - 7);
 				if (currentMaterial != nullptr)
-					currentMaterial->AmbientTexture = new Engine::Graphics::Texture(texPath, Engine::Graphics::TextureType::TEXTURE_2D);
+					currentMaterial->AmbientTexture = Engine::Managers::TextureManager::CreateTexture(texPath, Engine::Graphics::TextureType::TEXTURE_2D);
 			}
 
 			else if (line.compare(0, 6, "map_Kd") == 0)
 			{
 				std::string texPath = fileName.substr(0, fileName.find_last_of('/') + 1) + line.substr(7, line.length() - 7);
 				if (currentMaterial != nullptr)
-					currentMaterial->DiffuseTexture = new Engine::Graphics::Texture(texPath, Engine::Graphics::TextureType::TEXTURE_2D);
+					currentMaterial->DiffuseTexture = Engine::Managers::TextureManager::CreateTexture(texPath, Engine::Graphics::TextureType::TEXTURE_2D);
 			}
 
 			else if (line.compare(0, 6, "map_Ks") == 0)
 			{
 				std::string texPath = fileName.substr(0, fileName.find_last_of('/') + 1) + line.substr(7, line.length() - 7);
 				if (currentMaterial != nullptr)
-					currentMaterial->SpecularTexture = new Engine::Graphics::Texture(texPath, Engine::Graphics::TextureType::TEXTURE_2D);
+					currentMaterial->SpecularTexture = Engine::Managers::TextureManager::CreateTexture(texPath, Engine::Graphics::TextureType::TEXTURE_2D);
 			}
 		}
 	}
@@ -170,6 +204,7 @@ Engine::Graphics::Model Loader<ModelType::OBJ>::LoadModel(std::string const& mod
 
 		Engine::Filesystem::File model(modelPath);
 		std::string line;
+		bool isFirstIndex = true;
 
 		_mBasePath = modelPath.substr(0, modelPath.find_last_of('/') + 1);
 		while (model.ReadLine(line) != 0)
@@ -201,6 +236,8 @@ Engine::Graphics::Model Loader<ModelType::OBJ>::LoadModel(std::string const& mod
 			{
 				currentMeshGroup = toReturn.CreateMesh();
 				currentMeshGroup->GroupName = line.substr(2, line.length() - 2);
+				currentMeshGroup->TextureCoords.resize(2);
+				isFirstIndex = true;
 			}
 
 			else if (line.compare(0, 2, "v ") == 0)
@@ -209,12 +246,13 @@ Engine::Graphics::Model Loader<ModelType::OBJ>::LoadModel(std::string const& mod
 
 				line = line.substr(2, line.length() - 2);
 				ExtractVector3(line, vert);
-				vertices.push_back(vert);
+				currentMeshGroup->Vertices.push_back(vert);
 			}
 
 			else if (line.compare(0, 2, "f ") == 0)
 			{
-				std::vector<unsigned int> face;
+				std::vector<FaceData> face;
+				unsigned int nbFace = 0;
 
 				line = line.substr(2, line.length() - 2);
 				if (currentMeshGroup == nullptr)
@@ -223,32 +261,43 @@ Engine::Graphics::Model Loader<ModelType::OBJ>::LoadModel(std::string const& mod
 					currentMeshGroup->GroupName = "Default";
 				}
 
-				ExtractFaces(line, face);
-				unsigned int iFace = 0;
-				for (unsigned int index : face)
+				ExtractFaces(line, isFirstIndex, face, nbFace);
+				for (auto const& item : face)
 				{
-					iFace %= 3;
-
-					switch (iFace++)
+					switch (item.faceType)
 					{
-					case 0:
-						currentMeshGroup->Vertices.push_back(vertices.at(
-							static_cast<int>(index) - 1
-						));
+					case FaceType::VERTEX:
+						switch (nbFace)
+						{
+						case 3:
+							currentMeshGroup->Indices[Engine::Graphics::PolyType::TRIANGLES].push_back(item.index - 1);
+							break;
+						case 4:
+							currentMeshGroup->Indices[Engine::Graphics::PolyType::QUADS].push_back(item.index - 1);
+							break;
+						}
 						break;
-					case 1:
+					case FaceType::TEXCOORD:
 					{
-						std::vector<Engine::Maths::Vector3> coords;
+						if (nbFace == 3)
+						{
+							Engine::Maths::Vector3 coords;
 
-						coords.push_back(textures.at(
-							static_cast<int>(index) - 1
-						));
-						currentMeshGroup->TextureCoords.push_back(coords);
+							coords = textures.at(static_cast<int>(item.index) - 1);
+							currentMeshGroup->TextureCoords[0].push_back(coords);
+						}
+						else
+						{
+							Engine::Maths::Vector3 coords;
+
+							coords = textures.at(static_cast<int>(item.index) - 1);
+							currentMeshGroup->TextureCoords[1].push_back(coords);
+						}
 					}
 						break;
-					case 2:
+					case FaceType::NORMAL:
 						currentMeshGroup->Normals.push_back(normals.at(
-							static_cast<int>(index) - 1
+							static_cast<int>(item.index) - 1
 						));
 						break;
 					}
