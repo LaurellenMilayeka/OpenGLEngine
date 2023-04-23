@@ -411,78 +411,79 @@ void SetupModel(std::string const& basePath, Engine::Graphics::Model& model, std
 
 	for (const Mesh& mesh : meshes) {
 		currentMesh = model.CreateMesh();
+		currentMesh->TextureCoords.resize(1);
 		currentMesh->GroupName = mesh.MeshName;
 		currentMesh->Offset    = mesh.Triangles.Inputs.back().Offset + 1;
-		for (const Input& input : mesh.Triangles.Inputs) {
-			auto itSource = std::find_if(mesh.Sources.begin(), mesh.Sources.end(), [&input](const auto& itemInput) {
-				return input.SourceID.compare(itemInput.SourceID) == 0;
-				});
+		for (unsigned int index = 0; index < (mesh.Triangles.Count * 3 * currentMesh->Offset); index += currentMesh->Offset)
+		{
+			for (const Input& input : mesh.Triangles.Inputs) {
+				auto itSource = std::find_if(mesh.Sources.begin(), mesh.Sources.end(), [&input](const auto& itemInput) {
+					return input.SourceID.compare(itemInput.SourceID) == 0;
+					});
 
-			if (itSource == mesh.Sources.end()) {
-				auto itInput = mesh.Vertices.Inputs.begin();
-				for (; itInput != mesh.Vertices.Inputs.end(); itInput++) {
-					itSource = std::find_if(mesh.Sources.begin(), mesh.Sources.end(), [&itInput](const auto& itemInput) {
-						return itInput->SourceID.compare(itemInput.SourceID) == 0;
-						});
+				if (itSource == mesh.Sources.end()) {
+					auto itInput = mesh.Vertices.Inputs.begin();
+					for (; itInput != mesh.Vertices.Inputs.end(); itInput++) {
+						itSource = std::find_if(mesh.Sources.begin(), mesh.Sources.end(), [&itInput](const auto& itemInput) {
+							return itInput->SourceID.compare(itemInput.SourceID) == 0;
+							});
 
+						assert(itSource != mesh.Sources.end());
+
+						Source foundVertSource = *itSource;
+
+						if (itInput->Semantic.compare("VERTEX") == 0
+							|| itInput->Semantic.compare("POSITION") == 0) {
+							currentMesh->Vertices.push_back(foundVertSource.Vec3.at(mesh.Triangles.Indices[index + input.Offset]));
+						}
+						else if (itInput->Semantic.compare("NORMAL") == 0) {
+							currentMesh->Normals.push_back(foundVertSource.Vec3.at(mesh.Triangles.Indices[index + input.Offset]));
+						}
+						else if (itInput->Semantic.compare("TEXCOORD") == 0) {
+							auto itTexType = std::find_if(foundVertSource.Vec3.begin(), foundVertSource.Vec3.end(), [](const auto& item) {
+								return item.z != 0;
+								});
+
+							if (itTexType != foundVertSource.Vec3.end()) {
+								currentMesh->Is3DTexture = true;
+							}
+							else {
+								currentMesh->Is3DTexture = false;
+							}
+							currentMesh->TextureCoords[0].push_back(foundVertSource.Vec3.at(mesh.Triangles.Indices[index + input.Offset]));
+						}
+					}
+				}
+				else {
 					assert(itSource != mesh.Sources.end());
 
-					Source foundVertSource = *itSource;
+					Source foundSource = *itSource;
 
-					if (itInput->Semantic.compare("VERTEX") == 0
-						|| itInput->Semantic.compare("POSITION") == 0) {
-						currentMesh->Vertices = foundVertSource.Vec3;
+					if (input.Semantic.compare("VERTEX") == 0
+						|| input.Semantic.compare("POSITION") == 0) {
+						currentMesh->Vertices.push_back(foundSource.Vec3.at(mesh.Triangles.Indices[index + input.Offset]));
 					}
-					else if (itInput->Semantic.compare("NORMAL") == 0) {
-						currentMesh->Normals = foundVertSource.Vec3;
+					else if (input.Semantic.compare("NORMAL") == 0) {
+						currentMesh->Normals.push_back(foundSource.Vec3.at(mesh.Triangles.Indices[index + input.Offset]));
 					}
-					else if (itInput->Semantic.compare("TEXCOORD") == 0) {
-						auto itTexType = std::find_if(foundVertSource.Vec3.begin(), foundVertSource.Vec3.end(), [](const auto& item) {
-							return item.z != 0;
-							});
+					else if (input.Semantic.compare("TEXCOORD") == 0) {
+						if (foundSource.Vec3.size() > 0) {
+							auto itTexType = std::find_if(foundSource.Vec3.begin(), foundSource.Vec3.end(), [](const auto& item) {
+								return item.z != 0;
+								});
 
-						if (itTexType != foundVertSource.Vec3.end()) {
-							currentMesh->Is3DTexture = true;
+							if (itTexType != foundSource.Vec3.end()) {
+								currentMesh->Is3DTexture = true;
+							}
+							else {
+								currentMesh->Is3DTexture = false;
+							}
+							currentMesh->TextureCoords[0].push_back(foundSource.Vec3.at(mesh.Triangles.Indices[index + input.Offset]));
 						}
-						else {
-							currentMesh->Is3DTexture = false;
-						}
-						currentMesh->TextureCoords.push_back(foundVertSource.Vec3);
-					}
-				}
-			}
-			else {
-				assert(itSource != mesh.Sources.end());
-
-				Source foundSource = *itSource;
-
-				if (input.Semantic.compare("VERTEX") == 0
-					|| input.Semantic.compare("POSITION") == 0) {
-					currentMesh->Vertices = foundSource.Vec3;
-				}
-				else if (input.Semantic.compare("NORMAL") == 0) {
-					currentMesh->Normals = foundSource.Vec3;
-				}
-				else if (input.Semantic.compare("TEXCOORD") == 0) {
-					if (foundSource.Vec3.size() > 0) {
-						auto itTexType = std::find_if(foundSource.Vec3.begin(), foundSource.Vec3.end(), [](const auto& item) {
-							return item.z != 0;
-							});
-
-						if (itTexType != foundSource.Vec3.end()) {
-							currentMesh->Is3DTexture = true;
-						}
-						else {
-							currentMesh->Is3DTexture = false;
-						}
-						currentMesh->TextureCoords.push_back(foundSource.Vec3);
 					}
 				}
 			}
 		}
-		
-		for (unsigned int index = 0; index < (mesh.Triangles.Count * 3); index++)
-			currentMesh->Indices[Engine::Graphics::PolyType::TRIANGLES].push_back(mesh.Triangles.Indices[index * currentMesh->Offset]);
 
 		auto itNode = std::find_if(nodes.begin(), nodes.end(), [&mesh](const auto& item) {
 			return mesh.Triangles.MaterialID.compare(item.BoundMaterialID) == 0;

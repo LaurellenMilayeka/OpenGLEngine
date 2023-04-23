@@ -21,10 +21,25 @@ Engine::Graphics::Texture* TextureManager::CreateTexture(std::string const& texP
 	}
 	else
 	{
+		glGenTextures(1, &ID);
 		data = stbi_load(texPath.c_str(), &width, &height, &nrChannels, 0);
 		if (data != nullptr)
 		{
-			GLint texFormat = (nrChannels == 4) ? GL_RGBA : GL_RGB;
+			GLint texFormat;
+			switch (nrChannels) {
+			case 1:
+				texFormat = GL_R;
+				break;
+			case 2:
+				texFormat = GL_RG;
+				break;
+			case 3:
+				texFormat = GL_RGB;
+				break;
+			case 4:
+				texFormat = GL_RGBA;
+				break;
+			}
 			GLenum target = (type == Engine::Graphics::TextureType::TEXTURE_2D) ? GL_TEXTURE_2D : GL_TEXTURE_3D;
 			glBindTexture(target, ID);
 			glTexParameteri(target, GL_TEXTURE_MIN_FILTER, GL_LINEAR_MIPMAP_LINEAR);
@@ -38,7 +53,7 @@ Engine::Graphics::Texture* TextureManager::CreateTexture(std::string const& texP
 		}
 		else
 		{
-			std::cout << "Could not load texture" << std::endl;
+			std::cout << "Could not load texture : " << texPath << std::endl;
 		}
 		stbi_image_free(data);
 	}

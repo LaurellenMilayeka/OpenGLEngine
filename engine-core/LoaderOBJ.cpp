@@ -49,12 +49,11 @@ static void ExtractVector2(std::string const& line, Engine::Maths::Vector2& vec)
 	substrLine >> vec.x >> vec.y;
 }
 
-static void ExtractFaces(std::string const& line, bool& isFirstIndex, std::vector<FaceData>& facesIndex, unsigned int& nbFace)
+static void ExtractFaces(std::string const& line, std::vector<FaceData>& facesIndex, unsigned int& nbFace)
 {
 	std::vector<std::string> faces;
 	std::stringstream substrLine;
 	std::string output;
-	static unsigned int toSubstract = 0;
 
 	substrLine << line;
 	while (std::getline(substrLine, output, ' '))
@@ -71,18 +70,10 @@ static void ExtractFaces(std::string const& line, bool& isFirstIndex, std::vecto
 		{
 			FaceData faceData = {};
 
-			if (isFirstIndex)
-			{
-				toSubstract = stoi(output) - 1;
-				isFirstIndex = false;
-			}
-
 			if (!output.empty())
 			{
 				unsigned int data = stoi(output);
 
-				if (i == 0)
-					data -= toSubstract;
 				faceData = { static_cast<FaceType>(i++), static_cast<unsigned int>(data) };
 				facesIndex.push_back(faceData);
 			}
@@ -204,7 +195,6 @@ Engine::Graphics::Model Loader<ModelType::OBJ>::LoadModel(std::string const& mod
 
 		Engine::Filesystem::File model(modelPath);
 		std::string line;
-		bool isFirstIndex = true;
 
 		_mBasePath = modelPath.substr(0, modelPath.find_last_of('/') + 1);
 		while (model.ReadLine(line) != 0)
@@ -232,12 +222,11 @@ Engine::Graphics::Model Loader<ModelType::OBJ>::LoadModel(std::string const& mod
 			}
 
 			else if (line.compare(0, 2, "g ") == 0
-				/*|| line.compare(0, 2, "o ") == 0*/)
+				 || line.compare(0, 2, "o ") == 0)
 			{
 				currentMeshGroup = toReturn.CreateMesh();
 				currentMeshGroup->GroupName = line.substr(2, line.length() - 2);
 				currentMeshGroup->TextureCoords.resize(2);
-				isFirstIndex = true;
 			}
 
 			else if (line.compare(0, 2, "v ") == 0)
@@ -246,7 +235,7 @@ Engine::Graphics::Model Loader<ModelType::OBJ>::LoadModel(std::string const& mod
 
 				line = line.substr(2, line.length() - 2);
 				ExtractVector3(line, vert);
-				currentMeshGroup->Vertices.push_back(vert);
+				vertices.push_back(vert);
 			}
 
 			else if (line.compare(0, 2, "f ") == 0)
@@ -261,38 +250,21 @@ Engine::Graphics::Model Loader<ModelType::OBJ>::LoadModel(std::string const& mod
 					currentMeshGroup->GroupName = "Default";
 				}
 
-				ExtractFaces(line, isFirstIndex, face, nbFace);
+				ExtractFaces(line, face, nbFace);
 				for (auto const& item : face)
 				{
 					switch (item.faceType)
 					{
 					case FaceType::VERTEX:
-						switch (nbFace)
-						{
-						case 3:
-							currentMeshGroup->Indices[Engine::Graphics::PolyType::TRIANGLES].push_back(item.index - 1);
-							break;
-						case 4:
-							currentMeshGroup->Indices[Engine::Graphics::PolyType::QUADS].push_back(item.index - 1);
-							break;
-						}
+						currentMeshGroup->Vertices.push_back(vertices.at(
+							static_cast<int>(item.index) - 1
+						));
 						break;
 					case FaceType::TEXCOORD:
 					{
-						if (nbFace == 3)
-						{
-							Engine::Maths::Vector3 coords;
-
-							coords = textures.at(static_cast<int>(item.index) - 1);
-							currentMeshGroup->TextureCoords[0].push_back(coords);
-						}
-						else
-						{
-							Engine::Maths::Vector3 coords;
-
-							coords = textures.at(static_cast<int>(item.index) - 1);
-							currentMeshGroup->TextureCoords[1].push_back(coords);
-						}
+						currentMeshGroup->TextureCoords[0].push_back(textures.at(
+							static_cast<int>(item.index) - 1
+						));
 					}
 						break;
 					case FaceType::NORMAL:
