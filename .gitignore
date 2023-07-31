@@ -20,7 +20,6 @@ engine-core/Release
 # Compiled Dynamic libraries
 *.so
 *.dylib
-*.dll
 
 # Fortran module files
 *.mod
@@ -30,7 +29,6 @@ engine-core/Release
 *.lai
 *.la
 *.a
-*.lib
 
 # Executables
 *.exe
