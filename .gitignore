@@ -38,4 +38,3 @@ engine-core/Release
 *.app
 /engine-core/Zizi
 *.bak
-/libs
