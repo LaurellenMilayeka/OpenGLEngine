@@ -16,6 +16,8 @@
 #include <backends/imgui_impl_glfw.h>
 #include <backends/imgui_impl_opengl3.h>
 
+#include "IconsFontAwesome6.h"
+
 #include "Window.h"
 #include "Input.h"
 #include "File.h"
@@ -61,6 +63,28 @@ void GLAPIENTRY MessageCallback(GLenum source, GLenum type, GLuint id, GLenum se
     //fprintf(stderr, "GL CALLBACK: %s type = 0x%x, severity = 0x%x, message = %s\n", (type == GL_DEBUG_TYPE_ERROR ? "** GL ERROR **" : ""), type, severity, message);
 }
 
+void SetupMenuBar()
+{
+    ImGui::PushStyleVar(ImGuiStyleVar_WindowMinSize, ImVec2(36.0f, 0));
+    if (ImGui::BeginMainMenuBar())
+    {
+        if (ImGui::BeginMenu(ICON_FA_FILE " File"))
+        {
+            if (ImGui::MenuItem(ICON_FA_FILE_ARROW_UP " Open..."))
+            {
+
+            }
+            if (ImGui::MenuItem(ICON_FA_FILE_ARROW_DOWN " Save..."))
+            {
+
+            }
+            ImGui::EndMenu();
+        }
+        ImGui::EndMainMenuBar();
+    }
+    ImGui::PopStyleVar();
+}
+
 int main()
 {
 
@@ -91,22 +115,36 @@ int main()
     ImGui_ImplGlfw_InitForOpenGL(*window, true);
     ImGui_ImplOpenGL3_Init("#version 330");
 
+    ImGuiIO& io = ImGui::GetIO();
+    io.Fonts->AddFontFromFileTTF("fonts/Ubuntu.ttf", 13.0f);
+    float baseFontSize = 13.0f; // 13.0f is the size of the default font. Change to the font size you use.
+    float iconFontSize = baseFontSize * 2.0f / 3.0f; // FontAwesome fonts need to have their sizes reduced by 2.0f/3.0f in order to align correctly
+
+    // merge in icons from Font Awesome
+    static const ImWchar icons_ranges[] = { ICON_MIN_FA, ICON_MAX_16_FA, 0 };
+    ImFontConfig icons_config;
+    icons_config.MergeMode = true;
+    icons_config.PixelSnapH = true;
+    icons_config.GlyphMinAdvanceX = iconFontSize;
+    io.Fonts->AddFontFromFileTTF(FONT_ICON_FILE_NAME_FAS, iconFontSize, &icons_config, icons_ranges);
+    // use FONT_ICON_FILE_NAME_FAR if you want regular instead of solid
+
     Input::Initialize(window.Width() / 2.0f, window.Height() / 2.0f);
 
     //Model yu = Loader<ModelType::DAE>::LoadModel("./models/Persona/Yu/bc001.dae");
-    Model daeModel = Loader<ModelType::DAE>::LoadModel("./models/MetalGear/Peace_walker.dae");
-    //Model venti = Loader<ModelType::OBJ>::LoadModel("./models/Genshin/Venti/Venti.obj");
+    //Model daeModel = Loader<ModelType::DAE>::LoadModel("./models/MetalGear/Peace_walker.dae");
+    Model venti = Loader<ModelType::OBJ>::LoadModel("./models/Genshin/Venti/Venti.obj");
     //Model dvalin = Loader<ModelType::OBJ>::LoadModel("./Genshin/Dvalin/Dvalin.obj");
-    //Model sly = Loader<ModelType::OBJ>::LoadModel("./Ratchet/NebuloxArmor/Ratchet.obj");
+    Model sly = Loader<ModelType::OBJ>::LoadModel("./models/Plane/Plane.obj");
 
     Shader shad("./shaders/default.vert", "./shaders/default.frag");
     //Shader shad("./shaders/TextureDebug.vert", "./shaders/TextureDebug.frag");
 
-    //venti.SetShader(shad);
+    venti.SetShader(shad);
     //dvalin.SetShader(shad);
     //yu.SetShader(shad);
-    daeModel.SetShader(shad);
-    //sly.SetShader(shad);
+    //daeModel.SetShader(shad);
+    sly.SetShader(shad);
 
     glEnable(GL_DEPTH_TEST);
     glEnable(GL_DEBUG_OUTPUT);
@@ -118,41 +156,41 @@ int main()
     glDebugMessageCallback(MessageCallback, 0);
     glClearColor(0.5f, 0.5f, 0.87f, 1.0f);
 
-    //Entity *ventiEntity = entityMgr.Create("Venti");
+    Entity *ventiEntity = entityMgr.Create("Venti");
     //Entity *dvalinEntity = entityMgr.Create("Dvalin");
     //Entity* yuEntity = entityMgr.Create("Yu");
-    Entity* daeTest = entityMgr.Create("Test");
-    //Entity* slyEntity = entityMgr.Create("Sly Cooper");
+    //Entity* daeTest = entityMgr.Create("Test");
+    Entity* slyEntity = entityMgr.Create("Sly Cooper");
 
     Entity* camera = entityMgr.Create("MainCamera");
 
-    //ventiEntity->AddComponent<ModelRenderer>();
+    ventiEntity->AddComponent<ModelRenderer>();
     //dvalinEntity->AddComponent<ModelRenderer>();
     //yuEntity->AddComponent<ModelRenderer>();
-    daeTest->AddComponent<ModelRenderer>();
-    //slyEntity->AddComponent<ModelRenderer>();
+    //daeTest->AddComponent<ModelRenderer>();
+    slyEntity->AddComponent<ModelRenderer>();
 
-    //ModelRenderer* ventiRenderer = ventiEntity->GetComponent<ModelRenderer>();
-    //Transform* ventiTransform = ventiEntity->GetComponent<Transform>();
-    //ventiRenderer->setModel(venti);
-    //ventiTransform->Translate({ 0.0f, -5.0f, -10.0f });
+    ModelRenderer* ventiRenderer = ventiEntity->GetComponent<ModelRenderer>();
+    Transform* ventiTransform = ventiEntity->GetComponent<Transform>();
+    ventiRenderer->setModel(venti);
+    ventiTransform->Translate({ 0.0f, -5.0f, -10.0f });
 
-    //ModelRenderer* slyRenderer = slyEntity->GetComponent<ModelRenderer>();
-    //Transform* slyTransform = slyEntity->GetComponent<Transform>();
-    //slyRenderer->setModel(sly);
-    //slyTransform->Translate({ 30.0f, -5.0f, -10.0f });
+    ModelRenderer* slyRenderer = slyEntity->GetComponent<ModelRenderer>();
+    Transform* slyTransform = slyEntity->GetComponent<Transform>();
+    slyRenderer->setModel(sly);
+    slyTransform->Translate({ 30.0f, -5.0f, -10.0f });
 
     //ModelRenderer* dvalinRenderer = dvalinEntity->GetComponent<ModelRenderer>();
     //Transform* dvalinTransform = dvalinEntity->GetComponent<Transform>();
     //dvalinRenderer->setModel(dvalin);
     //dvalinTransform->Translate({ -30.0f, -5.0f, -10.0f });
 
-    ModelRenderer* daeRenderer = daeTest->GetComponent<ModelRenderer>();
+    /*ModelRenderer* daeRenderer = daeTest->GetComponent<ModelRenderer>();
     Transform* daeTransform = daeTest->GetComponent<Transform>();
     daeRenderer->setModel(daeModel);
     daeTransform->Translate({ 0.0f, 0.0f, -10.0f });
     //daeTransform->Rotate(80, { 1.0f, 0.0f, 0.0f });
-    //daeTransform->Scale({ 5.0f, 5.0f, 5.0f });
+    daeTransform->Scale({ 5.0f, 5.0f, 5.0f });*/
 
     //ModelRenderer* yuRenderer = yuEntity->GetComponent<ModelRenderer>();
     //Transform* yuTransform = yuEntity->GetComponent<Transform>();
@@ -176,7 +214,8 @@ int main()
         ImGui_ImplGlfw_NewFrame();
         ImGui::NewFrame();
 
-        ImGui::ShowMetricsWindow(&show_metrics_window);
+        //SetupMenuBar();
+        //ImGui::ShowMetricsWindow(&show_metrics_window);
 
         if (Input::GetKey(Key::ESC))
         {
@@ -195,9 +234,6 @@ int main()
         }
 
         renderer.Update();
-
-        ImGui::Render();
-        ImGui_ImplOpenGL3_RenderDrawData(ImGui::GetDrawData());
 
         glfwSwapBuffers(*window);
         glfwPollEvents();

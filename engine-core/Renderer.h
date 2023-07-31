@@ -8,13 +8,13 @@ namespace Engine
 		{
 		private:
 
+			void Update3DScene();
+			void UpdateEngineGUI();
+
 		public:
 
 			void Update();
 
-#ifdef _DEBUG
-			void SetupDebugRendererWindow();
-#endif
 		};
 	}
 }

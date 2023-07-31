@@ -169,6 +169,27 @@
     <Filter Include="Fichiers sources\Managers">
       <UniqueIdentifier>{98da235b-ee26-4437-8179-4c261e3e9814}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Fichiers d%27en-tête\GUI">
+      <UniqueIdentifier>{f8e525b8-41c8-4ba3-9f75-992703fa1861}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Fichiers d%27en-tête\GUI\Icons">
+      <UniqueIdentifier>{71de9ce8-7b92-4a34-a189-d81738397314}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Fichiers d%27en-tête\GUI\Menus">
+      <UniqueIdentifier>{d012a726-d411-4d76-a9a7-038c27969bbb}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Fichiers sources\GUI">
+      <UniqueIdentifier>{3e5ec425-e400-42b2-a77f-3a236ee98428}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Fichiers sources\GUI\Menus">
+      <UniqueIdentifier>{9abdf2fa-b550-4069-b5bb-9970d8c4c286}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Fichiers d%27en-tête\GUI\Items">
+      <UniqueIdentifier>{e1aaebee-493c-49e8-b77b-914b490da896}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Fichiers sources\GUI\Items">
+      <UniqueIdentifier>{e39abb0b-d75d-4186-af6d-0a5ee6847f8b}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="engine-core.cpp">
@@ -264,6 +285,12 @@
     <ClCompile Include="TextureManager.cpp">
       <Filter>Fichiers sources\Managers</Filter>
     </ClCompile>
+    <ClCompile Include="TopMenuBar.cpp">
+      <Filter>Fichiers sources\GUI\Menus</Filter>
+    </ClCompile>
+    <ClCompile Include="MenuItem.cpp">
+      <Filter>Fichiers sources\GUI\Items</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Window.h">
@@ -346,6 +373,15 @@
     </ClInclude>
     <ClInclude Include="EntityManager.h">
       <Filter>Fichiers d%27en-tête\Managers</Filter>
+    </ClInclude>
+    <ClInclude Include="IconsFontAwesome6.h">
+      <Filter>Fichiers d%27en-tête\GUI\Icons</Filter>
+    </ClInclude>
+    <ClInclude Include="TopMenuBar.h">
+      <Filter>Fichiers d%27en-tête\GUI\Menus</Filter>
+    </ClInclude>
+    <ClInclude Include="MenuItem.h">
+      <Filter>Fichiers d%27en-tête\GUI\Items</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

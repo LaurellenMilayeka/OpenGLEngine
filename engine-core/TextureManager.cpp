@@ -49,6 +49,7 @@ Engine::Graphics::Texture* TextureManager::CreateTexture(std::string const& texP
 			glBindTexture(target, 0);
 
 			_loadedTextures[texPath] = new Engine::Graphics::Texture(ID, type);
+			stbi_image_free(data);
 			return _loadedTextures[texPath];
 		}
 		else

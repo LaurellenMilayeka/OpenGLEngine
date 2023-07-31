@@ -1,0 +1,204 @@
+Parent = Material3'/Game/Shader/Material_set/SQEX_WhiteEyeMaterial.SQEX_WhiteEyeMaterial'
+ScalarParameterValues[22] =
+{
+    ScalarParameterValues[0] =
+    {
+        ParameterInfo = { Name=None }
+        ParameterValue = 0.78
+        ParameterName = EyeShadowPosAdd00
+    }
+    ScalarParameterValues[1] =
+    {
+        ParameterInfo = { Name=None }
+        ParameterValue = 1.23
+        ParameterName = EyeShadowPosAdd01
+    }
+    ScalarParameterValues[2] =
+    {
+        ParameterInfo = { Name=None }
+        ParameterValue = 1.2
+        ParameterName = EyeShadowPosAdd02
+    }
+    ScalarParameterValues[3] =
+    {
+        ParameterInfo = { Name=None }
+        ParameterValue = 1.08
+        ParameterName = EyeShadowPosAdd03
+    }
+    ScalarParameterValues[4] =
+    {
+        ParameterInfo = { Name=None }
+        ParameterValue = 0.83
+        ParameterName = EyeShadowPosAdd04
+    }
+    ScalarParameterValues[5] =
+    {
+        ParameterInfo = { Name=None }
+        ParameterValue = -6.2
+        ParameterName = Megashira_HightPos
+    }
+    ScalarParameterValues[6] =
+    {
+        ParameterInfo = { Name=None }
+        ParameterValue = 0.6
+        ParameterName = MegashiraArea
+    }
+    ScalarParameterValues[7] =
+    {
+        ParameterInfo = { Name=None }
+        ParameterValue = 10
+        ParameterName = MegashiraBloodAddPos
+    }
+    ScalarParameterValues[8] =
+    {
+        ParameterInfo = { Name=None }
+        ParameterValue = 0.4
+        ParameterName = MejiriArea
+    }
+    ScalarParameterValues[9] =
+    {
+        ParameterInfo = { Name=None }
+        ParameterValue = 8.5
+        ParameterName = MejiriBloodAddPos
+    }
+    ScalarParameterValues[10] =
+    {
+        ParameterInfo = { Name=None }
+        ParameterValue = 0
+        ParameterName = EyeirisBlackOffsetU
+    }
+    ScalarParameterValues[11] =
+    {
+        ParameterInfo = { Name=None }
+        ParameterValue = 0.13
+        ParameterName = MovePosition
+    }
+    ScalarParameterValues[12] =
+    {
+        ParameterInfo = { Name=None }
+        ParameterValue = 1
+        ParameterName = UseEyeirisAreaColor
+    }
+    ScalarParameterValues[13] =
+    {
+        ParameterInfo = { Name=None }
+        ParameterValue = 60
+        ParameterName = Volume
+    }
+    ScalarParameterValues[14] =
+    {
+        ParameterInfo = { Name=None }
+        ParameterValue = 0.5
+        ParameterName = Megashira_Pos
+    }
+    ScalarParameterValues[15] =
+    {
+        ParameterInfo = { Name=None }
+        ParameterValue = 6.44
+        ParameterName = Megiri_Pos
+    }
+    ScalarParameterValues[16] =
+    {
+        ParameterInfo = { Name=None }
+        ParameterValue = 0
+        ParameterName = CheckAreaMode
+    }
+    ScalarParameterValues[17] =
+    {
+        ParameterInfo = { Name=None }
+        ParameterValue = 0.7
+        ParameterName = EyeAOMin
+    }
+    ScalarParameterValues[18] =
+    {
+        ParameterInfo = { Name=None }
+        ParameterValue = 0.8
+        ParameterName = EyeLAMax
+    }
+    ScalarParameterValues[19] =
+    {
+        ParameterInfo = { Name=None }
+        ParameterValue = 0.9
+        ParameterName = ShadowAOVolume
+    }
+    ScalarParameterValues[20] =
+    {
+        ParameterInfo = { Name=None }
+        ParameterValue = 2
+        ParameterName = ShadowLAVolume
+    }
+    ScalarParameterValues[21] =
+    {
+        ParameterInfo = { Name=None }
+        ParameterValue = 0
+        ParameterName = RefractionDepthBias
+    }
+}
+TextureParameterValues[0] = {}
+VectorParameterValues[2] =
+{
+    VectorParameterValues[0] =
+    {
+        ParameterInfo = { Name=None }
+        ParameterValue = { R=0.1, G=0.097778, B=0.086667, A=1 }
+        ParameterName = BloodColor
+    }
+    VectorParameterValues[1] =
+    {
+        ParameterInfo = { Name=None }
+        ParameterValue = { R=0.35, G=0.342222, B=0.303333, A=1 }
+        ParameterName = WhiteEyeColor
+    }
+}
+BasePropertyOverrides =
+{
+    bOverride_BlendMode = false
+    BlendMode = BLEND_Opaque (0)
+    bOverride_TwoSided = false
+    TwoSided = false
+    bOverride_OpacityMaskClipValue = false
+    OpacityMaskClipValue = 0
+}
+StaticParameters =
+{
+    StaticSwitchParameters[0] = {}
+    StaticComponentMaskParameters[0] = {}
+    TerrainLayerWeightParameters[0] = {}
+    MaterialLayersParameters[0] = {}
+}
+RuntimeVirtualTextureParameterValues[0] = {}
+FontParameterValues[0] = {}
+FlattenedTexture = None
+MobileBaseTexture = None
+MobileNormalTexture = None
+bUseMobileSpecular = false
+MobileSpecularPower = 16
+MobileSpecularMask = MSM_Constant (0)
+MobileMaskTexture = None
+TextureStreamingData[4] =
+{
+    TextureStreamingData[0] =
+    {
+        SamplingScale = 1
+        UVChannelIndex = 0
+        TextureName = EyeWhiteBaseColor
+    }
+    TextureStreamingData[1] =
+    {
+        SamplingScale = 1
+        UVChannelIndex = 0
+        TextureName = EyeWhiteBaseNormal
+    }
+    TextureStreamingData[2] =
+    {
+        SamplingScale = 0.125
+        UVChannelIndex = 0
+        TextureName = LibraryTiling16a_Mask
+    }
+    TextureStreamingData[3] =
+    {
+        SamplingScale = 0.125
+        UVChannelIndex = 0
+        TextureName = LibraryTiling16a_normal
+    }
+}

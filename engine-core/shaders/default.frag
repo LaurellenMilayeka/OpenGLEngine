@@ -8,17 +8,29 @@ in vec3 vNormal;
 in vec3 FragPos;
 
 uniform bool hasLight;
+uniform bool hasTexture;
 uniform bool has3DTexture;
+
+uniform vec4 ambientColor;
+uniform vec4 diffuseColor;
+uniform vec4 specularColor;
 
 uniform sampler2D overallTexture2D;
 uniform sampler3D overallTexture3D;
 
 void main()
 {
-	if (has3DTexture) {
-		FragColor = texture(overallTexture3D, TexCoord);
+    if (hasTexture)
+	{
+		if (has3DTexture) {
+			FragColor = ambientColor - 0.2;
+		}
+		else {
+			FragColor = texture(overallTexture2D, TexCoord.xy);
+		}
 	}
-	else {
-		FragColor = texture(overallTexture2D, TexCoord.xy);
+	else
+	{
+		FragColor = ambientColor - 0.2;
 	}
 }

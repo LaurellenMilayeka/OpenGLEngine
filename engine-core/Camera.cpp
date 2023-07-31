@@ -103,4 +103,5 @@ void Camera::UpdateCameraVectors()
 		}
 		transform->Translate(currentPos);
 	}
+
 }

@@ -38,5 +38,4 @@ engine-core/Release
 *.app
 /engine-core/Zizi
 *.bak
-/engine-core/models
 /libs

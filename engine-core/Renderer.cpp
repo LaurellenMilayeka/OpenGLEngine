@@ -5,6 +5,10 @@
 #include "Transform.h"
 #include "Camera.h"
 
+#include <imgui.h>
+#include <backends/imgui_impl_glfw.h>
+#include <backends/imgui_impl_opengl3.h>
+
 #include <GL/glew.h>
 #include <vector>
 #include <glm.hpp>
@@ -13,32 +17,7 @@
 
 using namespace Engine::Systems;
 
-void Renderer::SetupDebugRendererWindow()
-{
-	using namespace ImGui;
-	std::vector<Engine::Entity::Entity*> entityList = Engine::Managers::EntityManager::_mEntityPool;
-
-	Begin("Renderer");
-	for (Engine::Entity::Entity*& item : entityList)
-	{
-		if (TreeNode(item->ID().c_str()))
-		{
-			Checkbox("Enabled", &item->IsEnabled);
-			for (Engine::Components::IComponent*& componentItem : item->GetComponents())
-			{
-				if (TreeNode(componentItem->Name().c_str()))
-				{
-					componentItem->SetupDebugWindow();
-					TreePop();
-				}
-			}
-			TreePop();
-		}
-	}
-	End();
-}
-
-void Renderer::Update()
+void Engine::Systems::Renderer::Update3DScene()
 {
 	std::vector<Engine::Entity::Entity*> entityList = Managers::EntityManager::_mEntityPool;
 	Engine::Components::Camera* cam = Managers::EntityManager::Get("MainCamera")->GetComponent<Engine::Components::Camera>();
@@ -48,10 +27,6 @@ void Renderer::Update()
 	projection = glm::perspective(glm::radians(45.0f), static_cast<float>(1600) / static_cast<float>(900), 0.1f, 10000.0f);
 
 	assert(cam != nullptr);
-
-#ifdef _DEBUG
-	SetupDebugRendererWindow();
-#endif
 
 	for (Engine::Entity::Entity* item : entityList)
 	{
@@ -79,9 +54,18 @@ void Renderer::Update()
 					{
 						modelRenderer->GetModel().GetShader().SetValue("ambientColor", mesh.Mat->Ambient);
 
-						glActiveTexture(GL_TEXTURE0);
-						glBindTexture((mesh.Mat->DiffuseTexture->Type == Engine::Graphics::TextureType::TEXTURE_2D) ? GL_TEXTURE_2D : GL_TEXTURE_3D, mesh.Mat->DiffuseTexture->ID);
-						modelRenderer->GetModel().GetShader().SetValue("overallTexture", 0);
+						if (mesh.Mat->AmbientTexture)
+						{
+							glActiveTexture(GL_TEXTURE0);
+							glBindTexture((mesh.Mat->DiffuseTexture->Type == Engine::Graphics::TextureType::TEXTURE_2D) ? GL_TEXTURE_2D : GL_TEXTURE_3D, mesh.Mat->DiffuseTexture->ID);
+							
+							modelRenderer->GetModel().GetShader().SetValue("hasTexture", true); 
+							modelRenderer->GetModel().GetShader().SetValue("overallTexture", 0);
+						}
+						else
+						{
+							modelRenderer->GetModel().GetShader().SetValue("hasTexture", false);
+						}
 					}
 					else
 					{
@@ -112,7 +96,7 @@ void Renderer::Update()
 							glDrawArrays(GL_TRIANGLES, 0, static_cast<GLsizei>(mesh.Vertices.size()));
 						}
 
-						if (mesh.Mat != nullptr)
+						if (mesh.Mat->DiffuseTexture)
 							glBindTexture((mesh.Mat->DiffuseTexture->Type == Engine::Graphics::TextureType::TEXTURE_2D) ? GL_TEXTURE_2D : GL_TEXTURE_3D, 0);
 
 						glBindVertexArray(0);
@@ -121,4 +105,16 @@ void Renderer::Update()
 			}
 		}
 	}
+}
+
+void Engine::Systems::Renderer::UpdateEngineGUI()
+{
+	ImGui::Render();
+	ImGui_ImplOpenGL3_RenderDrawData(ImGui::GetDrawData());
+}
+
+void Renderer::Update()
+{
+	Update3DScene();
+	UpdateEngineGUI();
 }

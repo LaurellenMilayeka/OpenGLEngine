@@ -28,9 +28,6 @@ namespace Engine
 			Engine::Graphics::Model const& GetModel() const;
 #endif
 
-#ifdef _DEBUG
-			virtual void SetupDebugWindow() override;
-#endif
 		};
 	}
 }

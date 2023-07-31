@@ -1,0 +1,515 @@
+TwoSided = false
+bDisableDepthTest = false
+bIsMasked = false
+ReferencedTextures[3] =
+{
+    ReferencedTextures[0] = Texture2D'/Game/Shader/Material_set/SQEX_BaseMaterialSet/BaseTextures/BaseColorTex.BaseColorTex'
+    ReferencedTextures[1] = Texture2D'/Game/Shader/Material_set/SQEX_BaseMaterialSet/BaseTextures/BaseMaskTex.BaseMaskTex'
+    ReferencedTextures[2] = Texture2D'/Game/Shader/Material_set/SQEX_BaseMaterialSet/BaseTextures/BaseNormalTex.BaseNormalTex'
+}
+Expressions[279] =
+{
+    Expressions[5] = MaterialExpressionVectorParameter'/Game/Shader/Material_set/SQEX_BaseMaterialSet/SQEX_CHRBaseMat/SQEX_NPC_UseSpeMapBaseMat.MaterialExpressionVectorParameter_25'
+    Expressions[7] = MaterialExpressionVectorParameter'/Game/Shader/Material_set/SQEX_BaseMaterialSet/SQEX_CHRBaseMat/SQEX_NPC_UseSpeMapBaseMat.MaterialExpressionVectorParameter_28'
+    Expressions[9] = MaterialExpressionVectorParameter'/Game/Shader/Material_set/SQEX_BaseMaterialSet/SQEX_CHRBaseMat/SQEX_NPC_UseSpeMapBaseMat.MaterialExpressionVectorParameter_31'
+    Expressions[13] = MaterialExpressionTextureSampleParameter2D'/Game/Shader/Material_set/SQEX_BaseMaterialSet/SQEX_CHRBaseMat/SQEX_NPC_UseSpeMapBaseMat.MaterialExpressionTextureSampleParameter2D_4'
+    Expressions[14] = MaterialExpressionTextureSampleParameter2D'/Game/Shader/Material_set/SQEX_BaseMaterialSet/SQEX_CHRBaseMat/SQEX_NPC_UseSpeMapBaseMat.MaterialExpressionTextureSampleParameter2D_10'
+    Expressions[21] = MaterialExpressionScalarParameter'/Game/Shader/Material_set/SQEX_BaseMaterialSet/SQEX_CHRBaseMat/SQEX_NPC_UseSpeMapBaseMat.MaterialExpressionScalarParameter_13'
+    Expressions[22] = MaterialExpressionScalarParameter'/Game/Shader/Material_set/SQEX_BaseMaterialSet/SQEX_CHRBaseMat/SQEX_NPC_UseSpeMapBaseMat.MaterialExpressionScalarParameter_43'
+    Expressions[23] = MaterialExpressionTextureSampleParameter2D'/Game/Shader/Material_set/SQEX_BaseMaterialSet/SQEX_CHRBaseMat/SQEX_NPC_UseSpeMapBaseMat.MaterialExpressionTextureSampleParameter2D_9'
+    Expressions[28] = MaterialExpressionScalarParameter'/Game/Shader/Material_set/SQEX_BaseMaterialSet/SQEX_CHRBaseMat/SQEX_NPC_UseSpeMapBaseMat.MaterialExpressionScalarParameter_8'
+    Expressions[31] = MaterialExpressionVectorParameter'/Game/Shader/Material_set/SQEX_BaseMaterialSet/SQEX_CHRBaseMat/SQEX_NPC_UseSpeMapBaseMat.MaterialExpressionVectorParameter_16'
+    Expressions[35] = MaterialExpressionVectorParameter'/Game/Shader/Material_set/SQEX_BaseMaterialSet/SQEX_CHRBaseMat/SQEX_NPC_UseSpeMapBaseMat.MaterialExpressionVectorParameter_15'
+    Expressions[39] = MaterialExpressionVectorParameter'/Game/Shader/Material_set/SQEX_BaseMaterialSet/SQEX_CHRBaseMat/SQEX_NPC_UseSpeMapBaseMat.MaterialExpressionVectorParameter_14'
+    Expressions[43] = MaterialExpressionVectorParameter'/Game/Shader/Material_set/SQEX_BaseMaterialSet/SQEX_CHRBaseMat/SQEX_NPC_UseSpeMapBaseMat.MaterialExpressionVectorParameter_13'
+    Expressions[48] = MaterialExpressionScalarParameter'/Game/Shader/Material_set/SQEX_BaseMaterialSet/SQEX_CHRBaseMat/SQEX_NPC_UseSpeMapBaseMat.MaterialExpressionScalarParameter_1'
+    Expressions[49] = MaterialExpressionTextureSampleParameter2D'/Game/Shader/Material_set/SQEX_BaseMaterialSet/SQEX_CHRBaseMat/SQEX_NPC_UseSpeMapBaseMat.MaterialExpressionTextureSampleParameter2D_12'
+    Expressions[50] = MaterialExpressionVectorParameter'/Game/Shader/Material_set/SQEX_BaseMaterialSet/SQEX_CHRBaseMat/SQEX_NPC_UseSpeMapBaseMat.MaterialExpressionVectorParameter_22'
+    Expressions[59] = MaterialExpressionVectorParameter'/Game/Shader/Material_set/SQEX_BaseMaterialSet/SQEX_CHRBaseMat/SQEX_NPC_UseSpeMapBaseMat.MaterialExpressionVectorParameter_23'
+    Expressions[60] = MaterialExpressionVectorParameter'/Game/Shader/Material_set/SQEX_BaseMaterialSet/SQEX_CHRBaseMat/SQEX_NPC_UseSpeMapBaseMat.MaterialExpressionVectorParameter_26'
+    Expressions[61] = MaterialExpressionVectorParameter'/Game/Shader/Material_set/SQEX_BaseMaterialSet/SQEX_CHRBaseMat/SQEX_NPC_UseSpeMapBaseMat.MaterialExpressionVectorParameter_29'
+    Expressions[62] = MaterialExpressionVectorParameter'/Game/Shader/Material_set/SQEX_BaseMaterialSet/SQEX_CHRBaseMat/SQEX_NPC_UseSpeMapBaseMat.MaterialExpressionVectorParameter_32'
+    Expressions[66] = MaterialExpressionVectorParameter'/Game/Shader/Material_set/SQEX_BaseMaterialSet/SQEX_CHRBaseMat/SQEX_NPC_UseSpeMapBaseMat.MaterialExpressionVectorParameter_35'
+    Expressions[68] = MaterialExpressionVectorParameter'/Game/Shader/Material_set/SQEX_BaseMaterialSet/SQEX_CHRBaseMat/SQEX_NPC_UseSpeMapBaseMat.MaterialExpressionVectorParameter_38'
+    Expressions[72] = MaterialExpressionVectorParameter'/Game/Shader/Material_set/SQEX_BaseMaterialSet/SQEX_CHRBaseMat/SQEX_NPC_UseSpeMapBaseMat.MaterialExpressionVectorParameter_41'
+    Expressions[74] = MaterialExpressionVectorParameter'/Game/Shader/Material_set/SQEX_BaseMaterialSet/SQEX_CHRBaseMat/SQEX_NPC_UseSpeMapBaseMat.MaterialExpressionVectorParameter_42'
+    Expressions[83] = MaterialExpressionScalarParameter'/Game/Shader/Material_set/SQEX_BaseMaterialSet/SQEX_CHRBaseMat/SQEX_NPC_UseSpeMapBaseMat.MaterialExpressionScalarParameter_27'
+    Expressions[85] = MaterialExpressionScalarParameter'/Game/Shader/Material_set/SQEX_BaseMaterialSet/SQEX_CHRBaseMat/SQEX_NPC_UseSpeMapBaseMat.MaterialExpressionScalarParameter_21'
+    Expressions[87] = MaterialExpressionScalarParameter'/Game/Shader/Material_set/SQEX_BaseMaterialSet/SQEX_CHRBaseMat/SQEX_NPC_UseSpeMapBaseMat.MaterialExpressionScalarParameter_14'
+    Expressions[91] = MaterialExpressionScalarParameter'/Game/Shader/Material_set/SQEX_BaseMaterialSet/SQEX_CHRBaseMat/SQEX_NPC_UseSpeMapBaseMat.MaterialExpressionScalarParameter_7'
+    Expressions[97] = MaterialExpressionScalarParameter'/Game/Shader/Material_set/SQEX_BaseMaterialSet/SQEX_CHRBaseMat/SQEX_NPC_UseSpeMapBaseMat.MaterialExpressionScalarParameter_3'
+    Expressions[99] = MaterialExpressionScalarParameter'/Game/Shader/Material_set/SQEX_BaseMaterialSet/SQEX_CHRBaseMat/SQEX_NPC_UseSpeMapBaseMat.MaterialExpressionScalarParameter_28'
+    Expressions[100] = MaterialExpressionScalarParameter'/Game/Shader/Material_set/SQEX_BaseMaterialSet/SQEX_CHRBaseMat/SQEX_NPC_UseSpeMapBaseMat.MaterialExpressionScalarParameter_16'
+    Expressions[101] = MaterialExpressionScalarParameter'/Game/Shader/Material_set/SQEX_BaseMaterialSet/SQEX_CHRBaseMat/SQEX_NPC_UseSpeMapBaseMat.MaterialExpressionScalarParameter_15'
+    Expressions[102] = MaterialExpressionScalarParameter'/Game/Shader/Material_set/SQEX_BaseMaterialSet/SQEX_CHRBaseMat/SQEX_NPC_UseSpeMapBaseMat.MaterialExpressionScalarParameter_23'
+    Expressions[103] = MaterialExpressionScalarParameter'/Game/Shader/Material_set/SQEX_BaseMaterialSet/SQEX_CHRBaseMat/SQEX_NPC_UseSpeMapBaseMat.MaterialExpressionScalarParameter_22'
+    Expressions[104] = MaterialExpressionScalarParameter'/Game/Shader/Material_set/SQEX_BaseMaterialSet/SQEX_CHRBaseMat/SQEX_NPC_UseSpeMapBaseMat.MaterialExpressionScalarParameter_33'
+    Expressions[105] = MaterialExpressionScalarParameter'/Game/Shader/Material_set/SQEX_BaseMaterialSet/SQEX_CHRBaseMat/SQEX_NPC_UseSpeMapBaseMat.MaterialExpressionScalarParameter_32'
+    Expressions[106] = MaterialExpressionScalarParameter'/Game/Shader/Material_set/SQEX_BaseMaterialSet/SQEX_CHRBaseMat/SQEX_NPC_UseSpeMapBaseMat.MaterialExpressionScalarParameter_35'
+    Expressions[107] = MaterialExpressionScalarParameter'/Game/Shader/Material_set/SQEX_BaseMaterialSet/SQEX_CHRBaseMat/SQEX_NPC_UseSpeMapBaseMat.MaterialExpressionScalarParameter_34'
+    Expressions[109] = MaterialExpressionScalarParameter'/Game/Shader/Material_set/SQEX_BaseMaterialSet/SQEX_CHRBaseMat/SQEX_NPC_UseSpeMapBaseMat.MaterialExpressionScalarParameter_41'
+    Expressions[110] = MaterialExpressionScalarParameter'/Game/Shader/Material_set/SQEX_BaseMaterialSet/SQEX_CHRBaseMat/SQEX_NPC_UseSpeMapBaseMat.MaterialExpressionScalarParameter_44'
+    Expressions[111] = MaterialExpressionTextureSampleParameter2D'/Game/Shader/Material_set/SQEX_BaseMaterialSet/SQEX_CHRBaseMat/SQEX_NPC_UseSpeMapBaseMat.MaterialExpressionTextureSampleParameter2D_5'
+    Expressions[115] = MaterialExpressionVectorParameter'/Game/Shader/Material_set/SQEX_BaseMaterialSet/SQEX_CHRBaseMat/SQEX_NPC_UseSpeMapBaseMat.MaterialExpressionVectorParameter_17'
+    Expressions[118] = MaterialExpressionScalarParameter'/Game/Shader/Material_set/SQEX_BaseMaterialSet/SQEX_CHRBaseMat/SQEX_NPC_UseSpeMapBaseMat.MaterialExpressionScalarParameter_45'
+    Expressions[128] = MaterialExpressionScalarParameter'/Game/Shader/Material_set/SQEX_BaseMaterialSet/SQEX_CHRBaseMat/SQEX_NPC_UseSpeMapBaseMat.MaterialExpressionScalarParameter_10'
+    Expressions[132] = MaterialExpressionScalarParameter'/Game/Shader/Material_set/SQEX_BaseMaterialSet/SQEX_CHRBaseMat/SQEX_NPC_UseSpeMapBaseMat.MaterialExpressionScalarParameter_9'
+    Expressions[136] = MaterialExpressionVectorParameter'/Game/Shader/Material_set/SQEX_BaseMaterialSet/SQEX_CHRBaseMat/SQEX_NPC_UseSpeMapBaseMat.MaterialExpressionVectorParameter_4'
+    Expressions[144] = MaterialExpressionScalarParameter'/Game/Shader/Material_set/SQEX_BaseMaterialSet/SQEX_CHRBaseMat/SQEX_NPC_UseSpeMapBaseMat.MaterialExpressionScalarParameter_6'
+    Expressions[149] = MaterialExpressionScalarParameter'/Game/Shader/Material_set/SQEX_BaseMaterialSet/SQEX_CHRBaseMat/SQEX_NPC_UseSpeMapBaseMat.MaterialExpressionScalarParameter_4'
+    Expressions[153] = MaterialExpressionScalarParameter'/Game/Shader/Material_set/SQEX_BaseMaterialSet/SQEX_CHRBaseMat/SQEX_NPC_UseSpeMapBaseMat.MaterialExpressionScalarParameter_11'
+    Expressions[157] = MaterialExpressionScalarParameter'/Game/Shader/Material_set/SQEX_BaseMaterialSet/SQEX_CHRBaseMat/SQEX_NPC_UseSpeMapBaseMat.MaterialExpressionScalarParameter_19'
+    Expressions[161] = MaterialExpressionScalarParameter'/Game/Shader/Material_set/SQEX_BaseMaterialSet/SQEX_CHRBaseMat/SQEX_NPC_UseSpeMapBaseMat.MaterialExpressionScalarParameter_24'
+    Expressions[163] = MaterialExpressionScalarParameter'/Game/Shader/Material_set/SQEX_BaseMaterialSet/SQEX_CHRBaseMat/SQEX_NPC_UseSpeMapBaseMat.MaterialExpressionScalarParameter_12'
+    Expressions[184] = MaterialExpressionVectorParameter'/Game/Shader/Material_set/SQEX_BaseMaterialSet/SQEX_CHRBaseMat/SQEX_NPC_UseSpeMapBaseMat.MaterialExpressionVectorParameter_3'
+    Expressions[188] = MaterialExpressionScalarParameter'/Game/Shader/Material_set/SQEX_BaseMaterialSet/SQEX_CHRBaseMat/SQEX_NPC_UseSpeMapBaseMat.MaterialExpressionScalarParameter_17'
+    Expressions[201] = MaterialExpressionVectorParameter'/Game/Shader/Material_set/SQEX_BaseMaterialSet/SQEX_CHRBaseMat/SQEX_NPC_UseSpeMapBaseMat.MaterialExpressionVectorParameter_5'
+    Expressions[203] = MaterialExpressionVectorParameter'/Game/Shader/Material_set/SQEX_BaseMaterialSet/SQEX_CHRBaseMat/SQEX_NPC_UseSpeMapBaseMat.MaterialExpressionVectorParameter_6'
+    Expressions[206] = MaterialExpressionStaticSwitchParameter'/Game/Shader/Material_set/SQEX_BaseMaterialSet/SQEX_CHRBaseMat/SQEX_NPC_UseSpeMapBaseMat.MaterialExpressionStaticSwitchParameter_0'
+    Expressions[213] = MaterialExpressionStaticSwitchParameter'/Game/Shader/Material_set/SQEX_BaseMaterialSet/SQEX_CHRBaseMat/SQEX_NPC_UseSpeMapBaseMat.MaterialExpressionStaticSwitchParameter_1'
+    Expressions[216] = MaterialExpressionVectorParameter'/Game/Shader/Material_set/SQEX_BaseMaterialSet/SQEX_CHRBaseMat/SQEX_NPC_UseSpeMapBaseMat.MaterialExpressionVectorParameter_0'
+    Expressions[217] = MaterialExpressionStaticSwitchParameter'/Game/Shader/Material_set/SQEX_BaseMaterialSet/SQEX_CHRBaseMat/SQEX_NPC_UseSpeMapBaseMat.MaterialExpressionStaticSwitchParameter_2'
+    Expressions[218] = MaterialExpressionScalarParameter'/Game/Shader/Material_set/SQEX_BaseMaterialSet/SQEX_CHRBaseMat/SQEX_NPC_UseSpeMapBaseMat.MaterialExpressionScalarParameter_0'
+    Expressions[222] = MaterialExpressionStaticSwitchParameter'/Game/Shader/Material_set/SQEX_BaseMaterialSet/SQEX_CHRBaseMat/SQEX_NPC_UseSpeMapBaseMat.MaterialExpressionStaticSwitchParameter_16'
+    Expressions[223] = MaterialExpressionStaticSwitchParameter'/Game/Shader/Material_set/SQEX_BaseMaterialSet/SQEX_CHRBaseMat/SQEX_NPC_UseSpeMapBaseMat.MaterialExpressionStaticSwitchParameter_17'
+    Expressions[225] = MaterialExpressionStaticSwitchParameter'/Game/Shader/Material_set/SQEX_BaseMaterialSet/SQEX_CHRBaseMat/SQEX_NPC_UseSpeMapBaseMat.MaterialExpressionStaticSwitchParameter_19'
+    Expressions[227] = MaterialExpressionStaticSwitchParameter'/Game/Shader/Material_set/SQEX_BaseMaterialSet/SQEX_CHRBaseMat/SQEX_NPC_UseSpeMapBaseMat.MaterialExpressionStaticSwitchParameter_14'
+    Expressions[228] = MaterialExpressionStaticSwitchParameter'/Game/Shader/Material_set/SQEX_BaseMaterialSet/SQEX_CHRBaseMat/SQEX_NPC_UseSpeMapBaseMat.MaterialExpressionStaticSwitchParameter_15'
+    Expressions[233] = MaterialExpressionStaticSwitchParameter'/Game/Shader/Material_set/SQEX_BaseMaterialSet/SQEX_CHRBaseMat/SQEX_NPC_UseSpeMapBaseMat.MaterialExpressionStaticSwitchParameter_18'
+    Expressions[238] = MaterialExpressionStaticBoolParameter'/Game/Shader/Material_set/SQEX_BaseMaterialSet/SQEX_CHRBaseMat/SQEX_NPC_UseSpeMapBaseMat.MaterialExpressionStaticBoolParameter_0'
+    Expressions[239] = MaterialExpressionStaticBoolParameter'/Game/Shader/Material_set/SQEX_BaseMaterialSet/SQEX_CHRBaseMat/SQEX_NPC_UseSpeMapBaseMat.MaterialExpressionStaticBoolParameter_1'
+    Expressions[240] = MaterialExpressionStaticSwitchParameter'/Game/Shader/Material_set/SQEX_BaseMaterialSet/SQEX_CHRBaseMat/SQEX_NPC_UseSpeMapBaseMat.MaterialExpressionStaticSwitchParameter_3'
+    Expressions[247] = MaterialExpressionScalarParameter'/Game/Shader/Material_set/SQEX_BaseMaterialSet/SQEX_CHRBaseMat/SQEX_NPC_UseSpeMapBaseMat.MaterialExpressionScalarParameter_37'
+    Expressions[248] = MaterialExpressionVectorParameter'/Game/Shader/Material_set/SQEX_BaseMaterialSet/SQEX_CHRBaseMat/SQEX_NPC_UseSpeMapBaseMat.MaterialExpressionVectorParameter_1'
+    Expressions[254] = MaterialExpressionStaticSwitchParameter'/Game/Shader/Material_set/SQEX_BaseMaterialSet/SQEX_CHRBaseMat/SQEX_NPC_UseSpeMapBaseMat.MaterialExpressionStaticSwitchParameter_11'
+    Expressions[255] = MaterialExpressionTextureSampleParameter2D'/Game/Shader/Material_set/SQEX_BaseMaterialSet/SQEX_CHRBaseMat/SQEX_NPC_UseSpeMapBaseMat.MaterialExpressionTextureSampleParameter2D_0'
+    Expressions[259] = MaterialExpressionScalarParameter'/Game/Shader/Material_set/SQEX_BaseMaterialSet/SQEX_CHRBaseMat/SQEX_NPC_UseSpeMapBaseMat.MaterialExpressionScalarParameter_26'
+    Expressions[260] = MaterialExpressionScalarParameter'/Game/Shader/Material_set/SQEX_BaseMaterialSet/SQEX_CHRBaseMat/SQEX_NPC_UseSpeMapBaseMat.MaterialExpressionScalarParameter_29'
+    Expressions[262] = MaterialExpressionScalarParameter'/Game/Shader/Material_set/SQEX_BaseMaterialSet/SQEX_CHRBaseMat/SQEX_NPC_UseSpeMapBaseMat.MaterialExpressionScalarParameter_30'
+    Expressions[263] = MaterialExpressionScalarParameter'/Game/Shader/Material_set/SQEX_BaseMaterialSet/SQEX_CHRBaseMat/SQEX_NPC_UseSpeMapBaseMat.MaterialExpressionScalarParameter_31'
+    Expressions[269] = MaterialExpressionScalarParameter'/Game/Shader/Material_set/SQEX_BaseMaterialSet/SQEX_CHRBaseMat/SQEX_NPC_UseSpeMapBaseMat.MaterialExpressionScalarParameter_36'
+    Expressions[273] = MaterialExpressionScalarParameter'/Game/Shader/Material_set/SQEX_BaseMaterialSet/SQEX_CHRBaseMat/SQEX_NPC_UseSpeMapBaseMat.MaterialExpressionScalarParameter_38'
+    Expressions[275] = MaterialExpressionScalarParameter'/Game/Shader/Material_set/SQEX_BaseMaterialSet/SQEX_CHRBaseMat/SQEX_NPC_UseSpeMapBaseMat.MaterialExpressionScalarParameter_39'
+    Expressions[276] = MaterialExpressionScalarParameter'/Game/Shader/Material_set/SQEX_BaseMaterialSet/SQEX_CHRBaseMat/SQEX_NPC_UseSpeMapBaseMat.MaterialExpressionScalarParameter_40'
+}
+CachedExpressionData =
+{
+    Parameters =
+    {
+        Entries[5] =
+        {
+            Entries[0] = { ParameterInfos[0]={} }
+            Entries[1] = { ParameterInfos[0]={} }
+            Entries[2] = { ParameterInfos[0]={} }
+            Entries[3] = { ParameterInfos[0]={} }
+            Entries[4] = { ParameterInfos[0]={} }
+        }
+        ScalarValues[0] = {}
+        VectorValues[0] = {}
+        TextureValues[0] = {}
+    }
+    ReferencedTextures[0] = {}
+}
+BlendMode = BLEND_Masked (1)
+OpacityMaskClipValue = 0.333
+CollectedTextureParameters[6] =
+{
+    CollectedTextureParameters[0] =
+    {
+        Texture = Texture2D'/Game/Shader/Material_set/SQEX_BaseMaterialSet/BaseTextures/BaseNormalTex.BaseNormalTex'
+        Name = NormalTex
+        Group = 01_NormalTexParam
+    }
+    CollectedTextureParameters[1] =
+    {
+        Texture = Texture2D'/Game/Shader/Material_set/SQEX_BaseMaterialSet/BaseTextures/BaseColorTex.BaseColorTex'
+        Name = BaseColorTex
+        Group = 00_BaseTexParam
+    }
+    CollectedTextureParameters[2] =
+    {
+        Texture = Texture2D'/Game/Shader/Material_set/SQEX_BaseMaterialSet/BaseTextures/BaseMaskTex.BaseMaskTex'
+        Name = MaskTexture
+        Group = 02_MaskTexParam
+    }
+    CollectedTextureParameters[3] =
+    {
+        Texture = Texture2D'/Game/Shader/Material_set/SQEX_BaseMaterialSet/BaseTextures/BaseMaskTex.BaseMaskTex'
+        Name = SpecularTexture
+        Group = 02_SpecularTexParam
+    }
+    CollectedTextureParameters[4] =
+    {
+        Texture = Texture2D'/Game/Shader/Material_set/SQEX_BaseMaterialSet/BaseTextures/BaseMaskTex.BaseMaskTex'
+        Name = MaskedTexture
+        Group = 08_MaskedTexParam
+    }
+    CollectedTextureParameters[5] =
+    {
+        Texture = Texture2D'/Game/Shader/Material_set/SQEX_BaseMaterialSet/BaseTextures/BaseColorTex.BaseColorTex'
+        Name = IcePatturnTex
+        Group = 13_BreakSwordParam
+    }
+}
+CollectedScalarParameters[40] =
+{
+    CollectedScalarParameters[0] =
+    {
+        Value = 0
+        Name = BaseTexIndex
+        Group = 00_BaseTexParam
+    }
+    CollectedScalarParameters[1] =
+    {
+        Value = 0
+        Name = NormalTexIndex
+        Group = 01_NormalTexParam
+    }
+    CollectedScalarParameters[2] =
+    {
+        Value = 0
+        Name = MaskTexIndex
+        Group = 02_MaskTexParam
+    }
+    CollectedScalarParameters[3] =
+    {
+        Value = 0
+        Name = SpecularTexIndex
+        Group = 02_SpecularTexParam
+    }
+    CollectedScalarParameters[4] = { Value=1, Name=SSOPMin, Group=SSParam }
+    CollectedScalarParameters[5] =
+    {
+        Value = 0
+        Name = A_Mask_UseSS
+        Group = 07_A_ChannelParam
+    }
+    CollectedScalarParameters[6] =
+    {
+        Value = 0
+        Name = B_Mask_UseSS
+        Group = 06_B_ChannelParam
+    }
+    CollectedScalarParameters[7] =
+    {
+        Value = 0
+        Name = G_Mask_UseSS
+        Group = 05_G_ChannelParam
+    }
+    CollectedScalarParameters[8] =
+    {
+        Value = 0
+        Name = R_Mask_UseSS
+        Group = 04_R_ChannelParam
+    }
+    CollectedScalarParameters[9] = { Value=1, Name=SSOPMax, Group=SSParam }
+    CollectedScalarParameters[10] =
+    {
+        Value = 0
+        Name = A_Detail_Tiles
+        Group = 07_A_ChannelParam
+    }
+    CollectedScalarParameters[11] =
+    {
+        Value = 0
+        Name = A_Detail_PatternID
+        Group = 07_A_ChannelParam
+    }
+    CollectedScalarParameters[12] =
+    {
+        Value = 0
+        Name = B_Detail_Tiles
+        Group = 06_B_ChannelParam
+    }
+    CollectedScalarParameters[13] =
+    {
+        Value = 0
+        Name = B_Detail_PatternID
+        Group = 06_B_ChannelParam
+    }
+    CollectedScalarParameters[14] =
+    {
+        Value = 0
+        Name = G_Detail_Tiles
+        Group = 05_G_ChannelParam
+    }
+    CollectedScalarParameters[15] =
+    {
+        Value = 0
+        Name = G_Detail_PatternID
+        Group = 05_G_ChannelParam
+    }
+    CollectedScalarParameters[16] =
+    {
+        Value = 0
+        Name = R_Detail_Tiles
+        Group = 04_R_ChannelParam
+    }
+    CollectedScalarParameters[17] =
+    {
+        Value = 0
+        Name = R_Detail_PatternID
+        Group = 04_R_ChannelParam
+    }
+    CollectedScalarParameters[18] = { Value=0, Name=AOMin, Group=03_AOparam }
+    CollectedScalarParameters[19] =
+    {
+        Value = 0
+        Name = MaskedTexIndex
+        Group = 08_MaskedTexParam
+    }
+    CollectedScalarParameters[20] =
+    {
+        Value = 0
+        Name = UseMaskedTexture
+        Group = 08_MaskedTexParam
+    }
+    CollectedScalarParameters[21] = { Value=0, Name=UseAreaMasked, Group=AreaMasked }
+    CollectedScalarParameters[22] = { Value=1000, Name=AreaDiv, Group=AreaMasked }
+    CollectedScalarParameters[23] =
+    {
+        Value = 0
+        Name = UseLAAreaBlack
+        Group = 09_LightAttenuationParam
+    }
+    CollectedScalarParameters[24] =
+    {
+        Value = 0
+        Name = R_Mask_UseFresnelSSColer
+        Group = 04_R_ChannelParam
+    }
+    CollectedScalarParameters[25] =
+    {
+        Value = 0
+        Name = G_Mask_UseFresnelSSColor
+        Group = 05_G_ChannelParam
+    }
+    CollectedScalarParameters[26] =
+    {
+        Value = 0
+        Name = B_Mask_UseFresnelSSColor
+        Group = 06_B_ChannelParam
+    }
+    CollectedScalarParameters[27] =
+    {
+        Value = 0
+        Name = A_Mask_UseFresnelSSColor
+        Group = 07_A_ChannelParam
+    }
+    CollectedScalarParameters[28] = { Value=2, Name=SSFresnelPow, Group=SSParam }
+    CollectedScalarParameters[29] =
+    {
+        Value = 134.751
+        Name = FireScale
+        Group = 12_cookingParam
+    }
+    CollectedScalarParameters[30] =
+    {
+        Value = 0.5
+        Name = Paper_BackBlend
+        Group = 00_BaseTexParam
+    }
+    CollectedScalarParameters[31] =
+    {
+        Value = 0
+        Name = Use_o_ra218Boost
+        Group = Use_o_ra218
+    }
+    CollectedScalarParameters[32] =
+    {
+        Value = 0
+        Name = BreakPointU
+        Group = 13_BreakSwordParam
+    }
+    CollectedScalarParameters[33] =
+    {
+        Value = 0
+        Name = BreakPointV
+        Group = 13_BreakSwordParam
+    }
+    CollectedScalarParameters[34] =
+    {
+        Value = 1
+        Name = IcePatturnTileMulti
+        Group = 13_BreakSwordParam
+    }
+    CollectedScalarParameters[35] =
+    {
+        Value = 2
+        Name = BreakGradeMulti
+        Group = 13_BreakSwordParam
+    }
+    CollectedScalarParameters[36] =
+    {
+        Value = 0
+        Name = BreakVolume
+        Group = 13_BreakSwordParam
+    }
+    CollectedScalarParameters[37] =
+    {
+        Value = 1
+        Name = IceEmissivMulti
+        Group = 13_BreakSwordParam
+    }
+    CollectedScalarParameters[38] =
+    {
+        Value = 0
+        Name = IcePatturnUVAddU
+        Group = 13_BreakSwordParam
+    }
+    CollectedScalarParameters[39] =
+    {
+        Value = 0
+        Name = IcePatturnUVAddV
+        Group = 13_BreakSwordParam
+    }
+}
+CollectedVectorParameters[23] =
+{
+    CollectedVectorParameters[0] =
+    {
+        Value = { R=1, G=1, B=1, A=0 }
+        Name = B_SpeTex_Multi
+        Group = 06_B_ChannelParam
+    }
+    CollectedVectorParameters[1] =
+    {
+        Value = { R=1, G=1, B=1, A=1 }
+        Name = G_SpeTex_Multi
+        Group = 05_G_ChannelParam
+    }
+    CollectedVectorParameters[2] =
+    {
+        Value = { R=1, G=1, B=1, A=1 }
+        Name = R_SpeTex_Multi
+        Group = 04_R_ChannelParam
+    }
+    CollectedVectorParameters[3] =
+    {
+        Value = { R=0, G=0, B=0, A=1 }
+        Name = A_MaskChannel
+        Group = 07_A_ChannelParam
+    }
+    CollectedVectorParameters[4] =
+    {
+        Value = { R=0, G=0, B=1, A=0 }
+        Name = B_MaskChannel
+        Group = 06_B_ChannelParam
+    }
+    CollectedVectorParameters[5] =
+    {
+        Value = { R=0, G=1, B=0, A=0 }
+        Name = G_MaskChannel
+        Group = 05_G_ChannelParam
+    }
+    CollectedVectorParameters[6] =
+    {
+        Value = { R=1, G=0, B=0, A=0 }
+        Name = R_MaskChannel
+        Group = 04_R_ChannelParam
+    }
+    CollectedVectorParameters[7] =
+    {
+        Value = { R=1, G=1, B=1, A=0 }
+        Name = A_SpeTex_Multi
+        Group = 07_A_ChannelParam
+    }
+    CollectedVectorParameters[8] =
+    {
+        Value = { R=1, G=1, B=1, A=0 }
+        Name = A_Color_Multi
+        Group = 07_A_ChannelParam
+    }
+    CollectedVectorParameters[9] =
+    {
+        Value = { R=1, G=1, B=1, A=0 }
+        Name = B_Color_Multi
+        Group = 06_B_ChannelParam
+    }
+    CollectedVectorParameters[10] =
+    {
+        Value = { R=1, G=1, B=1, A=1 }
+        Name = G_Color_Multi
+        Group = 05_G_ChannelParam
+    }
+    CollectedVectorParameters[11] =
+    {
+        Value = { R=1, G=1, B=1, A=1 }
+        Name = R_Color_Multi
+        Group = 04_R_ChannelParam
+    }
+    CollectedVectorParameters[12] =
+    {
+        Value = { R=0, G=0, B=0, A=1 }
+        Name = A_SSColorMulti
+        Group = 07_A_ChannelParam
+    }
+    CollectedVectorParameters[13] =
+    {
+        Value = { R=0, G=0, B=0, A=1 }
+        Name = B_SSColorMulti
+        Group = 06_B_ChannelParam
+    }
+    CollectedVectorParameters[14] =
+    {
+        Value = { R=0, G=0, B=0, A=1 }
+        Name = G_SSColorMulti
+        Group = 05_G_ChannelParam
+    }
+    CollectedVectorParameters[15] =
+    {
+        Value = { R=0, G=0, B=0, A=1 }
+        Name = R_SSColorMulti
+        Group = 04_R_ChannelParam
+    }
+    CollectedVectorParameters[16] =
+    {
+        Value = { R=0, G=0, B=0, A=0 }
+        Name = Masked_channel
+        Group = 08_MaskedTexParam
+    }
+    CollectedVectorParameters[17] =
+    {
+        Value = { R=0, G=0, B=0, A=1 }
+        Name = joint_atama
+        Group = AreaMasked
+    }
+    CollectedVectorParameters[18] =
+    {
+        Value = { R=0, G=0, B=-100, A=1 }
+        Name = FirePosition
+        Group = 12_cookingParam
+    }
+    CollectedVectorParameters[19] =
+    {
+        Value = { R=1, G=0, B=0, A=1 }
+        Name = FireOutEmissivColor
+        Group = 12_cookingParam
+    }
+    CollectedVectorParameters[20] =
+    {
+        Value = { R=20, G=3, B=0, A=1 }
+        Name = FireCenterEmissivColor
+        Group = 12_cookingParam
+    }
+    CollectedVectorParameters[21] =
+    {
+        Value = { R=1, G=1, B=1, A=1 }
+        Name = Paper_BackBlendColor
+        Group = 00_BaseTexParam
+    }
+    CollectedVectorParameters[22] =
+    {
+        Value = { R=0, G=0, B=0, A=1 }
+        Name = RotateParam
+        Group = Use_o_ra218
+    }
+}
+FlattenedTexture = None
+MobileBaseTexture = None
+MobileNormalTexture = None
+bUseMobileSpecular = false
+MobileSpecularPower = 16
+MobileSpecularMask = MSM_Constant (0)
+MobileMaskTexture = None
+TextureStreamingData[0] = {}

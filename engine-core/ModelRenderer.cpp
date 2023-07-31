@@ -34,19 +34,3 @@ Engine::Graphics::Model const& ModelRenderer::GetModel() const
 }
 
 #endif
-
-void Engine::Components::ModelRenderer::SetupDebugWindow()
-{
-	using namespace ImGui;
-
-	Text("Model name : %s", _mModel.GetName().c_str());
-
-	for (Engine::Graphics::Mesh& item : _mModel.GetMeshes())
-	{
-		if (TreeNode(item.GroupName.c_str()))
-		{
-			item.SetupDebugWindow();
-			TreePop();
-		}
-	}
-}

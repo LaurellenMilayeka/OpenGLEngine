@@ -1,0 +1,956 @@
+#
+#
+#
+
+newmtl Maillage tex_1_Material__28
+illum 2
+Ka 0.000000 0.000000 0.000000
+Kd 0.588000 0.588000 0.588000
+Ks 0.000000 0.000000 0.000000
+Ns 10.000000
+map_Kd spyro_winter_tundra.png
+
+newmtl Maillage tex_10_Material__28
+illum 2
+Ka 0.000000 0.000000 0.000000
+Kd 0.588000 0.588000 0.588000
+Ks 0.000000 0.000000 0.000000
+Ns 10.000000
+map_Kd spyro_winter_tundra.png
+
+newmtl Maillage tex_100_Material__28
+illum 2
+Ka 0.000000 0.000000 0.000000
+Kd 0.588000 0.588000 0.588000
+Ks 0.000000 0.000000 0.000000
+Ns 10.000000
+map_Kd spyro_winter_tundra.png
+
+newmtl Maillage tex_101_Material__28
+illum 2
+Ka 0.000000 0.000000 0.000000
+Kd 0.588000 0.588000 0.588000
+Ks 0.000000 0.000000 0.000000
+Ns 10.000000
+map_Kd spyro_winter_tundra.png
+
+newmtl Maillage tex_102_Material__28
+illum 2
+Ka 0.000000 0.000000 0.000000
+Kd 0.588000 0.588000 0.588000
+Ks 0.000000 0.000000 0.000000
+Ns 10.000000
+map_Kd spyro_winter_tundra.png
+
+newmtl Maillage tex_104_Material__28
+illum 2
+Ka 0.000000 0.000000 0.000000
+Kd 0.588000 0.588000 0.588000
+Ks 0.000000 0.000000 0.000000
+Ns 10.000000
+map_Kd spyro_winter_tundra.png
+
+newmtl Maillage tex_105_Material__28
+illum 2
+Ka 0.000000 0.000000 0.000000
+Kd 0.588000 0.588000 0.588000
+Ks 0.000000 0.000000 0.000000
+Ns 10.000000
+map_Kd spyro_winter_tundra.png
+
+newmtl Maillage tex_106_Material__28
+illum 2
+Ka 0.000000 0.000000 0.000000
+Kd 0.588000 0.588000 0.588000
+Ks 0.000000 0.000000 0.000000
+Ns 10.000000
+map_Kd spyro_winter_tundra.png
+
+newmtl Maillage tex_107_Material__28
+illum 2
+Ka 0.000000 0.000000 0.000000
+Kd 0.588000 0.588000 0.588000
+Ks 0.000000 0.000000 0.000000
+Ns 10.000000
+map_Kd spyro_winter_tundra.png
+
+newmtl Maillage tex_108_Material__28
+illum 2
+Ka 0.000000 0.000000 0.000000
+Kd 0.588000 0.588000 0.588000
+Ks 0.000000 0.000000 0.000000
+Ns 10.000000
+map_Kd spyro_winter_tundra.png
+
+newmtl Maillage tex_11_Material__28
+illum 2
+Ka 0.000000 0.000000 0.000000
+Kd 0.588000 0.588000 0.588000
+Ks 0.000000 0.000000 0.000000
+Ns 10.000000
+map_Kd spyro_winter_tundra.png
+
+newmtl Maillage tex_110_Material__28
+illum 2
+Ka 0.000000 0.000000 0.000000
+Kd 0.588000 0.588000 0.588000
+Ks 0.000000 0.000000 0.000000
+Ns 10.000000
+map_Kd spyro_winter_tundra.png
+
+newmtl Maillage tex_111_Material__28
+illum 2
+Ka 0.000000 0.000000 0.000000
+Kd 0.588000 0.588000 0.588000
+Ks 0.000000 0.000000 0.000000
+Ns 10.000000
+map_Kd spyro_winter_tundra.png
+
+newmtl Maillage tex_112_Material__28
+illum 2
+Ka 0.000000 0.000000 0.000000
+Kd 0.588000 0.588000 0.588000
+Ks 0.000000 0.000000 0.000000
+Ns 10.000000
+map_Kd spyro_winter_tundra.png
+
+newmtl Maillage tex_113_Material__28
+illum 2
+Ka 0.000000 0.000000 0.000000
+Kd 0.588000 0.588000 0.588000
+Ks 0.000000 0.000000 0.000000
+Ns 10.000000
+map_Kd spyro_winter_tundra.png
+
+newmtl Maillage tex_114_Material__28
+illum 2
+Ka 0.000000 0.000000 0.000000
+Kd 0.588000 0.588000 0.588000
+Ks 0.000000 0.000000 0.000000
+Ns 10.000000
+map_Kd spyro_winter_tundra.png
+
+newmtl Maillage tex_115_Material__28
+illum 2
+Ka 0.000000 0.000000 0.000000
+Kd 0.588000 0.588000 0.588000
+Ks 0.000000 0.000000 0.000000
+Ns 10.000000
+map_Kd spyro_winter_tundra.png
+
+newmtl Maillage tex_116_Material__28
+illum 2
+Ka 0.000000 0.000000 0.000000
+Kd 0.588000 0.588000 0.588000
+Ks 0.000000 0.000000 0.000000
+Ns 10.000000
+map_Kd spyro_winter_tundra.png
+
+newmtl Maillage tex_117_Material__28
+illum 2
+Ka 0.000000 0.000000 0.000000
+Kd 0.588000 0.588000 0.588000
+Ks 0.000000 0.000000 0.000000
+Ns 10.000000
+map_Kd spyro_winter_tundra.png
+
+newmtl Maillage tex_118_Material__28
+illum 2
+Ka 0.000000 0.000000 0.000000
+Kd 0.588000 0.588000 0.588000
+Ks 0.000000 0.000000 0.000000
+Ns 10.000000
+map_Kd spyro_winter_tundra.png
+
+newmtl Maillage tex_119_Material__28
+illum 2
+Ka 0.000000 0.000000 0.000000
+Kd 0.588000 0.588000 0.588000
+Ks 0.000000 0.000000 0.000000
+Ns 10.000000
+map_Kd spyro_winter_tundra.png
+
+newmtl Maillage tex_12_Material__28
+illum 2
+Ka 0.000000 0.000000 0.000000
+Kd 0.588000 0.588000 0.588000
+Ks 0.000000 0.000000 0.000000
+Ns 10.000000
+map_Kd spyro_winter_tundra.png
+
+newmtl Maillage tex_121_Material__28
+illum 2
+Ka 0.000000 0.000000 0.000000
+Kd 0.588000 0.588000 0.588000
+Ks 0.000000 0.000000 0.000000
+Ns 10.000000
+map_Kd spyro_winter_tundra.png
+
+newmtl Maillage tex_122_Material__28
+illum 2
+Ka 0.000000 0.000000 0.000000
+Kd 0.588000 0.588000 0.588000
+Ks 0.000000 0.000000 0.000000
+Ns 10.000000
+map_Kd spyro_winter_tundra.png
+
+newmtl Maillage tex_123_Material__28
+illum 2
+Ka 0.000000 0.000000 0.000000
+Kd 0.588000 0.588000 0.588000
+Ks 0.000000 0.000000 0.000000
+Ns 10.000000
+map_Kd spyro_winter_tundra.png
+
+newmtl Maillage tex_124_Material__28
+illum 2
+Ka 0.000000 0.000000 0.000000
+Kd 0.588000 0.588000 0.588000
+Ks 0.000000 0.000000 0.000000
+Ns 10.000000
+map_Kd spyro_winter_tundra.png
+
+newmtl Maillage tex_125_Material__28
+illum 2
+Ka 0.000000 0.000000 0.000000
+Kd 0.588000 0.588000 0.588000
+Ks 0.000000 0.000000 0.000000
+Ns 10.000000
+map_Kd spyro_winter_tundra.png
+
+newmtl Maillage tex_126_Material__28
+illum 2
+Ka 0.000000 0.000000 0.000000
+Kd 0.588000 0.588000 0.588000
+Ks 0.000000 0.000000 0.000000
+Ns 10.000000
+map_Kd spyro_winter_tundra.png
+
+newmtl Maillage tex_13_Material__28
+illum 2
+Ka 0.000000 0.000000 0.000000
+Kd 0.588000 0.588000 0.588000
+Ks 0.000000 0.000000 0.000000
+Ns 10.000000
+map_Kd spyro_winter_tundra.png
+
+newmtl Maillage tex_14_Material__28
+illum 2
+Ka 0.000000 0.000000 0.000000
+Kd 0.588000 0.588000 0.588000
+Ks 0.000000 0.000000 0.000000
+Ns 10.000000
+map_Kd spyro_winter_tundra.png
+
+newmtl Maillage tex_15_Material__28
+illum 2
+Ka 0.000000 0.000000 0.000000
+Kd 0.588000 0.588000 0.588000
+Ks 0.000000 0.000000 0.000000
+Ns 10.000000
+map_Kd spyro_winter_tundra.png
+
+newmtl Maillage tex_16_Material__28
+illum 2
+Ka 0.000000 0.000000 0.000000
+Kd 0.588000 0.588000 0.588000
+Ks 0.000000 0.000000 0.000000
+Ns 10.000000
+map_Kd spyro_winter_tundra.png
+
+newmtl Maillage tex_17_Material__28
+illum 2
+Ka 0.000000 0.000000 0.000000
+Kd 0.588000 0.588000 0.588000
+Ks 0.000000 0.000000 0.000000
+Ns 10.000000
+map_Kd spyro_winter_tundra.png
+
+newmtl Maillage tex_18_Material__28
+illum 2
+Ka 0.000000 0.000000 0.000000
+Kd 0.588000 0.588000 0.588000
+Ks 0.000000 0.000000 0.000000
+Ns 10.000000
+map_Kd spyro_winter_tundra.png
+
+newmtl Maillage tex_19_Material__28
+illum 2
+Ka 0.000000 0.000000 0.000000
+Kd 0.588000 0.588000 0.588000
+Ks 0.000000 0.000000 0.000000
+Ns 10.000000
+map_Kd spyro_winter_tundra.png
+
+newmtl Maillage tex_2_Material__28
+illum 2
+Ka 0.000000 0.000000 0.000000
+Kd 0.588000 0.588000 0.588000
+Ks 0.000000 0.000000 0.000000
+Ns 10.000000
+map_Kd spyro_winter_tundra.png
+
+newmtl Maillage tex_20_Material__28
+illum 2
+Ka 0.000000 0.000000 0.000000
+Kd 0.588000 0.588000 0.588000
+Ks 0.000000 0.000000 0.000000
+Ns 10.000000
+map_Kd spyro_winter_tundra.png
+
+newmtl Maillage tex_21_Material__28
+illum 2
+Ka 0.000000 0.000000 0.000000
+Kd 0.588000 0.588000 0.588000
+Ks 0.000000 0.000000 0.000000
+Ns 10.000000
+map_Kd spyro_winter_tundra.png
+
+newmtl Maillage tex_22_Material__28
+illum 2
+Ka 0.000000 0.000000 0.000000
+Kd 0.588000 0.588000 0.588000
+Ks 0.000000 0.000000 0.000000
+Ns 10.000000
+map_Kd spyro_winter_tundra.png
+
+newmtl Maillage tex_23_Material__28
+illum 2
+Ka 0.000000 0.000000 0.000000
+Kd 0.588000 0.588000 0.588000
+Ks 0.000000 0.000000 0.000000
+Ns 10.000000
+map_Kd spyro_winter_tundra.png
+
+newmtl Maillage tex_24_Material__28
+illum 2
+Ka 0.000000 0.000000 0.000000
+Kd 0.588000 0.588000 0.588000
+Ks 0.000000 0.000000 0.000000
+Ns 10.000000
+map_Kd spyro_winter_tundra.png
+
+newmtl Maillage tex_25_Material__28
+illum 2
+Ka 0.000000 0.000000 0.000000
+Kd 0.588000 0.588000 0.588000
+Ks 0.000000 0.000000 0.000000
+Ns 10.000000
+map_Kd spyro_winter_tundra.png
+
+newmtl Maillage tex_26_Material__28
+illum 2
+Ka 0.000000 0.000000 0.000000
+Kd 0.588000 0.588000 0.588000
+Ks 0.000000 0.000000 0.000000
+Ns 10.000000
+map_Kd spyro_winter_tundra.png
+
+newmtl Maillage tex_27_Material__28
+illum 2
+Ka 0.000000 0.000000 0.000000
+Kd 0.588000 0.588000 0.588000
+Ks 0.000000 0.000000 0.000000
+Ns 10.000000
+map_Kd spyro_winter_tundra.png
+
+newmtl Maillage tex_28_Material__28
+illum 2
+Ka 0.000000 0.000000 0.000000
+Kd 0.588000 0.588000 0.588000
+Ks 0.000000 0.000000 0.000000
+Ns 10.000000
+map_Kd spyro_winter_tundra.png
+
+newmtl Maillage tex_29_Material__28
+illum 2
+Ka 0.000000 0.000000 0.000000
+Kd 0.588000 0.588000 0.588000
+Ks 0.000000 0.000000 0.000000
+Ns 10.000000
+map_Kd spyro_winter_tundra.png
+
+newmtl Maillage tex_3_Material__28
+illum 2
+Ka 0.000000 0.000000 0.000000
+Kd 0.588000 0.588000 0.588000
+Ks 0.000000 0.000000 0.000000
+Ns 10.000000
+map_Kd spyro_winter_tundra.png
+
+newmtl Maillage tex_30_Material__28
+illum 2
+Ka 0.000000 0.000000 0.000000
+Kd 0.588000 0.588000 0.588000
+Ks 0.000000 0.000000 0.000000
+Ns 10.000000
+map_Kd spyro_winter_tundra.png
+
+newmtl Maillage tex_31_Material__28
+illum 2
+Ka 0.000000 0.000000 0.000000
+Kd 0.588000 0.588000 0.588000
+Ks 0.000000 0.000000 0.000000
+Ns 10.000000
+map_Kd spyro_winter_tundra.png
+
+newmtl Maillage tex_33_Material__28
+illum 2
+Ka 0.000000 0.000000 0.000000
+Kd 0.588000 0.588000 0.588000
+Ks 0.000000 0.000000 0.000000
+Ns 10.000000
+map_Kd spyro_winter_tundra.png
+
+newmtl Maillage tex_34_Material__28
+illum 2
+Ka 0.000000 0.000000 0.000000
+Kd 0.588000 0.588000 0.588000
+Ks 0.000000 0.000000 0.000000
+Ns 10.000000
+map_Kd spyro_winter_tundra.png
+
+newmtl Maillage tex_35_Material__28
+illum 2
+Ka 0.000000 0.000000 0.000000
+Kd 0.588000 0.588000 0.588000
+Ks 0.000000 0.000000 0.000000
+Ns 10.000000
+map_Kd spyro_winter_tundra.png
+
+newmtl Maillage tex_36_Material__28
+illum 2
+Ka 0.000000 0.000000 0.000000
+Kd 0.588000 0.588000 0.588000
+Ks 0.000000 0.000000 0.000000
+Ns 10.000000
+map_Kd spyro_winter_tundra.png
+
+newmtl Maillage tex_37_Material__28
+illum 2
+Ka 0.000000 0.000000 0.000000
+Kd 0.588000 0.588000 0.588000
+Ks 0.000000 0.000000 0.000000
+Ns 10.000000
+map_Kd spyro_winter_tundra.png
+
+newmtl Maillage tex_38_Material__28
+illum 2
+Ka 0.000000 0.000000 0.000000
+Kd 0.588000 0.588000 0.588000
+Ks 0.000000 0.000000 0.000000
+Ns 10.000000
+map_Kd spyro_winter_tundra.png
+
+newmtl Maillage tex_39_Material__28
+illum 2
+Ka 0.000000 0.000000 0.000000
+Kd 0.588000 0.588000 0.588000
+Ks 0.000000 0.000000 0.000000
+Ns 10.000000
+map_Kd spyro_winter_tundra.png
+
+newmtl Maillage tex_4_Material__28
+illum 2
+Ka 0.000000 0.000000 0.000000
+Kd 0.588000 0.588000 0.588000
+Ks 0.000000 0.000000 0.000000
+Ns 10.000000
+map_Kd spyro_winter_tundra.png
+
+newmtl Maillage tex_41_Material__28
+illum 2
+Ka 0.000000 0.000000 0.000000
+Kd 0.588000 0.588000 0.588000
+Ks 0.000000 0.000000 0.000000
+Ns 10.000000
+map_Kd spyro_winter_tundra.png
+
+newmtl Maillage tex_42_Material__28
+illum 2
+Ka 0.000000 0.000000 0.000000
+Kd 0.588000 0.588000 0.588000
+Ks 0.000000 0.000000 0.000000
+Ns 10.000000
+map_Kd spyro_winter_tundra.png
+
+newmtl Maillage tex_43_Material__28
+illum 2
+Ka 0.000000 0.000000 0.000000
+Kd 0.588000 0.588000 0.588000
+Ks 0.000000 0.000000 0.000000
+Ns 10.000000
+map_Kd spyro_winter_tundra.png
+
+newmtl Maillage tex_44_Material__28
+illum 2
+Ka 0.000000 0.000000 0.000000
+Kd 0.588000 0.588000 0.588000
+Ks 0.000000 0.000000 0.000000
+Ns 10.000000
+map_Kd spyro_winter_tundra.png
+
+newmtl Maillage tex_45_Material__28
+illum 2
+Ka 0.000000 0.000000 0.000000
+Kd 0.588000 0.588000 0.588000
+Ks 0.000000 0.000000 0.000000
+Ns 10.000000
+map_Kd spyro_winter_tundra.png
+
+newmtl Maillage tex_46_Material__28
+illum 2
+Ka 0.000000 0.000000 0.000000
+Kd 0.588000 0.588000 0.588000
+Ks 0.000000 0.000000 0.000000
+Ns 10.000000
+map_Kd spyro_winter_tundra.png
+
+newmtl Maillage tex_47_Material__28
+illum 2
+Ka 0.000000 0.000000 0.000000
+Kd 0.588000 0.588000 0.588000
+Ks 0.000000 0.000000 0.000000
+Ns 10.000000
+map_Kd spyro_winter_tundra.png
+
+newmtl Maillage tex_48_Material__28
+illum 2
+Ka 0.000000 0.000000 0.000000
+Kd 0.588000 0.588000 0.588000
+Ks 0.000000 0.000000 0.000000
+Ns 10.000000
+map_Kd spyro_winter_tundra.png
+
+newmtl Maillage tex_49_Material__28
+illum 2
+Ka 0.000000 0.000000 0.000000
+Kd 0.588000 0.588000 0.588000
+Ks 0.000000 0.000000 0.000000
+Ns 10.000000
+map_Kd spyro_winter_tundra.png
+
+newmtl Maillage tex_5_Material__28
+illum 2
+Ka 0.000000 0.000000 0.000000
+Kd 0.588000 0.588000 0.588000
+Ks 0.000000 0.000000 0.000000
+Ns 10.000000
+map_Kd spyro_winter_tundra.png
+
+newmtl Maillage tex_50_Material__28
+illum 2
+Ka 0.000000 0.000000 0.000000
+Kd 0.588000 0.588000 0.588000
+Ks 0.000000 0.000000 0.000000
+Ns 10.000000
+map_Kd spyro_winter_tundra.png
+
+newmtl Maillage tex_51_Material__28
+illum 2
+Ka 0.000000 0.000000 0.000000
+Kd 0.588000 0.588000 0.588000
+Ks 0.000000 0.000000 0.000000
+Ns 10.000000
+map_Kd spyro_winter_tundra.png
+
+newmtl Maillage tex_52_Material__28
+illum 2
+Ka 0.000000 0.000000 0.000000
+Kd 0.588000 0.588000 0.588000
+Ks 0.000000 0.000000 0.000000
+Ns 10.000000
+map_Kd spyro_winter_tundra.png
+
+newmtl Maillage tex_53_Material__28
+illum 2
+Ka 0.000000 0.000000 0.000000
+Kd 0.588000 0.588000 0.588000
+Ks 0.000000 0.000000 0.000000
+Ns 10.000000
+map_Kd spyro_winter_tundra.png
+
+newmtl Maillage tex_54_Material__28
+illum 2
+Ka 0.000000 0.000000 0.000000
+Kd 0.588000 0.588000 0.588000
+Ks 0.000000 0.000000 0.000000
+Ns 10.000000
+map_Kd spyro_winter_tundra.png
+
+newmtl Maillage tex_55_Material__28
+illum 2
+Ka 0.000000 0.000000 0.000000
+Kd 0.588000 0.588000 0.588000
+Ks 0.000000 0.000000 0.000000
+Ns 10.000000
+map_Kd spyro_winter_tundra.png
+
+newmtl Maillage tex_56_Material__28
+illum 2
+Ka 0.000000 0.000000 0.000000
+Kd 0.588000 0.588000 0.588000
+Ks 0.000000 0.000000 0.000000
+Ns 10.000000
+map_Kd spyro_winter_tundra.png
+
+newmtl Maillage tex_57_Material__28
+illum 2
+Ka 0.000000 0.000000 0.000000
+Kd 0.588000 0.588000 0.588000
+Ks 0.000000 0.000000 0.000000
+Ns 10.000000
+map_Kd spyro_winter_tundra.png
+
+newmtl Maillage tex_58_Material__28
+illum 2
+Ka 0.000000 0.000000 0.000000
+Kd 0.588000 0.588000 0.588000
+Ks 0.000000 0.000000 0.000000
+Ns 10.000000
+map_Kd spyro_winter_tundra.png
+
+newmtl Maillage tex_59_Material__28
+illum 2
+Ka 0.000000 0.000000 0.000000
+Kd 0.588000 0.588000 0.588000
+Ks 0.000000 0.000000 0.000000
+Ns 10.000000
+map_Kd spyro_winter_tundra.png
+
+newmtl Maillage tex_6_Material__28
+illum 2
+Ka 0.000000 0.000000 0.000000
+Kd 0.588000 0.588000 0.588000
+Ks 0.000000 0.000000 0.000000
+Ns 10.000000
+map_Kd spyro_winter_tundra.png
+
+newmtl Maillage tex_61_Material__28
+illum 2
+Ka 0.000000 0.000000 0.000000
+Kd 0.588000 0.588000 0.588000
+Ks 0.000000 0.000000 0.000000
+Ns 10.000000
+map_Kd spyro_winter_tundra.png
+
+newmtl Maillage tex_62_Material__28
+illum 2
+Ka 0.000000 0.000000 0.000000
+Kd 0.588000 0.588000 0.588000
+Ks 0.000000 0.000000 0.000000
+Ns 10.000000
+map_Kd spyro_winter_tundra.png
+
+newmtl Maillage tex_63_Material__28
+illum 2
+Ka 0.000000 0.000000 0.000000
+Kd 0.588000 0.588000 0.588000
+Ks 0.000000 0.000000 0.000000
+Ns 10.000000
+map_Kd spyro_winter_tundra.png
+
+newmtl Maillage tex_64_Material__28
+illum 2
+Ka 0.000000 0.000000 0.000000
+Kd 0.588000 0.588000 0.588000
+Ks 0.000000 0.000000 0.000000
+Ns 10.000000
+map_Kd spyro_winter_tundra.png
+
+newmtl Maillage tex_65_Material__28
+illum 2
+Ka 0.000000 0.000000 0.000000
+Kd 0.588000 0.588000 0.588000
+Ks 0.000000 0.000000 0.000000
+Ns 10.000000
+map_Kd spyro_winter_tundra.png
+
+newmtl Maillage tex_66_Material__28
+illum 2
+Ka 0.000000 0.000000 0.000000
+Kd 0.588000 0.588000 0.588000
+Ks 0.000000 0.000000 0.000000
+Ns 10.000000
+map_Kd spyro_winter_tundra.png
+
+newmtl Maillage tex_67_Material__28
+illum 2
+Ka 0.000000 0.000000 0.000000
+Kd 0.588000 0.588000 0.588000
+Ks 0.000000 0.000000 0.000000
+Ns 10.000000
+map_Kd spyro_winter_tundra.png
+
+newmtl Maillage tex_68_Material__28
+illum 2
+Ka 0.000000 0.000000 0.000000
+Kd 0.588000 0.588000 0.588000
+Ks 0.000000 0.000000 0.000000
+Ns 10.000000
+map_Kd spyro_winter_tundra.png
+
+newmtl Maillage tex_69_Material__28
+illum 2
+Ka 0.000000 0.000000 0.000000
+Kd 0.588000 0.588000 0.588000
+Ks 0.000000 0.000000 0.000000
+Ns 10.000000
+map_Kd spyro_winter_tundra.png
+
+newmtl Maillage tex_7_Material__28
+illum 2
+Ka 0.000000 0.000000 0.000000
+Kd 0.588000 0.588000 0.588000
+Ks 0.000000 0.000000 0.000000
+Ns 10.000000
+map_Kd spyro_winter_tundra.png
+
+newmtl Maillage tex_70_Material__28
+illum 2
+Ka 0.000000 0.000000 0.000000
+Kd 0.588000 0.588000 0.588000
+Ks 0.000000 0.000000 0.000000
+Ns 10.000000
+map_Kd spyro_winter_tundra.png
+
+newmtl Maillage tex_71_Material__28
+illum 2
+Ka 0.000000 0.000000 0.000000
+Kd 0.588000 0.588000 0.588000
+Ks 0.000000 0.000000 0.000000
+Ns 10.000000
+map_Kd spyro_winter_tundra.png
+
+newmtl Maillage tex_72_Material__28
+illum 2
+Ka 0.000000 0.000000 0.000000
+Kd 0.588000 0.588000 0.588000
+Ks 0.000000 0.000000 0.000000
+Ns 10.000000
+map_Kd spyro_winter_tundra.png
+
+newmtl Maillage tex_73_Material__28
+illum 2
+Ka 0.000000 0.000000 0.000000
+Kd 0.588000 0.588000 0.588000
+Ks 0.000000 0.000000 0.000000
+Ns 10.000000
+map_Kd spyro_winter_tundra.png
+
+newmtl Maillage tex_74_Material__28
+illum 2
+Ka 0.000000 0.000000 0.000000
+Kd 0.588000 0.588000 0.588000
+Ks 0.000000 0.000000 0.000000
+Ns 10.000000
+map_Kd spyro_winter_tundra.png
+
+newmtl Maillage tex_75_Material__28
+illum 2
+Ka 0.000000 0.000000 0.000000
+Kd 0.588000 0.588000 0.588000
+Ks 0.000000 0.000000 0.000000
+Ns 10.000000
+map_Kd spyro_winter_tundra.png
+
+newmtl Maillage tex_76_Material__28
+illum 2
+Ka 0.000000 0.000000 0.000000
+Kd 0.588000 0.588000 0.588000
+Ks 0.000000 0.000000 0.000000
+Ns 10.000000
+map_Kd spyro_winter_tundra.png
+
+newmtl Maillage tex_77_Material__28
+illum 2
+Ka 0.000000 0.000000 0.000000
+Kd 0.588000 0.588000 0.588000
+Ks 0.000000 0.000000 0.000000
+Ns 10.000000
+map_Kd spyro_winter_tundra.png
+
+newmtl Maillage tex_78_Material__28
+illum 2
+Ka 0.000000 0.000000 0.000000
+Kd 0.588000 0.588000 0.588000
+Ks 0.000000 0.000000 0.000000
+Ns 10.000000
+map_Kd spyro_winter_tundra.png
+
+newmtl Maillage tex_79_Material__28
+illum 2
+Ka 0.000000 0.000000 0.000000
+Kd 0.588000 0.588000 0.588000
+Ks 0.000000 0.000000 0.000000
+Ns 10.000000
+map_Kd spyro_winter_tundra.png
+
+newmtl Maillage tex_8_Material__28
+illum 2
+Ka 0.000000 0.000000 0.000000
+Kd 0.588000 0.588000 0.588000
+Ks 0.000000 0.000000 0.000000
+Ns 10.000000
+map_Kd spyro_winter_tundra.png
+
+newmtl Maillage tex_80_Material__28
+illum 2
+Ka 0.000000 0.000000 0.000000
+Kd 0.588000 0.588000 0.588000
+Ks 0.000000 0.000000 0.000000
+Ns 10.000000
+map_Kd spyro_winter_tundra.png
+
+newmtl Maillage tex_81_Material__28
+illum 2
+Ka 0.000000 0.000000 0.000000
+Kd 0.588000 0.588000 0.588000
+Ks 0.000000 0.000000 0.000000
+Ns 10.000000
+map_Kd spyro_winter_tundra.png
+
+newmtl Maillage tex_82_Material__28
+illum 2
+Ka 0.000000 0.000000 0.000000
+Kd 0.588000 0.588000 0.588000
+Ks 0.000000 0.000000 0.000000
+Ns 10.000000
+map_Kd spyro_winter_tundra.png
+
+newmtl Maillage tex_83_Material__28
+illum 2
+Ka 0.000000 0.000000 0.000000
+Kd 0.588000 0.588000 0.588000
+Ks 0.000000 0.000000 0.000000
+Ns 10.000000
+map_Kd spyro_winter_tundra.png
+
+newmtl Maillage tex_84_Material__28
+illum 2
+Ka 0.000000 0.000000 0.000000
+Kd 0.588000 0.588000 0.588000
+Ks 0.000000 0.000000 0.000000
+Ns 10.000000
+map_Kd spyro_winter_tundra.png
+
+newmtl Maillage tex_85_Material__28
+illum 2
+Ka 0.000000 0.000000 0.000000
+Kd 0.588000 0.588000 0.588000
+Ks 0.000000 0.000000 0.000000
+Ns 10.000000
+map_Kd spyro_winter_tundra.png
+
+newmtl Maillage tex_86_Material__28
+illum 2
+Ka 0.000000 0.000000 0.000000
+Kd 0.588000 0.588000 0.588000
+Ks 0.000000 0.000000 0.000000
+Ns 10.000000
+map_Kd spyro_winter_tundra.png
+
+newmtl Maillage tex_87_Material__28
+illum 2
+Ka 0.000000 0.000000 0.000000
+Kd 0.588000 0.588000 0.588000
+Ks 0.000000 0.000000 0.000000
+Ns 10.000000
+map_Kd spyro_winter_tundra.png
+
+newmtl Maillage tex_88_Material__28
+illum 2
+Ka 0.000000 0.000000 0.000000
+Kd 0.588000 0.588000 0.588000
+Ks 0.000000 0.000000 0.000000
+Ns 10.000000
+map_Kd spyro_winter_tundra.png
+
+newmtl Maillage tex_9_Material__28
+illum 2
+Ka 0.000000 0.000000 0.000000
+Kd 0.588000 0.588000 0.588000
+Ks 0.000000 0.000000 0.000000
+Ns 10.000000
+map_Kd spyro_winter_tundra.png
+
+newmtl Maillage tex_90_Material__28
+illum 2
+Ka 0.000000 0.000000 0.000000
+Kd 0.588000 0.588000 0.588000
+Ks 0.000000 0.000000 0.000000
+Ns 10.000000
+map_Kd spyro_winter_tundra.png
+
+newmtl Maillage tex_91_Material__28
+illum 2
+Ka 0.000000 0.000000 0.000000
+Kd 0.588000 0.588000 0.588000
+Ks 0.000000 0.000000 0.000000
+Ns 10.000000
+map_Kd spyro_winter_tundra.png
+
+newmtl Maillage tex_92_Material__28
+illum 2
+Ka 0.000000 0.000000 0.000000
+Kd 0.588000 0.588000 0.588000
+Ks 0.000000 0.000000 0.000000
+Ns 10.000000
+map_Kd spyro_winter_tundra.png
+
+newmtl Maillage tex_93_Material__28
+illum 2
+Ka 0.000000 0.000000 0.000000
+Kd 0.588000 0.588000 0.588000
+Ks 0.000000 0.000000 0.000000
+Ns 10.000000
+map_Kd spyro_winter_tundra.png
+
+newmtl Maillage tex_94_Material__28
+illum 2
+Ka 0.000000 0.000000 0.000000
+Kd 0.588000 0.588000 0.588000
+Ks 0.000000 0.000000 0.000000
+Ns 10.000000
+map_Kd spyro_winter_tundra.png
+
+newmtl Maillage tex_95_Material__28
+illum 2
+Ka 0.000000 0.000000 0.000000
+Kd 0.588000 0.588000 0.588000
+Ks 0.000000 0.000000 0.000000
+Ns 10.000000
+map_Kd spyro_winter_tundra.png
+
+newmtl Maillage tex_96_Material__28
+illum 2
+Ka 0.000000 0.000000 0.000000
+Kd 0.588000 0.588000 0.588000
+Ks 0.000000 0.000000 0.000000
+Ns 10.000000
+map_Kd spyro_winter_tundra.png
+
+newmtl Maillage tex_97_Material__28
+illum 2
+Ka 0.000000 0.000000 0.000000
+Kd 0.588000 0.588000 0.588000
+Ks 0.000000 0.000000 0.000000
+Ns 10.000000
+map_Kd spyro_winter_tundra.png
+
+newmtl Maillage tex_98_Material__28
+illum 2
+Ka 0.000000 0.000000 0.000000
+Kd 0.588000 0.588000 0.588000
+Ks 0.000000 0.000000 0.000000
+Ns 10.000000
+map_Kd spyro_winter_tundra.png
+
+newmtl Maillage tex_99_Material__28
+illum 2
+Ka 0.000000 0.000000 0.000000
+Kd 0.588000 0.588000 0.588000
+Ks 0.000000 0.000000 0.000000
+Ns 10.000000
+map_Kd spyro_winter_tundra.png
+

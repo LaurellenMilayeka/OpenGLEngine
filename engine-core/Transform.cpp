@@ -96,11 +96,3 @@ void Transform::Scale(Engine::Maths::Vector3 const& newScale)
 	_mScaleMatrix.SetAt(1, 1, newScale.y);
 	_mScaleMatrix.SetAt(2, 2, newScale.z);
 }
-
-void Engine::Components::Transform::SetupDebugWindow()
-{
-	using namespace ImGui;
-
-	Text("Position : %.2f %.2f %.2f", Position().x, Position().y, Position().z);
-}
-

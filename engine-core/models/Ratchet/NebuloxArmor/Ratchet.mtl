@@ -1,0 +1,113 @@
+# 3ds Max Wavefront OBJ Exporter v0.97b - (c)2007 guruware
+# File Created: 16.09.2014 07:51:04
+
+newmtl Material__99
+	Ns 10.0000
+	Ni 1.5000
+	d 1.0000
+	Tr 0.0000
+	Tf 1.0000 1.0000 1.0000 
+	illum 2
+	Ka 0.5880 0.5880 0.5880
+	Kd 0.5880 0.5880 0.5880
+	Ks 0.0000 0.0000 0.0000
+	Ke 0.0000 0.0000 0.0000
+	map_Ka rcn_ratchethead_base_color.png
+	map_Kd rcn_ratchethead_base_color.png
+
+newmtl Material__100
+	Ns 10.0000
+	Ni 1.5000
+	d 1.0000
+	Tr 0.0000
+	Tf 1.0000 1.0000 1.0000 
+	illum 2
+	Ka 0.5880 0.5880 0.5880
+	Kd 0.5880 0.5880 0.5880
+	Ks 0.0000 0.0000 0.0000
+	Ke 0.0000 0.0000 0.0000
+	map_Ka ratchet_eyes_clear_color.png
+	map_Kd ratchet_eyes_clear_color.png
+	map_Ke ratchet_eyes_light.png
+	map_d ratchet_eyes_clear_color.png
+	map_bump ratchet_eyes_normal.png
+	bump ratchet_eyes_normal.png
+
+newmtl Material__90
+	Ns 10.0000
+	Ni 1.5000
+	d 1.0000
+	Tr 0.0000
+	Tf 1.0000 1.0000 1.0000 
+	illum 2
+	Ka 0.5880 0.5880 0.5880
+	Kd 0.5880 0.5880 0.5880
+	Ks 0.0000 0.0000 0.0000
+	Ke 0.0000 0.0000 0.0000
+	map_Ka ratchet_armor_thug_base_upgrade_color.png
+	map_Kd ratchet_armor_thug_base_upgrade_color.png
+	map_Ke ratchet_armor_thug_base_upgrade_light.png
+	map_bump ratchet_armor_thug_base_upgrade_normal.png
+	bump ratchet_armor_thug_base_upgrade_normal.png
+
+newmtl Material__101
+	Ns 10.0000
+	Ni 1.5000
+	d 1.0000
+	Tr 0.0000
+	Tf 1.0000 1.0000 1.0000 
+	illum 2
+	Ka 0.5880 0.5880 0.5880
+	Kd 0.5880 0.5880 0.5880
+	Ks 0.0000 0.0000 0.0000
+	Ke 0.0000 0.0000 0.0000
+	map_Ka ratchet_body_02_color.png
+	map_Kd ratchet_body_02_color.png
+	map_bump ratchet_tailfur_normal.png
+	bump ratchet_tailfur_normal.png
+
+newmtl Material__96
+	Ns 10.0000
+	Ni 1.5000
+	d 1.0000
+	Tr 0.0000
+	Tf 1.0000 1.0000 1.0000 
+	illum 2
+	Ka 0.5880 0.5880 0.5880
+	Kd 0.5880 0.5880 0.5880
+	Ks 0.0000 0.0000 0.0000
+	Ke 0.0000 0.0000 0.0000
+	map_Ka ratchet_armor_helmet_color.png
+	map_Kd ratchet_armor_helmet_color.png
+	map_bump ratchet_armor_helmet_normal.png
+	bump ratchet_armor_helmet_normal.png
+
+newmtl Material__97
+	Ns 10.0000
+	Ni 1.5000
+	d 1.0000
+	Tr 0.0000
+	Tf 1.0000 1.0000 1.0000 
+	illum 2
+	Ka 0.5880 0.5880 0.5880
+	Kd 0.5880 0.5880 0.5880
+	Ks 0.0000 0.0000 0.0000
+	Ke 0.0000 0.0000 0.0000
+	map_Ka ratchet_armor_helmet_glass_1_color.png
+	map_Kd ratchet_armor_helmet_glass_1_color.png
+	map_d ratchet_armor_helmet_glass_1_color.png
+
+newmtl Material__98
+	Ns 10.0000
+	Ni 1.5000
+	d 1.0000
+	Tr 0.0000
+	Tf 1.0000 1.0000 1.0000 
+	illum 2
+	Ka 0.5880 0.5880 0.5880
+	Kd 0.5880 0.5880 0.5880
+	Ks 0.0000 0.0000 0.0000
+	Ke 0.0000 0.0000 0.0000
+	map_Ka ratchet_armor_helmet_lights_color.png
+	map_Kd ratchet_armor_helmet_lights_color.png
+	map_Ke ratchet_armor_helmet_lights_light.png

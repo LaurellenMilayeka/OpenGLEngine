@@ -172,6 +172,7 @@
     <ClCompile Include="InputManager.cpp" />
     <ClCompile Include="LoaderDAE.cpp" />
     <ClCompile Include="Matrix4.cpp" />
+    <ClCompile Include="MenuItem.cpp" />
     <ClCompile Include="Model.cpp" />
     <ClCompile Include="ModelRenderer.cpp" />
     <ClCompile Include="Renderer.cpp" />
@@ -179,6 +180,7 @@
     <ClCompile Include="Texture.cpp" />
     <ClCompile Include="TextureManager.cpp" />
     <ClCompile Include="Time.cpp" />
+    <ClCompile Include="TopMenuBar.cpp" />
     <ClCompile Include="Transform.cpp" />
     <ClCompile Include="Vector2.cpp" />
     <ClCompile Include="Vector3.cpp" />
@@ -193,12 +195,14 @@
     <ClInclude Include="Entity.h" />
     <ClInclude Include="File.h" />
     <ClInclude Include="IComponent.h" />
+    <ClInclude Include="IconsFontAwesome6.h" />
     <ClInclude Include="Image.h" />
     <ClInclude Include="Input.h" />
     <ClInclude Include="InputManager.h" />
     <ClInclude Include="Loader.h" />
     <ClInclude Include="Material.h" />
     <ClInclude Include="Matrix4.h" />
+    <ClInclude Include="MenuItem.h" />
     <ClInclude Include="Mesh.h" />
     <ClInclude Include="Model.h" />
     <ClInclude Include="ModelRenderer.h" />
@@ -208,6 +212,7 @@
     <ClInclude Include="Texture.h" />
     <ClInclude Include="TextureManager.h" />
     <ClInclude Include="Time.h" />
+    <ClInclude Include="TopMenuBar.h" />
     <ClInclude Include="Transform.h" />
     <ClInclude Include="Vector2.h" />
     <ClInclude Include="Vector3.h" />

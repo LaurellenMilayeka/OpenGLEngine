@@ -1,0 +1,414 @@
+TwoSided = true
+bDisableDepthTest = false
+bIsMasked = false
+ReferencedTextures[1] =
+{
+    ReferencedTextures[0] = Texture2D'/Game/Shader/Material_set/LibTextures/Fractal3.Fractal3'
+}
+Expressions[371] =
+{
+    Expressions[22] = MaterialExpressionVectorParameter'/Game/Shader/Material_set/SQEX_HairMaterialTex/SQEX_RealBaseHairMat.MaterialExpressionVectorParameter_3'
+    Expressions[27] = MaterialExpressionVectorParameter'/Game/Shader/Material_set/SQEX_HairMaterialTex/SQEX_RealBaseHairMat.MaterialExpressionVectorParameter_4'
+    Expressions[29] = MaterialExpressionTextureSampleParameter2D'/Game/Shader/Material_set/SQEX_HairMaterialTex/SQEX_RealBaseHairMat.MaterialExpressionTextureSampleParameter2D_5'
+    Expressions[30] = MaterialExpressionTextureSampleParameter2D'/Game/Shader/Material_set/SQEX_HairMaterialTex/SQEX_RealBaseHairMat.MaterialExpressionTextureSampleParameter2D_6'
+    Expressions[31] = MaterialExpressionTextureSampleParameter2D'/Game/Shader/Material_set/SQEX_HairMaterialTex/SQEX_RealBaseHairMat.MaterialExpressionTextureSampleParameter2D_7'
+    Expressions[32] = MaterialExpressionTextureSampleParameter2D'/Game/Shader/Material_set/SQEX_HairMaterialTex/SQEX_RealBaseHairMat.MaterialExpressionTextureSampleParameter2D_8'
+    Expressions[33] = MaterialExpressionTextureSampleParameter2D'/Game/Shader/Material_set/SQEX_HairMaterialTex/SQEX_RealBaseHairMat.MaterialExpressionTextureSampleParameter2D_9'
+    Expressions[34] = MaterialExpressionScalarParameter'/Game/Shader/Material_set/SQEX_HairMaterialTex/SQEX_RealBaseHairMat.MaterialExpressionScalarParameter_14'
+    Expressions[37] = MaterialExpressionScalarParameter'/Game/Shader/Material_set/SQEX_HairMaterialTex/SQEX_RealBaseHairMat.MaterialExpressionScalarParameter_15'
+    Expressions[40] = MaterialExpressionScalarParameter'/Game/Shader/Material_set/SQEX_HairMaterialTex/SQEX_RealBaseHairMat.MaterialExpressionScalarParameter_16'
+    Expressions[42] = MaterialExpressionScalarParameter'/Game/Shader/Material_set/SQEX_HairMaterialTex/SQEX_RealBaseHairMat.MaterialExpressionScalarParameter_17'
+    Expressions[43] = MaterialExpressionScalarParameter'/Game/Shader/Material_set/SQEX_HairMaterialTex/SQEX_RealBaseHairMat.MaterialExpressionScalarParameter_18'
+    Expressions[44] = MaterialExpressionScalarParameter'/Game/Shader/Material_set/SQEX_HairMaterialTex/SQEX_RealBaseHairMat.MaterialExpressionScalarParameter_19'
+    Expressions[45] = MaterialExpressionScalarParameter'/Game/Shader/Material_set/SQEX_HairMaterialTex/SQEX_RealBaseHairMat.MaterialExpressionScalarParameter_20'
+    Expressions[46] = MaterialExpressionScalarParameter'/Game/Shader/Material_set/SQEX_HairMaterialTex/SQEX_RealBaseHairMat.MaterialExpressionScalarParameter_21'
+    Expressions[55] = MaterialExpressionTextureSampleParameter2D'/Game/Shader/Material_set/SQEX_HairMaterialTex/SQEX_RealBaseHairMat.MaterialExpressionTextureSampleParameter2D_10'
+    Expressions[60] = MaterialExpressionScalarParameter'/Game/Shader/Material_set/SQEX_HairMaterialTex/SQEX_RealBaseHairMat.MaterialExpressionScalarParameter_22'
+    Expressions[69] = MaterialExpressionScalarParameter'/Game/Shader/Material_set/SQEX_HairMaterialTex/SQEX_RealBaseHairMat.MaterialExpressionScalarParameter_23'
+    Expressions[71] = MaterialExpressionScalarParameter'/Game/Shader/Material_set/SQEX_HairMaterialTex/SQEX_RealBaseHairMat.MaterialExpressionScalarParameter_24'
+    Expressions[76] = MaterialExpressionScalarParameter'/Game/Shader/Material_set/SQEX_HairMaterialTex/SQEX_RealBaseHairMat.MaterialExpressionScalarParameter_25'
+    Expressions[82] = MaterialExpressionScalarParameter'/Game/Shader/Material_set/SQEX_HairMaterialTex/SQEX_RealBaseHairMat.MaterialExpressionScalarParameter_26'
+    Expressions[90] = MaterialExpressionTextureSampleParameter2D'/Game/Shader/Material_set/SQEX_HairMaterialTex/SQEX_RealBaseHairMat.MaterialExpressionTextureSampleParameter2D_11'
+    Expressions[94] = MaterialExpressionStaticBoolParameter'/Game/Shader/Material_set/SQEX_HairMaterialTex/SQEX_RealBaseHairMat.MaterialExpressionStaticBoolParameter_0'
+    Expressions[109] = MaterialExpressionScalarParameter'/Game/Shader/Material_set/SQEX_HairMaterialTex/SQEX_RealBaseHairMat.MaterialExpressionScalarParameter_27'
+    Expressions[110] = MaterialExpressionScalarParameter'/Game/Shader/Material_set/SQEX_HairMaterialTex/SQEX_RealBaseHairMat.MaterialExpressionScalarParameter_28'
+    Expressions[111] = MaterialExpressionScalarParameter'/Game/Shader/Material_set/SQEX_HairMaterialTex/SQEX_RealBaseHairMat.MaterialExpressionScalarParameter_29'
+    Expressions[113] = MaterialExpressionScalarParameter'/Game/Shader/Material_set/SQEX_HairMaterialTex/SQEX_RealBaseHairMat.MaterialExpressionScalarParameter_30'
+    Expressions[114] = MaterialExpressionScalarParameter'/Game/Shader/Material_set/SQEX_HairMaterialTex/SQEX_RealBaseHairMat.MaterialExpressionScalarParameter_31'
+    Expressions[117] = MaterialExpressionScalarParameter'/Game/Shader/Material_set/SQEX_HairMaterialTex/SQEX_RealBaseHairMat.MaterialExpressionScalarParameter_32'
+    Expressions[144] = MaterialExpressionScalarParameter'/Game/Shader/Material_set/SQEX_HairMaterialTex/SQEX_RealBaseHairMat.MaterialExpressionScalarParameter_1'
+    Expressions[151] = MaterialExpressionScalarParameter'/Game/Shader/Material_set/SQEX_HairMaterialTex/SQEX_RealBaseHairMat.MaterialExpressionScalarParameter_2'
+    Expressions[171] = MaterialExpressionTextureSample'/Game/Shader/Material_set/SQEX_HairMaterialTex/SQEX_RealBaseHairMat.MaterialExpressionTextureSample_0'
+    Expressions[182] = MaterialExpressionScalarParameter'/Game/Shader/Material_set/SQEX_HairMaterialTex/SQEX_RealBaseHairMat.MaterialExpressionScalarParameter_4'
+    Expressions[185] = MaterialExpressionScalarParameter'/Game/Shader/Material_set/SQEX_HairMaterialTex/SQEX_RealBaseHairMat.MaterialExpressionScalarParameter_0'
+    Expressions[200] = MaterialExpressionScalarParameter'/Game/Shader/Material_set/SQEX_HairMaterialTex/SQEX_RealBaseHairMat.MaterialExpressionScalarParameter_5'
+    Expressions[207] = MaterialExpressionScalarParameter'/Game/Shader/Material_set/SQEX_HairMaterialTex/SQEX_RealBaseHairMat.MaterialExpressionScalarParameter_6'
+    Expressions[218] = MaterialExpressionScalarParameter'/Game/Shader/Material_set/SQEX_HairMaterialTex/SQEX_RealBaseHairMat.MaterialExpressionScalarParameter_10'
+    Expressions[220] = MaterialExpressionScalarParameter'/Game/Shader/Material_set/SQEX_HairMaterialTex/SQEX_RealBaseHairMat.MaterialExpressionScalarParameter_34'
+    Expressions[221] = MaterialExpressionScalarParameter'/Game/Shader/Material_set/SQEX_HairMaterialTex/SQEX_RealBaseHairMat.MaterialExpressionScalarParameter_33'
+    Expressions[227] = MaterialExpressionScalarParameter'/Game/Shader/Material_set/SQEX_HairMaterialTex/SQEX_RealBaseHairMat.MaterialExpressionScalarParameter_11'
+    Expressions[228] = MaterialExpressionScalarParameter'/Game/Shader/Material_set/SQEX_HairMaterialTex/SQEX_RealBaseHairMat.MaterialExpressionScalarParameter_12'
+    Expressions[240] = MaterialExpressionStaticSwitchParameter'/Game/Shader/Material_set/SQEX_HairMaterialTex/SQEX_RealBaseHairMat.MaterialExpressionStaticSwitchParameter_0'
+    Expressions[245] = MaterialExpressionScalarParameter'/Game/Shader/Material_set/SQEX_HairMaterialTex/SQEX_RealBaseHairMat.MaterialExpressionScalarParameter_36'
+    Expressions[246] = MaterialExpressionScalarParameter'/Game/Shader/Material_set/SQEX_HairMaterialTex/SQEX_RealBaseHairMat.MaterialExpressionScalarParameter_37'
+    Expressions[247] = MaterialExpressionScalarParameter'/Game/Shader/Material_set/SQEX_HairMaterialTex/SQEX_RealBaseHairMat.MaterialExpressionScalarParameter_38'
+    Expressions[256] = MaterialExpressionScalarParameter'/Game/Shader/Material_set/SQEX_HairMaterialTex/SQEX_RealBaseHairMat.MaterialExpressionScalarParameter_9'
+    Expressions[257] = MaterialExpressionScalarParameter'/Game/Shader/Material_set/SQEX_HairMaterialTex/SQEX_RealBaseHairMat.MaterialExpressionScalarParameter_13'
+    Expressions[258] = MaterialExpressionScalarParameter'/Game/Shader/Material_set/SQEX_HairMaterialTex/SQEX_RealBaseHairMat.MaterialExpressionScalarParameter_35'
+    Expressions[262] = MaterialExpressionStaticSwitchParameter'/Game/Shader/Material_set/SQEX_HairMaterialTex/SQEX_RealBaseHairMat.MaterialExpressionStaticSwitchParameter_1'
+    Expressions[263] = MaterialExpressionStaticSwitchParameter'/Game/Shader/Material_set/SQEX_HairMaterialTex/SQEX_RealBaseHairMat.MaterialExpressionStaticSwitchParameter_2'
+    Expressions[265] = MaterialExpressionScalarParameter'/Game/Shader/Material_set/SQEX_HairMaterialTex/SQEX_RealBaseHairMat.MaterialExpressionScalarParameter_3'
+    Expressions[271] = MaterialExpressionVectorParameter'/Game/Shader/Material_set/SQEX_HairMaterialTex/SQEX_RealBaseHairMat.MaterialExpressionVectorParameter_1'
+    Expressions[274] = MaterialExpressionScalarParameter'/Game/Shader/Material_set/SQEX_HairMaterialTex/SQEX_RealBaseHairMat.MaterialExpressionScalarParameter_7'
+    Expressions[275] = MaterialExpressionScalarParameter'/Game/Shader/Material_set/SQEX_HairMaterialTex/SQEX_RealBaseHairMat.MaterialExpressionScalarParameter_8'
+    Expressions[277] = MaterialExpressionVectorParameter'/Game/Shader/Material_set/SQEX_HairMaterialTex/SQEX_RealBaseHairMat.MaterialExpressionVectorParameter_2'
+    Expressions[288] = MaterialExpressionVectorParameter'/Game/Shader/Material_set/SQEX_HairMaterialTex/SQEX_RealBaseHairMat.MaterialExpressionVectorParameter_5'
+    Expressions[293] = MaterialExpressionVectorParameter'/Game/Shader/Material_set/SQEX_HairMaterialTex/SQEX_RealBaseHairMat.MaterialExpressionVectorParameter_6'
+    Expressions[295] = MaterialExpressionVectorParameter'/Game/Shader/Material_set/SQEX_HairMaterialTex/SQEX_RealBaseHairMat.MaterialExpressionVectorParameter_7'
+    Expressions[300] = MaterialExpressionScalarParameter'/Game/Shader/Material_set/SQEX_HairMaterialTex/SQEX_RealBaseHairMat.MaterialExpressionScalarParameter_39'
+    Expressions[301] = MaterialExpressionScalarParameter'/Game/Shader/Material_set/SQEX_HairMaterialTex/SQEX_RealBaseHairMat.MaterialExpressionScalarParameter_40'
+    Expressions[302] = MaterialExpressionScalarParameter'/Game/Shader/Material_set/SQEX_HairMaterialTex/SQEX_RealBaseHairMat.MaterialExpressionScalarParameter_41'
+    Expressions[304] = MaterialExpressionScalarParameter'/Game/Shader/Material_set/SQEX_HairMaterialTex/SQEX_RealBaseHairMat.MaterialExpressionScalarParameter_42'
+    Expressions[305] = MaterialExpressionScalarParameter'/Game/Shader/Material_set/SQEX_HairMaterialTex/SQEX_RealBaseHairMat.MaterialExpressionScalarParameter_43'
+    Expressions[315] = MaterialExpressionVectorParameter'/Game/Shader/Material_set/SQEX_HairMaterialTex/SQEX_RealBaseHairMat.MaterialExpressionVectorParameter_8'
+    Expressions[316] = MaterialExpressionVectorParameter'/Game/Shader/Material_set/SQEX_HairMaterialTex/SQEX_RealBaseHairMat.MaterialExpressionVectorParameter_9'
+    Expressions[317] = MaterialExpressionScalarParameter'/Game/Shader/Material_set/SQEX_HairMaterialTex/SQEX_RealBaseHairMat.MaterialExpressionScalarParameter_45'
+    Expressions[331] = MaterialExpressionScalarParameter'/Game/Shader/Material_set/SQEX_HairMaterialTex/SQEX_RealBaseHairMat.MaterialExpressionScalarParameter_44'
+    Expressions[336] = MaterialExpressionScalarParameter'/Game/Shader/Material_set/SQEX_HairMaterialTex/SQEX_RealBaseHairMat.MaterialExpressionScalarParameter_46'
+    Expressions[351] = MaterialExpressionScalarParameter'/Game/Shader/Material_set/SQEX_HairMaterialTex/SQEX_RealBaseHairMat.MaterialExpressionScalarParameter_47'
+    Expressions[355] = MaterialExpressionVectorParameter'/Game/Shader/Material_set/SQEX_HairMaterialTex/SQEX_RealBaseHairMat.MaterialExpressionVectorParameter_0'
+    Expressions[368] = MaterialExpressionStaticSwitchParameter'/Game/Shader/Material_set/SQEX_HairMaterialTex/SQEX_RealBaseHairMat.MaterialExpressionStaticSwitchParameter_3'
+    Expressions[370] = MaterialExpressionStaticSwitchParameter'/Game/Shader/Material_set/SQEX_HairMaterialTex/SQEX_RealBaseHairMat.MaterialExpressionStaticSwitchParameter_4'
+}
+CachedExpressionData =
+{
+    Parameters =
+    {
+        Entries[5] =
+        {
+            Entries[0] = { ParameterInfos[0]={} }
+            Entries[1] = { ParameterInfos[0]={} }
+            Entries[2] = { ParameterInfos[0]={} }
+            Entries[3] = { ParameterInfos[0]={} }
+            Entries[4] = { ParameterInfos[0]={} }
+        }
+        ScalarValues[0] = {}
+        VectorValues[0] = {}
+        TextureValues[0] = {}
+    }
+    ReferencedTextures[0] = {}
+}
+BlendMode = BLEND_Masked (1)
+OpacityMaskClipValue = 0.333
+CollectedTextureParameters[7] =
+{
+    CollectedTextureParameters[0] =
+    {
+        Texture = Texture2D'/Game/Shader/Material_set/SQEX_BaseMaterialSet/BaseTextures/BaseColorTex.BaseColorTex'
+        Name = HairColorTexture
+        Group = 00_BaseColorParam
+    }
+    CollectedTextureParameters[1] =
+    {
+        Texture = Texture2D'/Game/Shader/Material_set/SQEX_BaseMaterialSet/BaseTextures/BaseFlatNormalTex.BaseFlatNormalTex'
+        Name = BaseNormalTexture
+        Group = 01_NormalTexParam
+    }
+    CollectedTextureParameters[2] =
+    {
+        Texture = Texture2D'/Game/Character/npc/n_ca210/mdl/mat0/n_ca210_H_0n00.n_ca210_H_0n00'
+        Name = HairMaskLineNomal
+        Group = 01_NormalTexParam
+    }
+    CollectedTextureParameters[3] =
+    {
+        Texture = Texture2D'/Game/Shader/Material_set/SQEX_HairMaterialTex/hairline_V.hairline_V'
+        Name = HairLineNormal
+        Group = 01_NormalTexParam
+    }
+    CollectedTextureParameters[4] =
+    {
+        Texture = Texture2D'/Game/Shader/Material_set/SQEX_HairMaterialTex/nami_V_N.nami_V_N'
+        Name = HairRandomNormal
+        Group = None
+    }
+    CollectedTextureParameters[5] =
+    {
+        Texture = Texture2D'/Game/Shader/Material_set/SQEX_BaseMaterialSet/BaseTextures/BaseColorTex.BaseColorTex'
+        Name = FaceColor
+        Group = 00_BaseColorParam
+    }
+    CollectedTextureParameters[6] =
+    {
+        Texture = Texture2D'/Game/Shader/Material_set/SQEX_BaseMaterialSet/BaseTextures/BaseAOTex.BaseAOTex'
+        Name = FaceSkinAOTex
+        Group = 03_AOParam
+    }
+}
+CollectedScalarParameters[48] =
+{
+    CollectedScalarParameters[0] =
+    {
+        Value = 5
+        Name = HairLineNormalRange
+        Group = 01_NormalTexParam
+    }
+    CollectedScalarParameters[1] =
+    {
+        Value = 2
+        Name = HairRandomNormalRange
+        Group = 01_NormalTexParam
+    }
+    CollectedScalarParameters[2] = { Value=-0.2, Name=HairCuticle, Group=None }
+    CollectedScalarParameters[3] =
+    {
+        Value = 0.5
+        Name = HairSpecularMin
+        Group = 03_MaterialParam
+    }
+    CollectedScalarParameters[4] =
+    {
+        Value = 1
+        Name = HairSpecularMax
+        Group = 03_MaterialParam
+    }
+    CollectedScalarParameters[5] =
+    {
+        Value = 0.5
+        Name = HairRoughnessMin
+        Group = 03_MaterialParam
+    }
+    CollectedScalarParameters[6] =
+    {
+        Value = 0.7
+        Name = HairRoughnessMax
+        Group = 03_MaterialParam
+    }
+    CollectedScalarParameters[7] =
+    {
+        Value = 0.5
+        Name = HairOpacityMin
+        Group = 04_SSSParam
+    }
+    CollectedScalarParameters[8] =
+    {
+        Value = 2
+        Name = LongHairColorVolume
+        Group = 00_BaseColorParam
+    }
+    CollectedScalarParameters[9] =
+    {
+        Value = 2
+        Name = ShortHairColorVolume
+        Group = 00_BaseColorParam
+    }
+    CollectedScalarParameters[10] =
+    {
+        Value = 2
+        Name = MiddleHairColorVolume
+        Group = 00_BaseColorParam
+    }
+    CollectedScalarParameters[11] = { Value=0, Name=HL_Volume, Group=02_MaskParam }
+    CollectedScalarParameters[12] = { Value=0, Name=WhiteHairAOVolume, Group=None }
+    CollectedScalarParameters[13] = { Value=0.1, Name=AddSpecular, Group=MaterialPlus }
+    CollectedScalarParameters[14] =
+    {
+        Value = -0.1
+        Name = AddRoughness
+        Group = MaterialPlus
+    }
+    CollectedScalarParameters[15] =
+    {
+        Value = 1
+        Name = HairNormalBoostR
+        Group = MaterialPlus
+    }
+    CollectedScalarParameters[16] =
+    {
+        Value = 1
+        Name = HairNormalBoostG
+        Group = MaterialPlus
+    }
+    CollectedScalarParameters[17] =
+    {
+        Value = 1
+        Name = HairNormalBoostB
+        Group = MaterialPlus
+    }
+    CollectedScalarParameters[18] = { Value=0, Name=BoostCheck, Group=MaterialPlus }
+    CollectedScalarParameters[19] = { Value=6.5, Name=Tilezmulti, Group=HairWindParam }
+    CollectedScalarParameters[20] = { Value=1, Name=Move, Group=HairWindParam }
+    CollectedScalarParameters[21] = { Value=1, Name=UseWind, Group=HairWindParam }
+    CollectedScalarParameters[22] =
+    {
+        Value = -1
+        Name = NonMoveGradePos
+        Group = HairWindParam
+    }
+    CollectedScalarParameters[23] =
+    {
+        Value = 300
+        Name = WindTexWorldUVDiv
+        Group = HairWindParam
+    }
+    CollectedScalarParameters[24] = { Value=0, Name=BMove, Group=HairWindParam }
+    CollectedScalarParameters[25] = { Value=0, Name=Wetness, Group=StateParam }
+    CollectedScalarParameters[26] = { Value=0, Name=Wetness_CS, Group=StateParam }
+    CollectedScalarParameters[27] = { Value=0, Name=WetnessCSMode, Group=StateParam }
+    CollectedScalarParameters[28] =
+    {
+        Value = 1
+        Name = WindSpeedMulti
+        Group = HairWindParam
+    }
+    CollectedScalarParameters[29] =
+    {
+        Value = 1
+        Name = WindPowerMulti
+        Group = HairWindParam
+    }
+    CollectedScalarParameters[30] = { Value=1, Name=Cuticle_SColor, Group=HairParam }
+    CollectedScalarParameters[31] = { Value=1, Name=Cuticle_VColor, Group=HairParam }
+    CollectedScalarParameters[32] =
+    {
+        Value = 1
+        Name = Cuticle_OutColorMulti
+        Group = HairParam
+    }
+    CollectedScalarParameters[33] = { Value=1, Name=Fresnel_S_SSColor, Group=HairParam }
+    CollectedScalarParameters[34] = { Value=1, Name=Fresnel_V_SSColor, Group=HairParam }
+    CollectedScalarParameters[35] = { Value=3, Name=HairFresnelExp, Group=HairParam }
+    CollectedScalarParameters[36] = { Value=0, Name=ChangeVolume, Group=GothelParam }
+    CollectedScalarParameters[37] =
+    {
+        Value = 1
+        Name = AF_GothelHair_SColor
+        Group = GothelParam
+    }
+    CollectedScalarParameters[38] =
+    {
+        Value = 1
+        Name = AF_GothelHair_VColor
+        Group = GothelParam
+    }
+    CollectedScalarParameters[39] =
+    {
+        Value = 1
+        Name = AF_Cuticle_SColor
+        Group = GothelParam
+    }
+    CollectedScalarParameters[40] =
+    {
+        Value = 1
+        Name = AF_Cuticle_VColor
+        Group = GothelParam
+    }
+    CollectedScalarParameters[41] =
+    {
+        Value = 1
+        Name = AF_Cuticle_OutColorMulti
+        Group = GothelParam
+    }
+    CollectedScalarParameters[42] =
+    {
+        Value = 1
+        Name = AF_Fresnel_S_SSColor
+        Group = GothelParam
+    }
+    CollectedScalarParameters[43] =
+    {
+        Value = 1
+        Name = AF_Fresnel_V_SSColor
+        Group = GothelParam
+    }
+    CollectedScalarParameters[44] = { Value=0, Name=HairAOVolume, Group=None }
+    CollectedScalarParameters[45] =
+    {
+        Value = 1
+        Name = BaseNormalTextureVolume
+        Group = 01_NormalTexParam
+    }
+    CollectedScalarParameters[46] =
+    {
+        Value = 20
+        Name = WaveHairRange
+        Group = 01_NormalTexParam
+    }
+    CollectedScalarParameters[47] =
+    {
+        Value = 5
+        Name = WaveHairRangeRMulti
+        Group = 01_NormalTexParam
+    }
+}
+CollectedVectorParameters[10] =
+{
+    CollectedVectorParameters[0] =
+    {
+        Value = { R=1, G=1, B=1, A=1 }
+        Name = ColorMulti
+        Group = 00_BaseColorParam
+    }
+    CollectedVectorParameters[1] =
+    {
+        Value = { R=1, G=1, B=1, A=1 }
+        Name = SSColorMulti
+        Group = 04_SSSParam
+    }
+    CollectedVectorParameters[2] =
+    {
+        Value = { R=1, G=1, B=1, A=1 }
+        Name = ColorMulti
+        Group = 00_BaseColorParam
+    }
+    CollectedVectorParameters[3] =
+    {
+        Value = { R=1, G=1, B=1, A=1 }
+        Name = AF_SSColorMulti
+        Group = GothelParam
+    }
+    CollectedVectorParameters[4] =
+    {
+        Value = { R=0, G=0, B=0, A=1 }
+        Name = BaseColor0_UP
+        Group = 00_BaseColorParam
+    }
+    CollectedVectorParameters[5] =
+    {
+        Value = { R=0, G=0, B=0, A=1 }
+        Name = AF_GothelHairBaseColor0_UP
+        Group = GothelParam
+    }
+    CollectedVectorParameters[6] =
+    {
+        Value = { R=1, G=1, B=1, A=1 }
+        Name = AF_GothelHairColorMulti
+        Group = GothelParam
+    }
+    CollectedVectorParameters[7] =
+    {
+        Value = { R=1, G=1, B=1, A=1 }
+        Name = BaseColor1_UP
+        Group = 00_BaseColorParam
+    }
+    CollectedVectorParameters[8] =
+    {
+        Value = { R=1, G=1, B=1, A=1 }
+        Name = AF_GothelHairBaseColor1_UP
+        Group = GothelParam
+    }
+    CollectedVectorParameters[9] =
+    {
+        Value = { R=1, G=1, B=1, A=1 }
+        Name = MaskedAreaColorMulti
+        Group = 00_BaseColorParam
+    }
+}
+FlattenedTexture = None
+MobileBaseTexture = None
+MobileNormalTexture = None
+bUseMobileSpecular = false
+MobileSpecularPower = 16
+MobileSpecularMask = MSM_Constant (0)
+MobileMaskTexture = None
+TextureStreamingData[0] = {}

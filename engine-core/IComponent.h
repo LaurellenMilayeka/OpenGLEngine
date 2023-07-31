@@ -40,10 +40,6 @@ namespace Engine
 
 			virtual ~IComponent() = default;
 
-#ifdef _DEBUG
-			virtual void SetupDebugWindow() { }
-#endif
-
 			std::string const& Name() const
 			{
 				return _mName;
