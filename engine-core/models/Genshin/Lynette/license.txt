@@ -1,0 +1,11 @@
+Model Information:
+* title:	Lynette
+* source:	https://sketchfab.com/3d-models/lynette-797fa27eddc7466bb6796ded2d9e7db2
+* author:	HoYoverse (https://sketchfab.com/HoYoverse)
+
+Model License:
+* license type:	CC-BY-4.0 (http://creativecommons.org/licenses/by/4.0/)
+* requirements:	Author must be credited. Commercial use is allowed.
+
+If you use this 3D model in your project be sure to copy paste this credit wherever you share it:
+This work is based on "Lynette" (https://sketchfab.com/3d-models/lynette-797fa27eddc7466bb6796ded2d9e7db2) by HoYoverse (https://sketchfab.com/HoYoverse) licensed under CC-BY-4.0 (http://creativecommons.org/licenses/by/4.0/)

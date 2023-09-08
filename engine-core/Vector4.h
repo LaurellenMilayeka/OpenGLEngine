@@ -46,6 +46,14 @@ namespace Engine
 				this->w = 1.0f;
 			}
 
+			Vector4(Vector2 const& vec)
+			{
+				this->x = vec.x;
+				this->y = vec.y;
+				this->z = 0.0f;
+				this->w = 1.0f;
+			}
+
 			static Vector4 Zero()
 			{
 				return Vector4(0.0f, 0.0f, 0.0f, 0.0f);

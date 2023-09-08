@@ -1,22 +1,35 @@
 #include "File.h"
+#include <iostream>
+#include <errno.h>
+#include <string.h>
+
 #include <filesystem>
 
 using namespace Engine::Filesystem;
 
-File::File(std::string const& fileName)
+File::File(std::string const& fileName, OpenMode openMode)
 {
-	_mFile = std::fstream(fileName);
+	try {
+		if (openMode == OpenMode::Binary)
+			_mFile = std::fstream(fileName, std::ios_base::binary | std::ios_base::in | std::ios_base::out);
+		else
+			_mFile = std::fstream(fileName);
 
-	_mIsValid = _mFile.is_open();
-	if (_mIsValid)
-	{
-		_mFile.seekp(0, std::ios::end);
-		_mLength = _mFile.tellg();
-		_mFile.seekp(0, std::ios::beg);
+		_mIsValid = _mFile.is_open();
+		if (_mIsValid)
+		{
+			_mFile.seekp(0, std::ios::end);
+			_mLength = _mFile.tellg();
+			_mFile.seekp(0, std::ios::beg);
+		}
+		else
+		{
+			_mLength = 0;
+		}
 	}
-	else
+	catch (std::exception& e)
 	{
-		_mLength = 0;
+		std::cout << "EXCEPTION CAUGHT : " << e.what() << std::endl;
 	}
 }
 
@@ -44,13 +57,21 @@ size_t File::Length() const
 	return _mLength;
 }
 
-size_t File::Read(char** out, size_t const len)
+size_t File::Read(std::string& out, size_t const len)
 {
-	_mFile.read(*out, len);
+	char* tmpOut = new char[len + 1] {};
 
-	if (_mFile)
-		return len;
-	return -1;
+	if (!_mFile.is_open()) {
+		delete[] tmpOut;
+		return -1;
+	}
+
+	_mFile.read(tmpOut, len);
+	out = std::string(tmpOut, len);
+
+	delete[] tmpOut;
+
+	return len;
 }
 
 size_t File::ReadLine(std::string& out)

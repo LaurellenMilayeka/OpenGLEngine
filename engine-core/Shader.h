@@ -31,55 +31,56 @@ namespace Engine
 
 			Shader(std::string const& vertShaderFile, std::string const& fragShaderFile)
 			{
+				char logErr[255] = {};
 				GLuint fragShader, vertShader;
 				GLint successVert, successFrag, successProg;
-				char logVert[255] = {}, logFrag[255] = {}, logProg[255] = {};
-				char *fragShaderContent = nullptr, *vertShaderContent = nullptr;
+				std::string fragShaderContent, vertShaderContent;
 
 				Engine::Filesystem::File fragShaderFileContent(fragShaderFile);
 				Engine::Filesystem::File vertShaderFileContent(vertShaderFile);
 
 				if (fragShaderFileContent.IsValid())
 				{
-					fragShaderContent = new char[fragShaderFileContent.Length() + 1];
-					memset(fragShaderContent, 0, fragShaderFileContent.Length());
-					fragShaderFileContent.Read(&fragShaderContent, fragShaderFileContent.Length());
+					fragShaderFileContent.Read(fragShaderContent, fragShaderFileContent.Length());
 				}
 
 				if (vertShaderFileContent.IsValid())
 				{
-					vertShaderContent = new char[vertShaderFileContent.Length() + 1];
-					memset(vertShaderContent, 0, vertShaderFileContent.Length());
-					vertShaderFileContent.Read(&vertShaderContent, vertShaderFileContent.Length());
+					vertShaderFileContent.Read(vertShaderContent, vertShaderFileContent.Length());
 				}
+
+				char* fragContent = const_cast<char*>(fragShaderContent.c_str());
+				char* vertContent = const_cast<char*>(vertShaderContent.c_str());
 
 				fragShader = glCreateShader(GL_FRAGMENT_SHADER);
 				vertShader = glCreateShader(GL_VERTEX_SHADER);
 
-				glShaderSource(fragShader, 1, &fragShaderContent, nullptr);
+				glShaderSource(fragShader, 1, &fragContent, nullptr);
 				glCompileShader(fragShader);
 				glGetShaderiv(fragShader, GL_COMPILE_STATUS, &successFrag);
 
 				if (!successFrag)
 				{
-					glGetShaderInfoLog(fragShader, 255, nullptr, logFrag);
+					glGetShaderInfoLog(fragShader, 255, nullptr, logErr);
 					HasFragment = false;
-					std::cout << logFrag << std::endl;
+					std::cout << logErr << std::endl;
+					memset(logErr, 0, sizeof(logErr));
 				}
 				else
 				{
 					HasFragment = true;
 				}
 
-				glShaderSource(vertShader, 1, &vertShaderContent, nullptr);
+				glShaderSource(vertShader, 1, &vertContent, nullptr);
 				glCompileShader(vertShader);
 				glGetShaderiv(vertShader, GL_COMPILE_STATUS, &successVert);
 
 				if (!successVert)
 				{
-					glGetShaderInfoLog(vertShader, 255, nullptr, logVert);
+					glGetShaderInfoLog(vertShader, 255, nullptr, logErr);
 					HasVertex = false;
-					std::cout << logVert << std::endl;
+					std::cout << logErr << std::endl;
+					memset(logErr, 0, sizeof(logErr));
 				}
 				else
 				{
@@ -104,8 +105,9 @@ namespace Engine
 				glGetProgramiv(ID, GL_LINK_STATUS, &successProg);
 				if (!successProg)
 				{
-					glGetProgramInfoLog(ID, 255, nullptr, logProg);
-					std::cout << logProg << std::endl;
+					glGetProgramInfoLog(ID, 255, nullptr, logErr);
+					std::cout << logErr << std::endl;
+					memset(logErr, 0, sizeof(logErr));
 				}
 
 				glDeleteShader(fragShader);

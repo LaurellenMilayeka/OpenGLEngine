@@ -14,7 +14,8 @@ namespace Engine
 			FBX,
 			OBJ,
 			PMX,
-			DAE
+			DAE,
+			GLTF
 		};
 
 		template<ModelType>

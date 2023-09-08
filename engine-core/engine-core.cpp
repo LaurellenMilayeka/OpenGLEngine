@@ -136,6 +136,7 @@ int main()
     Model venti = Loader<ModelType::OBJ>::LoadModel("./models/Genshin/Venti/Venti.obj");
     //Model dvalin = Loader<ModelType::OBJ>::LoadModel("./Genshin/Dvalin/Dvalin.obj");
     Model sly = Loader<ModelType::OBJ>::LoadModel("./models/Plane/Plane.obj");
+    Model lyney = Loader<ModelType::GLTF>::LoadModel("./models/Genshin/Lyney/scene.gltf");
 
     Shader shad("./shaders/default.vert", "./shaders/default.frag");
     //Shader shad("./shaders/TextureDebug.vert", "./shaders/TextureDebug.frag");
