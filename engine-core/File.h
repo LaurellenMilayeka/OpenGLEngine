@@ -7,7 +7,7 @@ namespace Engine
 {
 	namespace Filesystem
 	{
-
+		
 		class File
 		{
 		private:
@@ -18,15 +18,21 @@ namespace Engine
 
 		public:
 
+			enum OpenMode
+			{
+				Text,
+				Binary
+			};
+
 			File(std::string const& fileName);
-		
+
 			static bool Create(std::string const& fileName);
 			static bool Exists(std::string const& fileName);
 
 			bool   IsValid() const;
 			size_t Length() const;
 
-			size_t Read(char **out, size_t const len);
+			size_t Read(char** out, size_t const len);
 			size_t ReadLine(std::string& out);
 			size_t Write(std::string const& toWrite);
 

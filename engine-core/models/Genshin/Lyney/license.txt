@@ -1,0 +1,11 @@
+Model Information:
+* title:	lyney
+* source:	https://sketchfab.com/3d-models/lyney-50fbd432a61647bebc4f1711cb87b965
+* author:	HoYoverse (https://sketchfab.com/HoYoverse)
+
+Model License:
+* license type:	CC-BY-4.0 (http://creativecommons.org/licenses/by/4.0/)
+* requirements:	Author must be credited. Commercial use is allowed.
+
+If you use this 3D model in your project be sure to copy paste this credit wherever you share it:
+This work is based on "lyney" (https://sketchfab.com/3d-models/lyney-50fbd432a61647bebc4f1711cb87b965) by HoYoverse (https://sketchfab.com/HoYoverse) licensed under CC-BY-4.0 (http://creativecommons.org/licenses/by/4.0/)

@@ -23,7 +23,7 @@ namespace Engine
 
 			bool HasFragment = false;
 			bool HasVertex = false;
-			
+
 			std::string FragmentShaderFilename;
 			std::string	VertexShaderFilename;
 
@@ -34,7 +34,7 @@ namespace Engine
 				GLuint fragShader, vertShader;
 				GLint successVert, successFrag, successProg;
 				char logVert[255] = {}, logFrag[255] = {}, logProg[255] = {};
-				char *fragShaderContent = nullptr, *vertShaderContent = nullptr;
+				char* fragShaderContent = nullptr, * vertShaderContent = nullptr;
 
 				Engine::Filesystem::File fragShaderFileContent(fragShaderFile);
 				Engine::Filesystem::File vertShaderFileContent(vertShaderFile);
@@ -156,7 +156,7 @@ namespace Engine
 
 				if (uniformLoc != -1)
 				{
-					glUniform4f(uniformLoc, 
+					glUniform4f(uniformLoc,
 						static_cast<GLfloat>(value.x), static_cast<GLfloat>(value.y),
 						static_cast<GLfloat>(value.z), static_cast<GLfloat>(value.w));
 					return true;

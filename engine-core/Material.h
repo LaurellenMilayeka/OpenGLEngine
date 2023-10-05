@@ -21,6 +21,9 @@ namespace Engine
 			float				  Opacity = 1.0f;
 			float				  Illumination;
 			float                 RefractionIndex;
+			float                 Metallic;
+			float                 Roughness;
+			bool                  IsDoubleSided;
 
 			Material()
 				: AmbientTexture(nullptr),
@@ -29,7 +32,10 @@ namespace Engine
 				SpecularExponent(0.0f),
 				Opacity(0.0f),
 				Illumination(0.0f),
-				RefractionIndex(0.0f)
+				RefractionIndex(0.0f),
+				Metallic(0.0f),
+				Roughness(0.0f),
+				IsDoubleSided(false)
 			{
 
 			}
