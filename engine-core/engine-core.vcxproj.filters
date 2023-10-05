@@ -291,6 +291,12 @@
     <ClCompile Include="MenuItem.cpp">
       <Filter>Fichiers sources\GUI\Items</Filter>
     </ClCompile>
+    <ClCompile Include="Loader.cpp">
+      <Filter>Fichiers sources\Internal I/O</Filter>
+    </ClCompile>
+    <ClCompile Include="Logger.cpp">
+      <Filter>Fichiers sources\Systems</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Window.h">
@@ -382,6 +388,9 @@
     </ClInclude>
     <ClInclude Include="MenuItem.h">
       <Filter>Fichiers d%27en-tête\GUI\Items</Filter>
+    </ClInclude>
+    <ClInclude Include="Logger.h">
+      <Filter>Fichiers d%27en-tête\Systems</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

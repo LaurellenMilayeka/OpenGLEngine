@@ -170,13 +170,19 @@
     <ClCompile Include="File.cpp" />
     <ClCompile Include="Input.cpp" />
     <ClCompile Include="InputManager.cpp" />
-    <ClCompile Include="LoaderDAE.cpp" />
+    <ClCompile Include="Loader.cpp" />
+    <ClCompile Include="LoaderDAE.cpp">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">true</ExcludedFromBuild>
+    </ClCompile>
+    <ClCompile Include="Logger.cpp" />
     <ClCompile Include="Matrix4.cpp" />
     <ClCompile Include="MenuItem.cpp" />
     <ClCompile Include="Model.cpp" />
     <ClCompile Include="ModelRenderer.cpp" />
     <ClCompile Include="Renderer.cpp" />
-    <ClCompile Include="LoaderOBJ.cpp" />
+    <ClCompile Include="LoaderOBJ.cpp">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">true</ExcludedFromBuild>
+    </ClCompile>
     <ClCompile Include="Texture.cpp" />
     <ClCompile Include="TextureManager.cpp" />
     <ClCompile Include="Time.cpp" />
@@ -200,6 +206,7 @@
     <ClInclude Include="Input.h" />
     <ClInclude Include="InputManager.h" />
     <ClInclude Include="Loader.h" />
+    <ClInclude Include="Logger.h" />
     <ClInclude Include="Material.h" />
     <ClInclude Include="Matrix4.h" />
     <ClInclude Include="MenuItem.h" />
