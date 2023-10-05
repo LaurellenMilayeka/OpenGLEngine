@@ -23,7 +23,7 @@ void main()
     if (hasTexture)
 	{
 		if (has3DTexture) {
-			FragColor = ambientColor - 0.2;
+			FragColor = texture(overallTexture3D, TexCoord);
 		}
 		else {
 			FragColor = texture(overallTexture2D, TexCoord.xy);
@@ -31,6 +31,6 @@ void main()
 	}
 	else
 	{
-		FragColor = ambientColor - 0.2;
+		FragColor = texture(overallTexture2D, TexCoord.xy);
 	}
 }

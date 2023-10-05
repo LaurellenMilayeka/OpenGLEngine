@@ -36,3 +36,6 @@ engine-core/Release
 *.app
 /engine-core/Zizi
 *.bak
+*.log
+*.vcxproj
+*.filters

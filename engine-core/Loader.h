@@ -9,15 +9,6 @@ namespace Engine
 	namespace InternalIO
 	{
 
-		enum class ModelType
-		{
-			FBX,
-			OBJ,
-			PMX,
-			DAE
-		};
-
-		template<ModelType>
 		class Loader
 		{
 		private:

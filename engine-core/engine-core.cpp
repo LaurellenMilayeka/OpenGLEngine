@@ -131,20 +131,26 @@ int main()
 
     Input::Initialize(window.Width() / 2.0f, window.Height() / 2.0f);
 
-    //Model yu = Loader<ModelType::DAE>::LoadModel("./models/Persona/Yu/bc001.dae");
-    //Model daeModel = Loader<ModelType::DAE>::LoadModel("./models/MetalGear/Peace_walker.dae");
-    Model venti = Loader<ModelType::OBJ>::LoadModel("./models/Genshin/Venti/Venti.obj");
-    //Model dvalin = Loader<ModelType::OBJ>::LoadModel("./Genshin/Dvalin/Dvalin.obj");
-    Model sly = Loader<ModelType::OBJ>::LoadModel("./models/Plane/Plane.obj");
+    Model yu = Loader::LoadModel("./models/Persona/Yu/bc001.dae");
+    Model daeModel = Loader::LoadModel("./models/MetalGear/Peace_walker.dae");
+    Model venti = Loader::LoadModel("./models/Genshin/Venti/Venti.obj");
+    Model dvalin = Loader::LoadModel("./models/Genshin/Dvalin/Dvalin.obj");
+    Model callie = Loader::LoadModel("./models/Splatoon3/CallieMarie/Npc_IdolA/Npc_IdolA.dae");
+    Model marie = Loader::LoadModel("./models/Splatoon3/CallieMarie/Npc_IdolB/Npc_IdolB.dae");
+    Model naoto = Loader::LoadModel("./models//Persona/Naoto/pc007_13.dae");
+    Model sly = Loader::LoadModel("./models/Plane/Plane.obj");
 
     Shader shad("./shaders/default.vert", "./shaders/default.frag");
     //Shader shad("./shaders/TextureDebug.vert", "./shaders/TextureDebug.frag");
 
+    yu.SetShader(shad);
     venti.SetShader(shad);
-    //dvalin.SetShader(shad);
-    //yu.SetShader(shad);
-    //daeModel.SetShader(shad);
+    dvalin.SetShader(shad);
+    daeModel.SetShader(shad);
     sly.SetShader(shad);
+    callie.SetShader(shad);
+    marie.SetShader(shad);
+    naoto.SetShader(shad);
 
     glEnable(GL_DEPTH_TEST);
     glEnable(GL_DEBUG_OUTPUT);
@@ -156,19 +162,31 @@ int main()
     glDebugMessageCallback(MessageCallback, 0);
     glClearColor(0.5f, 0.5f, 0.87f, 1.0f);
 
-    Entity *ventiEntity = entityMgr.Create("Venti");
-    //Entity *dvalinEntity = entityMgr.Create("Dvalin");
-    //Entity* yuEntity = entityMgr.Create("Yu");
-    //Entity* daeTest = entityMgr.Create("Test");
+    Entity* yuEntity = entityMgr.Create("Yu");
+    Entity* ventiEntity = entityMgr.Create("Venti");
+    Entity *dvalinEntity = entityMgr.Create("Dvalin");
+    Entity* daeTest = entityMgr.Create("Test");
     Entity* slyEntity = entityMgr.Create("Sly Cooper");
+    Entity* callieEntity = entityMgr.Create("Callie");
+    Entity* marieEntity = entityMgr.Create("Marie");
+    Entity* naotoEntity = entityMgr.Create("Naoto");
 
     Entity* camera = entityMgr.Create("MainCamera");
 
+    yuEntity->AddComponent<ModelRenderer>();
     ventiEntity->AddComponent<ModelRenderer>();
-    //dvalinEntity->AddComponent<ModelRenderer>();
-    //yuEntity->AddComponent<ModelRenderer>();
-    //daeTest->AddComponent<ModelRenderer>();
+    dvalinEntity->AddComponent<ModelRenderer>();
+    daeTest->AddComponent<ModelRenderer>();
     slyEntity->AddComponent<ModelRenderer>();
+    callieEntity->AddComponent<ModelRenderer>();
+    marieEntity->AddComponent<ModelRenderer>();
+    naotoEntity->AddComponent<ModelRenderer>();
+
+    ModelRenderer* yuRenderer = yuEntity->GetComponent<ModelRenderer>();
+    Transform* yuTransform = yuEntity->GetComponent<Transform>();
+    yuRenderer->setModel(yu);
+    yuTransform->Translate({ 15.0f, -5.0f, -10.0f });
+    yuTransform->Scale({ 0.1f, 0.1f, 0.1f });
 
     ModelRenderer* ventiRenderer = ventiEntity->GetComponent<ModelRenderer>();
     Transform* ventiTransform = ventiEntity->GetComponent<Transform>();
@@ -180,23 +198,36 @@ int main()
     slyRenderer->setModel(sly);
     slyTransform->Translate({ 30.0f, -5.0f, -10.0f });
 
-    //ModelRenderer* dvalinRenderer = dvalinEntity->GetComponent<ModelRenderer>();
-    //Transform* dvalinTransform = dvalinEntity->GetComponent<Transform>();
-    //dvalinRenderer->setModel(dvalin);
-    //dvalinTransform->Translate({ -30.0f, -5.0f, -10.0f });
+    ModelRenderer* dvalinRenderer = dvalinEntity->GetComponent<ModelRenderer>();
+    Transform* dvalinTransform = dvalinEntity->GetComponent<Transform>();
+    dvalinRenderer->setModel(dvalin);
+    dvalinTransform->Translate({ -30.0f, -5.0f, -10.0f });
 
-    /*ModelRenderer* daeRenderer = daeTest->GetComponent<ModelRenderer>();
+    ModelRenderer* daeRenderer = daeTest->GetComponent<ModelRenderer>();
     Transform* daeTransform = daeTest->GetComponent<Transform>();
     daeRenderer->setModel(daeModel);
-    daeTransform->Translate({ 0.0f, 0.0f, -10.0f });
-    //daeTransform->Rotate(80, { 1.0f, 0.0f, 0.0f });
-    daeTransform->Scale({ 5.0f, 5.0f, 5.0f });*/
+    daeTransform->Translate({ 30.0f, 0.0f, -10.0f });
+    daeTransform->Rotate(80, { 0.0f, 1.0f, 0.0f });
 
-    //ModelRenderer* yuRenderer = yuEntity->GetComponent<ModelRenderer>();
-    //Transform* yuTransform = yuEntity->GetComponent<Transform>();
-    //yuRenderer->setModel(yu);
-    //yuTransform->Translate({ 15.0f, -5.0f, -10.0f });
-    //yuTransform->Scale({ 0.1f, 0.1f, 0.1f });
+    ModelRenderer* callieRenderer = callieEntity->GetComponent<ModelRenderer>();
+    Transform* callieTransform = callieEntity->GetComponent<Transform>();
+    callieRenderer->setModel(callie);
+    callieTransform->Translate({ 60.0f, -5.0f, -10.0f });
+    callieTransform->Scale({ 10.0f, 10.0f, 10.0f });
+    callieTransform->Rotate(80, { 1.0f, 0.0f, 0.0f });
+
+    ModelRenderer* marieRenderer = marieEntity->GetComponent<ModelRenderer>();
+    Transform* marieTransform = marieEntity->GetComponent<Transform>();
+    marieRenderer->setModel(marie);
+    marieTransform->Translate({ 90.0f, -5.0f, -10.0f });
+    marieTransform->Scale({ 10.0f, 10.0f, 10.0f });
+    marieTransform->Rotate(80, { 1.0f, 0.0f, 0.0f });
+
+    ModelRenderer* naotoRenderer = naotoEntity->GetComponent<ModelRenderer>();
+    Transform* naotoTransform = naotoEntity->GetComponent<Transform>();
+    naotoRenderer->setModel(naoto);
+    naotoTransform->Translate({ 120.0f, -5.0f, -10.0f });
+    naotoTransform->Scale({ 0.1f, 0.1f, 0.1f });
 
     camera->AddComponent<Camera>();
     Transform* transformCam = camera->GetComponent<Transform>();

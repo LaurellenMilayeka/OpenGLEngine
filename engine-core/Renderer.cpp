@@ -54,7 +54,7 @@ void Engine::Systems::Renderer::Update3DScene()
 					{
 						modelRenderer->GetModel().GetShader().SetValue("ambientColor", mesh.Mat->Ambient);
 
-						if (mesh.Mat->AmbientTexture)
+						if (mesh.Mat->DiffuseTexture)
 						{
 							glActiveTexture(GL_TEXTURE0);
 							glBindTexture((mesh.Mat->DiffuseTexture->Type == Engine::Graphics::TextureType::TEXTURE_2D) ? GL_TEXTURE_2D : GL_TEXTURE_3D, mesh.Mat->DiffuseTexture->ID);
@@ -96,7 +96,7 @@ void Engine::Systems::Renderer::Update3DScene()
 							glDrawArrays(GL_TRIANGLES, 0, static_cast<GLsizei>(mesh.Vertices.size()));
 						}
 
-						if (mesh.Mat->DiffuseTexture)
+						if (mesh.Mat && mesh.Mat->DiffuseTexture)
 							glBindTexture((mesh.Mat->DiffuseTexture->Type == Engine::Graphics::TextureType::TEXTURE_2D) ? GL_TEXTURE_2D : GL_TEXTURE_3D, 0);
 
 						glBindVertexArray(0);

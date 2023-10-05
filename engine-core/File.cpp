@@ -5,7 +5,14 @@ using namespace Engine::Filesystem;
 
 File::File(std::string const& fileName)
 {
-	_mFile = std::fstream(fileName);
+	int flags = std::fstream::in | std::fstream::out;
+	if (!File::Exists(fileName))
+	{
+		flags |= std::fstream::trunc;
+	}
+
+	_mFile = std::fstream(fileName, flags);
+
 
 	_mIsValid = _mFile.is_open();
 	if (_mIsValid)
@@ -17,6 +24,7 @@ File::File(std::string const& fileName)
 	else
 	{
 		_mLength = 0;
+		perror("Could not open file");
 	}
 }
 
