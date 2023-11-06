@@ -60,7 +60,7 @@ std::ostream& operator<<(std::ostream& out, glm::mat4 const& toDisplay)
 
 void GLAPIENTRY MessageCallback(GLenum source, GLenum type, GLuint id, GLenum severity, GLsizei length, const GLchar* message, const void* userParam)
 {
-    //fprintf(stderr, "GL CALLBACK: %s type = 0x%x, severity = 0x%x, message = %s\n", (type == GL_DEBUG_TYPE_ERROR ? "** GL ERROR **" : ""), type, severity, message);
+    fprintf(stderr, "GL CALLBACK: %s type = 0x%x, severity = 0x%x, message = %s\n", (type == GL_DEBUG_TYPE_ERROR ? "** GL ERROR **" : ""), type, severity, message);
 }
 
 void SetupMenuBar()
@@ -131,26 +131,26 @@ int main()
 
     Input::Initialize(window.Width() / 2.0f, window.Height() / 2.0f);
 
+    Model venti = Loader::LoadModel("./models/LoL/Kindred/scene.gltf");
+    /*Model daeModel = Loader::LoadModel("./models/MetalGear/Peace_walker.dae");
     Model yu = Loader::LoadModel("./models/Persona/Yu/bc001.dae");
-    Model daeModel = Loader::LoadModel("./models/MetalGear/Peace_walker.dae");
-    Model venti = Loader::LoadModel("./models/Genshin/Venti/Venti.obj");
     Model dvalin = Loader::LoadModel("./models/Genshin/Dvalin/Dvalin.obj");
     Model callie = Loader::LoadModel("./models/Splatoon3/CallieMarie/Npc_IdolA/Npc_IdolA.dae");
     Model marie = Loader::LoadModel("./models/Splatoon3/CallieMarie/Npc_IdolB/Npc_IdolB.dae");
     Model naoto = Loader::LoadModel("./models//Persona/Naoto/pc007_13.dae");
-    Model sly = Loader::LoadModel("./models/Plane/Plane.obj");
+    Model sly = Loader::LoadModel("./models/Plane/Plane.obj");*/
 
     Shader shad("./shaders/default.vert", "./shaders/default.frag");
     //Shader shad("./shaders/TextureDebug.vert", "./shaders/TextureDebug.frag");
 
-    yu.SetShader(shad);
     venti.SetShader(shad);
+    /*yu.SetShader(shad);
     dvalin.SetShader(shad);
     daeModel.SetShader(shad);
     sly.SetShader(shad);
     callie.SetShader(shad);
     marie.SetShader(shad);
-    naoto.SetShader(shad);
+    naoto.SetShader(shad);*/
 
     glEnable(GL_DEPTH_TEST);
     glEnable(GL_DEBUG_OUTPUT);
@@ -162,36 +162,36 @@ int main()
     glDebugMessageCallback(MessageCallback, 0);
     glClearColor(0.5f, 0.5f, 0.87f, 1.0f);
 
-    Entity* yuEntity = entityMgr.Create("Yu");
     Entity* ventiEntity = entityMgr.Create("Venti");
+    /*Entity* yuEntity = entityMgr.Create("Yu");
     Entity *dvalinEntity = entityMgr.Create("Dvalin");
     Entity* daeTest = entityMgr.Create("Test");
     Entity* slyEntity = entityMgr.Create("Sly Cooper");
     Entity* callieEntity = entityMgr.Create("Callie");
     Entity* marieEntity = entityMgr.Create("Marie");
-    Entity* naotoEntity = entityMgr.Create("Naoto");
+    Entity* naotoEntity = entityMgr.Create("Naoto");*/
 
     Entity* camera = entityMgr.Create("MainCamera");
 
-    yuEntity->AddComponent<ModelRenderer>();
     ventiEntity->AddComponent<ModelRenderer>();
+    /*yuEntity->AddComponent<ModelRenderer>();
     dvalinEntity->AddComponent<ModelRenderer>();
     daeTest->AddComponent<ModelRenderer>();
     slyEntity->AddComponent<ModelRenderer>();
     callieEntity->AddComponent<ModelRenderer>();
     marieEntity->AddComponent<ModelRenderer>();
-    naotoEntity->AddComponent<ModelRenderer>();
-
-    ModelRenderer* yuRenderer = yuEntity->GetComponent<ModelRenderer>();
-    Transform* yuTransform = yuEntity->GetComponent<Transform>();
-    yuRenderer->setModel(yu);
-    yuTransform->Translate({ 15.0f, -5.0f, -10.0f });
-    yuTransform->Scale({ 0.1f, 0.1f, 0.1f });
+    naotoEntity->AddComponent<ModelRenderer>();*/
 
     ModelRenderer* ventiRenderer = ventiEntity->GetComponent<ModelRenderer>();
     Transform* ventiTransform = ventiEntity->GetComponent<Transform>();
     ventiRenderer->setModel(venti);
     ventiTransform->Translate({ 0.0f, -5.0f, -10.0f });
+
+    /*ModelRenderer* yuRenderer = yuEntity->GetComponent<ModelRenderer>();
+    Transform* yuTransform = yuEntity->GetComponent<Transform>();
+    yuRenderer->setModel(yu);
+    yuTransform->Translate({ 15.0f, -5.0f, -10.0f });
+    yuTransform->Scale({ 0.1f, 0.1f, 0.1f });
 
     ModelRenderer* slyRenderer = slyEntity->GetComponent<ModelRenderer>();
     Transform* slyTransform = slyEntity->GetComponent<Transform>();
@@ -227,7 +227,7 @@ int main()
     Transform* naotoTransform = naotoEntity->GetComponent<Transform>();
     naotoRenderer->setModel(naoto);
     naotoTransform->Translate({ 120.0f, -5.0f, -10.0f });
-    naotoTransform->Scale({ 0.1f, 0.1f, 0.1f });
+    naotoTransform->Scale({ 0.1f, 0.1f, 0.1f });*/
 
     camera->AddComponent<Camera>();
     Transform* transformCam = camera->GetComponent<Transform>();

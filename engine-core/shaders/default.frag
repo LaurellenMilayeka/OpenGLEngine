@@ -31,6 +31,6 @@ void main()
 	}
 	else
 	{
-		FragColor = texture(overallTexture2D, TexCoord.xy);
+		FragColor = ambientColor - 0.2;
 	}
 }
