@@ -1,6 +1,7 @@
 #pragma once
 
 #include <GL/glew.h>
+#include <imgui.h>
 
 #include "IComponent.h"
 #include "Model.h"
@@ -27,6 +28,17 @@ namespace Engine
 #elif
 			Engine::Graphics::Model const& GetModel() const;
 #endif
+			virtual void SetupDebugWindow() override
+			{
+				if (ImGui::TreeNode(_mModel.GetName().c_str()))
+				{
+					for (Engine::Graphics::Mesh& mesh : _mModel.GetMeshes())
+					{
+						ImGui::Checkbox(mesh.GroupName.c_str(), &mesh.IsEnabled);
+					}
+					ImGui::TreePop();
+				}
+			}
 
 		};
 	}

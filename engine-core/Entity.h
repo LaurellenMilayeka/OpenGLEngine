@@ -106,6 +106,18 @@ namespace Engine
 				}
 			}
 
+			void SetupDebugWindow() const
+			{
+				for (Engine::Components::IComponent* component : _mComponents)
+				{
+					if (ImGui::TreeNode(component->Name().c_str()))
+					{
+						component->SetupDebugWindow();
+						ImGui::TreePop();
+					}
+				}
+			}
+
 #ifdef _DEBUG
 
 			std::vector<Engine::Components::IComponent*> GetComponents()

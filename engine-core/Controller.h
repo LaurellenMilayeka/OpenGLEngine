@@ -1,5 +1,7 @@
 #pragma once
 
+#include <imgui.h>
+
 #include "IComponent.h"
 
 namespace Engine
@@ -11,6 +13,12 @@ namespace Engine
 		public:
 			Controller(Engine::Entity::Entity* parent);
 			virtual ~Controller() = default;
+
+			virtual void SetupDebugWindow() override
+			{
+				ImGui::Text("Controller");
+			}
+
 		};
 	}
 }

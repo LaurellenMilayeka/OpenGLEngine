@@ -39,3 +39,5 @@ engine-core/Release
 *.log
 *.vcxproj
 *.filters
+/engine-core/LivePP
+/enc_temp_folder

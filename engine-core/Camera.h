@@ -1,5 +1,7 @@
 #pragma once
 
+#include <imgui.h>
+
 #include "IComponent.h"
 #include "Matrix4.h"
 #include "Vector2.h"
@@ -40,6 +42,11 @@ namespace Engine
 			void DisableCameraMovements();
 			void EnableCameraMovements();
 
+
+			virtual void SetupDebugWindow() override
+			{
+				ImGui::InputFloat3("Direction", (float*)&_mDirection);
+			}
 		};
 	}
 }

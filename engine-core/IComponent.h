@@ -49,6 +49,8 @@ namespace Engine
 			{
 				return _mComponentID;
 			}
+
+			virtual void SetupDebugWindow() = 0;
 		};
 	}
 }

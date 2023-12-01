@@ -1,15 +1,13 @@
 #include "Loader.h"
 #include "TextureManager.h"
 #include "Logger.h"
-#include <assimp/Importer.hpp>
-#include <assimp/scene.h>
-#include <assimp/postprocess.h>
 
 using namespace Engine::InternalIO;
 
 std::string Loader::_mBasePath;
+std::map<std::string, unsigned int> Loader::_mBoneMapping;
 
-void ExtractMeshes(Engine::Graphics::Mesh* mesh, std::vector<Engine::Graphics::Material*>& materialList, aiMesh const* assimpMesh, aiScene const* scene)
+void Loader::ExtractMeshes(Engine::Graphics::Mesh* mesh, std::vector<Engine::Graphics::Material*>& materialList, aiMesh const* assimpMesh, aiScene const* scene)
 {
     unsigned int vertexIndex = 0;
 
@@ -86,6 +84,30 @@ void ExtractMeshes(Engine::Graphics::Mesh* mesh, std::vector<Engine::Graphics::M
         mesh->Indices[Engine::Graphics::PolyType::TRIANGLES] = faces;
     }
 
+    if (assimpMesh->HasBones())
+    {
+        unsigned int numBone = 0;
+
+        LOG_DEBUG("Found " + std::to_string(assimpMesh->mNumBones) + " bones for mesh " + mesh->GroupName);
+        LOG_DEBUG("Processing bones...");
+        for (unsigned int index = 0; index < assimpMesh->mNumBones; index++)
+        {
+            unsigned int boneIndex = 0;
+            std::string boneName(assimpMesh->mBones[index]->mName.data);
+
+            if (_mBoneMapping.find(boneName) == _mBoneMapping.end()) {
+                boneIndex = numBone++;
+                //BoneInfo bi;
+                //m_BoneInfo.push_back(bi);
+            }
+            else {
+                boneIndex = _mBoneMapping[boneName];
+            }
+
+            LOG_DEBUG("Bone " + boneName + " processing...");
+        }
+    }
+
     if (assimpMesh->mMaterialIndex >= 0)
     {
         LOG_DEBUG("Found material index for mesh " + mesh->GroupName);
@@ -95,7 +117,7 @@ void ExtractMeshes(Engine::Graphics::Mesh* mesh, std::vector<Engine::Graphics::M
     }
 }
 
-void ExtractNodes(Engine::Graphics::Model& model, std::vector<Engine::Graphics::Material*>& materialList, aiNode* node, const aiScene* scene)
+void Loader::ExtractNodes(Engine::Graphics::Model& model, std::vector<Engine::Graphics::Material*>& materialList, aiNode* node, const aiScene* scene)
 {
     Engine::Graphics::Mesh* currentMesh = nullptr;
 
@@ -105,6 +127,8 @@ void ExtractNodes(Engine::Graphics::Model& model, std::vector<Engine::Graphics::
     for (unsigned int i = 0; i < node->mNumMeshes; i++)
     {
         currentMesh = model.CreateMesh();
+        currentMesh->Transformation = Engine::Maths::Matrix4((float*)&scene->mRootNode->mTransformation);
+        currentMesh->Transformation = Engine::Maths::Matrix4::Invert(currentMesh->Transformation);
         ExtractMeshes(currentMesh, materialList, scene->mMeshes[node->mMeshes[i]], scene);
     }
     // then do the same for each of its children
@@ -114,7 +138,7 @@ void ExtractNodes(Engine::Graphics::Model& model, std::vector<Engine::Graphics::
     }
 }
 
-void ExtractMaterials(std::vector<Engine::Graphics::Material*>& materialList, std::string const& basePath, const aiScene* scene)
+void Loader::ExtractMaterials(std::vector<Engine::Graphics::Material*>& materialList, std::string const& basePath, const aiScene* scene)
 {
     Engine::Graphics::Material* currentMat = nullptr;
 
@@ -148,6 +172,9 @@ Engine::Graphics::Model Loader::LoadModel(std::string const& modelPath)
     
     LOG_INFO("Loading model : " + modelPath);
     
+    modelToReturn.SetName(modelPath.substr(modelPath.find_last_of('/') + 1,
+        modelPath.find_last_of('.') - (modelPath.find_last_of('/') + 1)));
+
     const aiScene* scene = import.ReadFile(modelPath, aiProcess_Triangulate);
 
     if (!scene || scene->mFlags & AI_SCENE_FLAGS_INCOMPLETE || !scene->mRootNode)
@@ -158,6 +185,7 @@ Engine::Graphics::Model Loader::LoadModel(std::string const& modelPath)
     _mBasePath = modelPath.substr(0, modelPath.find_last_of('/') + 1);
     LOG_DEBUG("Base path for model is : " + _mBasePath);
     LOG_INFO("Extracting Materials");
+
     ExtractMaterials(materialList, _mBasePath, scene);
     LOG_INFO("Extracting Nodes");
     ExtractNodes(modelToReturn, materialList, scene->mRootNode, scene);

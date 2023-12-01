@@ -29,3 +29,8 @@ Engine::Entity::Entity const* EntityManager::Get(std::string const& id)
 	});
 	return (it != _mEntityPool.end()) ? *it : nullptr;
 }
+
+std::vector<Engine::Entity::Entity*> const& Engine::Managers::EntityManager::GetAll()
+{
+	return _mEntityPool;
+}

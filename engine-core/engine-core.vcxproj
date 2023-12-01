@@ -120,13 +120,19 @@
       <ConformanceMode>true</ConformanceMode>
       <AdditionalIncludeDirectories>C:\Users\matth\source\repos\engine\libs\ASSIMP\include;C:\Users\matth\source\repos\engine\libs\pugixml\include;C:\Users\matth\source\repos\engine\libs\stb_image\include;C:\Users\matth\source\repos\engine\libs\GLM\include;C:\Users\matth\source\repos\engine\libs\GLEW\include;C:\Users\matth\source\repos\engine\libs\GLFW\include;C:\Users\matth\source\repos\engine\libs\FBXSDK\2019.0\include;C:\Users\matth\source\repos\engine\libs\ImGUI;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <LanguageStandard>stdcpp17</LanguageStandard>
+      <FunctionLevelLinking>true</FunctionLevelLinking>
+      <AdditionalOptions>/Gw %(AdditionalOptions)</AdditionalOptions>
+      <DebugInformationFormat>EditAndContinue</DebugInformationFormat>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
-      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <GenerateDebugInformation>DebugFull</GenerateDebugInformation>
       <AdditionalDependencies>assimp-vc142-mtd.lib;zlibstaticd.lib;pugixml.lib;glm_static.lib;glfw3.lib;glew32s.lib;opengl32.lib;rpcrt4.lib;libfbxsdk.lib;%(AdditionalDependencies)</AdditionalDependencies>
       <AdditionalLibraryDirectories>C:\Users\matth\source\repos\engine\libs\ASSIMP\lib;C:\Users\matth\source\repos\engine\libs\pugixml\lib;C:\Users\matth\source\repos\engine\libs\GLM\lib;C:\Users\matth\source\repos\engine\libs\GLEW\lib\Release\x64;C:\Users\matth\source\repos\engine\libs\GLFW\lib-vc2019;C:\Users\matth\source\repos\engine\libs\FBXSDK\2019.0\lib\vs2015\x64\debug;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
       <AdditionalOptions>/NODEFAULTLIB:LIBCMT.lib /NODEFAULTLIB:MSVCRT.lib %(AdditionalOptions)</AdditionalOptions>
+      <CreateHotPatchableImage>Enabled</CreateHotPatchableImage>
+      <OptimizeReferences>false</OptimizeReferences>
+      <EnableCOMDATFolding>false</EnableCOMDATFolding>
     </Link>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
@@ -163,6 +169,7 @@
     <ClCompile Include="..\libs\ImGUI\imgui_draw.cpp" />
     <ClCompile Include="..\libs\ImGUI\imgui_tables.cpp" />
     <ClCompile Include="..\libs\ImGUI\imgui_widgets.cpp" />
+    <ClCompile Include="BoneData.cpp" />
     <ClCompile Include="Camera.cpp" />
     <ClCompile Include="Controller.cpp" />
     <ClCompile Include="engine-core.cpp" />
@@ -194,6 +201,7 @@
     <ClCompile Include="Window.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="BoneData.h" />
     <ClInclude Include="Camera.h" />
     <ClInclude Include="Controller.h" />
     <ClInclude Include="EntityManager.h" />
@@ -224,6 +232,7 @@
     <ClInclude Include="Vector2.h" />
     <ClInclude Include="Vector3.h" />
     <ClInclude Include="Vector4.h" />
+    <ClInclude Include="Vertex.h" />
     <ClInclude Include="Window.h" />
   </ItemGroup>
   <ItemGroup>

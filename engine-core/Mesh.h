@@ -6,8 +6,10 @@
 #include <GL/glew.h>
 #include <imgui.h>
 
+#include "BoneData.h"
 #include "Vector2.h"
 #include "Vector3.h"
+#include "Matrix4.h"
 #include "Material.h"
 
 namespace Engine
@@ -30,7 +32,9 @@ namespace Engine
 			std::vector<Engine::Maths::Vector3> Vertices;
 			std::vector<std::vector<Engine::Maths::Vector3>> TextureCoords;
 			std::vector<Engine::Maths::Vector3> Normals;
+			std::vector<BoneData> Bones;
 			std::map<PolyType, std::vector<unsigned int>> Indices;
+			Engine::Maths::Matrix4    Transformation;
 			unsigned int              Offset;
 			bool                      IsEnabled;
 			bool                      Is3DTexture;

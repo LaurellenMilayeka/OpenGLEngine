@@ -60,7 +60,7 @@ std::ostream& operator<<(std::ostream& out, glm::mat4 const& toDisplay)
 
 void GLAPIENTRY MessageCallback(GLenum source, GLenum type, GLuint id, GLenum severity, GLsizei length, const GLchar* message, const void* userParam)
 {
-    fprintf(stderr, "GL CALLBACK: %s type = 0x%x, severity = 0x%x, message = %s\n", (type == GL_DEBUG_TYPE_ERROR ? "** GL ERROR **" : ""), type, severity, message);
+    //fprintf(stderr, "GL CALLBACK: %s type = 0x%x, severity = 0x%x, message = %s\n", (type == GL_DEBUG_TYPE_ERROR ? "** GL ERROR **" : ""), type, severity, message);
 }
 
 void SetupMenuBar()
@@ -80,9 +80,57 @@ void SetupMenuBar()
             }
             ImGui::EndMenu();
         }
+        if (ImGui::BeginMenu(ICON_FA_CUBE " Scene"))
+        {
+            if (ImGui::BeginMenu("Entities"))
+            {
+                if (ImGui::MenuItem("New"))
+                {
+
+                }
+                if (ImGui::BeginMenu("Entities List"))
+                {
+                    for (Engine::Entity::Entity* entity : Engine::Managers::EntityManager::GetAll())
+                    {
+                        if (ImGui::BeginMenu(entity->ID().c_str()))
+                        {
+                            std::string label = ((entity->IsEnabled) ? "Disable" : "Enable");
+                            if (ImGui::MenuItem(label.c_str()))
+                            {
+                                entity->IsEnabled = !entity->IsEnabled;
+                            }
+                            if (ImGui::MenuItem("Delete"))
+                            {
+                                Engine::Managers::EntityManager::Delete(entity);
+                            }
+                            ImGui::EndMenu();
+                        }
+                    }
+                    ImGui::EndMenu();
+                }
+                ImGui::EndMenu();
+            }
+            ImGui::EndMenu();
+        }
         ImGui::EndMainMenuBar();
     }
     ImGui::PopStyleVar();
+}
+
+void SetupEntityList()
+{
+    ImGui::Begin("Entities");
+
+    for (Engine::Entity::Entity* entity : Engine::Managers::EntityManager::GetAll())
+    {
+        if (ImGui::TreeNode(entity->ID().c_str()))
+        {
+            entity->SetupDebugWindow();
+            ImGui::TreePop();
+        }
+    }
+
+    ImGui::End();
 }
 
 int main()
@@ -90,11 +138,10 @@ int main()
 
     glfwInit();
 
-    Window window(1600, 900, "My Window");
+    Window window(1600, 900, "OpenGL");
     Matrix4 mat;
     Vector2 vec2;
     Vector3 vec3;
-    Engine::Managers::EntityManager entityMgr;
     Renderer renderer;
 
     bool freeMouseMovement = false;
@@ -131,26 +178,26 @@ int main()
 
     Input::Initialize(window.Width() / 2.0f, window.Height() / 2.0f);
 
-    Model venti = Loader::LoadModel("./models/LoL/Kindred/scene.gltf");
-    /*Model daeModel = Loader::LoadModel("./models/MetalGear/Peace_walker.dae");
+    Model kindra = Loader::LoadModel("./models/LoL/Kindred/scene.gltf");
+    Model venti = Loader::LoadModel("./models/Genshin/Venti/Venti.obj");
+    Model daeModel = Loader::LoadModel("./models/MetalGear/Peace_walker.dae");
     Model yu = Loader::LoadModel("./models/Persona/Yu/bc001.dae");
     Model dvalin = Loader::LoadModel("./models/Genshin/Dvalin/Dvalin.obj");
     Model callie = Loader::LoadModel("./models/Splatoon3/CallieMarie/Npc_IdolA/Npc_IdolA.dae");
     Model marie = Loader::LoadModel("./models/Splatoon3/CallieMarie/Npc_IdolB/Npc_IdolB.dae");
     Model naoto = Loader::LoadModel("./models//Persona/Naoto/pc007_13.dae");
-    Model sly = Loader::LoadModel("./models/Plane/Plane.obj");*/
 
     Shader shad("./shaders/default.vert", "./shaders/default.frag");
     //Shader shad("./shaders/TextureDebug.vert", "./shaders/TextureDebug.frag");
 
+    kindra.SetShader(shad);
     venti.SetShader(shad);
-    /*yu.SetShader(shad);
+    yu.SetShader(shad);
     dvalin.SetShader(shad);
     daeModel.SetShader(shad);
-    sly.SetShader(shad);
     callie.SetShader(shad);
     marie.SetShader(shad);
-    naoto.SetShader(shad);*/
+    naoto.SetShader(shad);
 
     glEnable(GL_DEPTH_TEST);
     glEnable(GL_DEBUG_OUTPUT);
@@ -162,41 +209,36 @@ int main()
     glDebugMessageCallback(MessageCallback, 0);
     glClearColor(0.5f, 0.5f, 0.87f, 1.0f);
 
-    Entity* ventiEntity = entityMgr.Create("Venti");
-    /*Entity* yuEntity = entityMgr.Create("Yu");
-    Entity *dvalinEntity = entityMgr.Create("Dvalin");
-    Entity* daeTest = entityMgr.Create("Test");
-    Entity* slyEntity = entityMgr.Create("Sly Cooper");
-    Entity* callieEntity = entityMgr.Create("Callie");
-    Entity* marieEntity = entityMgr.Create("Marie");
-    Entity* naotoEntity = entityMgr.Create("Naoto");*/
+    Entity* kindraEntity = Engine::Managers::EntityManager::Create("Kindra");
+    Entity* ventiEntity = Engine::Managers::EntityManager::Create("Venti");
+    Entity* yuEntity = Engine::Managers::EntityManager::Create("Yu");
+    Entity *dvalinEntity = Engine::Managers::EntityManager::Create("Dvalin");
+    Entity* daeTest = Engine::Managers::EntityManager::Create("Test");
+    Entity* callieEntity = Engine::Managers::EntityManager::Create("Callie");
+    Entity* marieEntity = Engine::Managers::EntityManager::Create("Marie");
+    Entity* naotoEntity = Engine::Managers::EntityManager::Create("Naoto");
 
-    Entity* camera = entityMgr.Create("MainCamera");
+    Entity* camera = Engine::Managers::EntityManager::Create("MainCamera");
 
+    kindraEntity->AddComponent<ModelRenderer>();
     ventiEntity->AddComponent<ModelRenderer>();
-    /*yuEntity->AddComponent<ModelRenderer>();
+    yuEntity->AddComponent<ModelRenderer>();
     dvalinEntity->AddComponent<ModelRenderer>();
     daeTest->AddComponent<ModelRenderer>();
-    slyEntity->AddComponent<ModelRenderer>();
     callieEntity->AddComponent<ModelRenderer>();
     marieEntity->AddComponent<ModelRenderer>();
-    naotoEntity->AddComponent<ModelRenderer>();*/
+    naotoEntity->AddComponent<ModelRenderer>();
 
     ModelRenderer* ventiRenderer = ventiEntity->GetComponent<ModelRenderer>();
     Transform* ventiTransform = ventiEntity->GetComponent<Transform>();
     ventiRenderer->setModel(venti);
     ventiTransform->Translate({ 0.0f, -5.0f, -10.0f });
 
-    /*ModelRenderer* yuRenderer = yuEntity->GetComponent<ModelRenderer>();
+    ModelRenderer* yuRenderer = yuEntity->GetComponent<ModelRenderer>();
     Transform* yuTransform = yuEntity->GetComponent<Transform>();
     yuRenderer->setModel(yu);
     yuTransform->Translate({ 15.0f, -5.0f, -10.0f });
     yuTransform->Scale({ 0.1f, 0.1f, 0.1f });
-
-    ModelRenderer* slyRenderer = slyEntity->GetComponent<ModelRenderer>();
-    Transform* slyTransform = slyEntity->GetComponent<Transform>();
-    slyRenderer->setModel(sly);
-    slyTransform->Translate({ 30.0f, -5.0f, -10.0f });
 
     ModelRenderer* dvalinRenderer = dvalinEntity->GetComponent<ModelRenderer>();
     Transform* dvalinTransform = dvalinEntity->GetComponent<Transform>();
@@ -223,11 +265,17 @@ int main()
     marieTransform->Scale({ 10.0f, 10.0f, 10.0f });
     marieTransform->Rotate(80, { 1.0f, 0.0f, 0.0f });
 
+    ModelRenderer* kindraRenderer = kindraEntity->GetComponent<ModelRenderer>();
+    Transform* kindraTransform = kindraEntity->GetComponent<Transform>();
+    kindraRenderer->setModel(kindra);
+    kindraTransform->Translate({ 90.0f, -5.0f, 30.0f });
+    kindraTransform->Scale({ 10.0f, 10.0f, 10.0f });
+
     ModelRenderer* naotoRenderer = naotoEntity->GetComponent<ModelRenderer>();
     Transform* naotoTransform = naotoEntity->GetComponent<Transform>();
     naotoRenderer->setModel(naoto);
     naotoTransform->Translate({ 120.0f, -5.0f, -10.0f });
-    naotoTransform->Scale({ 0.1f, 0.1f, 0.1f });*/
+    naotoTransform->Scale({ 0.1f, 0.1f, 0.1f });
 
     camera->AddComponent<Camera>();
     Transform* transformCam = camera->GetComponent<Transform>();
@@ -238,6 +286,7 @@ int main()
 
     while (!glfwWindowShouldClose(*window))
     {
+
         glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
         Time::Update();
 
@@ -245,8 +294,9 @@ int main()
         ImGui_ImplGlfw_NewFrame();
         ImGui::NewFrame();
 
-        //SetupMenuBar();
-        //ImGui::ShowMetricsWindow(&show_metrics_window);
+        SetupMenuBar();
+        SetupEntityList();
+        ImGui::ShowMetricsWindow(&show_metrics_window);
 
         if (Input::GetKey(Key::ESC))
         {

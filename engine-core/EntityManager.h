@@ -31,6 +31,7 @@ namespace Engine
 			static void Delete(Engine::Entity::Entity const* toDelete);
 
 			static Engine::Entity::Entity const* Get(std::string const& id);
+			static std::vector<Engine::Entity::Entity*> const& GetAll();
 
 		};
 	}
